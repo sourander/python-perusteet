@@ -104,3 +104,5 @@ pyenv install --list | less
 # ja haluamallasi "major.minor" versiolla, kuten "3.10"
 pyenv install --list | grep -e "^  3.10"
 ```
+
+# TODO: Install certain version of Python
