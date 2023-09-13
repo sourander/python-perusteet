@@ -34,7 +34,7 @@ $ python -m venv .venv
 .venv\Scripts\activate.bat
 
 ## Virtuaaliympäristö on aktivoitu jos komentokehotteen rivi alkaa `(.venv)`-tekstillä.
-(.venv) $ 
+(.venv) $
 
 # Jatkossa python executable löytyy lähimmillään tuosta alikansiosta
 $ py -0p
@@ -46,6 +46,7 @@ $ py -0p
 Mikäli vahingossa deaktivoit virtuaaliympäristön, aktivoi se uusiksi komennolla `.venv\Scripts\activate.bat`. Sinun tulee ajaa tämä **aina** kun suljet ja käynnistät
 
 Asenna seuraavaksi tehtävien tarkistamiseen käytetyt Python-moduulit:
+```
 
 # Tehtävien testaaminen
 
@@ -58,8 +59,10 @@ pip install mypy
 pytest tests/test_helloworld.py::test_hello_world --verbose
 >> configfile: pytest.ini
 >> collected 1 item
->> 
->> tests\test_helloworld.py PASSED                      [100%] 
->> 
+>>
+>> tests\test_helloworld.py PASSED                      [100%]
+>>
 >> ==================== 1 passed in 0.01s ====================
 ```
+
+`

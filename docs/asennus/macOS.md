@@ -100,7 +100,7 @@ $ brew install pyenv
 # Vaihtoehto 1: Käydä less-nimistä paginoijaa. Space vaihtaa sivua, q on exit.
 pyenv install --list | less
 
-# Vaihtoehto 2: Listaa kaikki rivit, jotka alkavat kahdella välilyönnillä 
+# Vaihtoehto 2: Listaa kaikki rivit, jotka alkavat kahdella välilyönnillä
 # ja haluamallasi "major.minor" versiolla, kuten "3.10"
 pyenv install --list | grep -e "^  3.10"
 ```
