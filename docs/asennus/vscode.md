@@ -2,6 +2,12 @@
 
 Windowsille Visual Studio Code asennetaan [Visual Studio Code](https://code.visualstudio.com/download):n sivuilta. macOS:lle voit asentaa sen joko lataamalla asennuspaketin samalta sivustolta, tai, käyttämällä Homebrew:ta. Tämä on neuvottu tämän saitin [macOS](macOS.md)-ohjeessa, jonka toivon mukaan olet jo lukenut, jos olet macOS-käyttäjä.
 
+Jos asennat macOS:ssä Homebrew:tä käyttäen, aja komento:
+
+```bash
+$ brew install --cask visual-studio-code
+```
+
 # Asetukset
 
 Visual Studio Codessa useimmat asetukset päätyvät JSON-tiedostoon. Pääset tiedostoon käsiksi näin:

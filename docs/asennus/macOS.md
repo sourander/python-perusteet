@@ -86,6 +86,18 @@ $ git config --global pull.ff only
 $ git config --global init.defaultBranch main
 ```
 
+# Git Credential Manager
+
+Jos käytät pelkästään ssh-avaimia, tämä vaihe ei ole välttämättä tarpeen. Jos haluat kirjautua Githubiin tai GitLabiin ilman ssh-avainta, Git Credential Manager (GCM) on tällä hetkellä suositeltu tapa.
+
+Se asentuu näin:
+
+```bash
+$ brew install --cask git-credential-manager
+```
+
+Seuraavalla kerralla kun kloonaat HTTPS-urlilla repositorion, git avaa ikkunan, jossa se pyytää sinua kirjautumaan sisään Oauth-tyylisesti palveluun. Tämä luo tokenin, joka oikeuttaa kyseisen repositorion kloonaamisen. Mikäli 2FA on päällä, kysyy se myös sitä.
+
 # Asenna pyenv
 
 Asenna pyenv Homebrew:lla ja lue sen [käyttöohjeet GitHubista](https://github.com/pyenv/pyenv#usage). Työkalulla voi hallita useita eri Python-asennuksia samalla koneella, esimerkiksi kansio/projektikohtaisesti.
