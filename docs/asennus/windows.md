@@ -1,4 +1,4 @@
-## Windows
+# Python Windowsille
 
 Aloita asentamalla Python. Mene [Python.org](https://www.python.org/) sivustolle ja lataa etusivulla mainostettu tuorein Python 3 versio (esim. ``).
 
