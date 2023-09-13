@@ -103,7 +103,6 @@ Asenna Prettier yllä neuvotulla tavalla.
   },
 
   // Markdown All in One extension
-  "markdown.extension.list.indentationSize": "inherit",
-  "markdown.extension.preview.autoShowPreviewToSide": true
+  "markdown.extension.list.indentationSize": "inherit"
 }
 ```
