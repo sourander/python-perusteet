@@ -1,0 +1,1 @@
+TODO: Selitä tämä. Selitä myös `python -m venv --copies` vs. default eli symbolic link.

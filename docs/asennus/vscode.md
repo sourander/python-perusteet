@@ -1,5 +1,7 @@
 ## Asenna
 
+Mikäli sinulla on jo Visual Studio Code asennettuna, hyppää seuraavaan aliotsikkoon. 
+
 Windowsille Visual Studio Code asennetaan [Visual Studio Code](https://code.visualstudio.com/download):n sivuilta. macOS:lle voit asentaa sen joko lataamalla asennuspaketin samalta sivustolta, tai, käyttämällä Homebrew:ta. Tämä on neuvottu tämän saitin [macOS](macOS.md)-ohjeessa, jonka toivon mukaan olet jo lukenut, jos olet macOS-käyttäjä.
 
 Jos asennat macOS:ssä Homebrew:tä käyttäen, aja komento:
@@ -8,7 +10,7 @@ Jos asennat macOS:ssä Homebrew:tä käyttäen, aja komento:
 $ brew install --cask visual-studio-code
 ```
 
-# Asetukset
+## Asetukset
 
 Visual Studio Codessa useimmat asetukset päätyvät JSON-tiedostoon. Pääset tiedostoon käsiksi näin:
 
@@ -47,9 +49,9 @@ Jos lisäksi asetat oletus-shelliksi `zsh`:n, JSON näyttää tältä:
 
 Asetuksiin kannattaa tutustua ajan kanssa. VS Codessa voi, ja ajoittain joutuu, säätämään hyvinkin pikkutarkkoja asetuksia, kuten asetuksia, jotka kohdistuvat vain tiettyjen tiedostopäätteiden tiedostoihin.
 
-# Extensions
+## Extensions
 
-## Extension: Markdown All in One
+### Extension: Markdown All in One
 
 Asennetaan dokumentaatiota helpottava extension **Markdown All in One**.
 
@@ -60,7 +62,7 @@ Asennetaan dokumentaatiota helpottava extension **Markdown All in One**.
 Voit lukea extensionin ohjeet Visual Studio Marketplacesta [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one):n omalta sivulta.
 
 !!! question "Tehtävä"
-Noudata Marketplacesta löytyvää dokumentaatiota ja kokeile seuraavia asioita:
+    Noudata Marketplacesta löytyvää dokumentaatiota ja kokeile seuraavia asioita:
 
     1. Luo muutama otsikko ja Table of Contents
     2. Luo Markdown-taulukko. Kokeile Table formatter -ominaisuutta.
@@ -74,7 +76,7 @@ Mikäli haluat, että extension ajaa Format Document käskyn aina tallennuksen y
 }
 ```
 
-## Extension: Prettier - Code Formatter
+### Extension: Prettier - Code Formatter
 
 Asenna Prettier yllä neuvotulla tavalla.
 
@@ -106,3 +108,9 @@ Asenna Prettier yllä neuvotulla tavalla.
   "markdown.extension.list.indentationSize": "inherit"
 }
 ```
+
+### Extension: Python
+
+Asenna kuten aiemmat; tai asenna kun VS Code kysyy sitä. Tyypillisesti VS Code tarjoaa tämän Extensionin asenatamista, kun luot tai avaat ensimmäisen `.py`-päätteisen tiedoston. 
+
+Anna tämän extensionin olla vakioasetuksilla.

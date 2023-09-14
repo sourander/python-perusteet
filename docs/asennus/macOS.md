@@ -21,14 +21,10 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 ==> This script will install:
 /opt/homebrew/bin/brew
 ...
-/opt/homebrew
 ==> The following new directories will be created:
 /opt/homebrew/bin
 /opt/homebrew/etc
 ...
-/opt/homebrew/Cellar
-/opt/homebrew/Caskroom
-/opt/homebrew/Frameworks
 ```
 
 HUOM! Jos olet joskus ajanut komennon `xcode-select --install`, joka asentaa Linux-maailmasta tuttuja komentoriviltä ajettavia sovelluksia kuten `gcc` sekä `clang`. Mikäli et, Homebrew:n asennus käynnistää XCode Command Line Tools:n asennuksen. Homebrew tarvitsee näitä ohjelmia.
@@ -106,15 +102,71 @@ Asenna pyenv Homebrew:lla ja lue sen [käyttöohjeet GitHubista](https://github.
 $ brew install pyenv
 ```
 
-# Asenna Python pyenvillä
+Lisää seuraavat rivit `.zshrc`-tiedostoon, aivan kuten dokumentaatiossa neuvotaan:
 
 ```bash
-# Vaihtoehto 1: Käydä less-nimistä paginoijaa. Space vaihtaa sivua, q on exit.
-pyenv install --list | less
-
-# Vaihtoehto 2: Listaa kaikki rivit, jotka alkavat kahdella välilyönnillä
-# ja haluamallasi "major.minor" versiolla, kuten "3.10"
-pyenv install --list | grep -e "^  3.10"
+# Set up pyenv related environment variables
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 ```
 
-# TODO: Install certain version of Python
+Käynnistä terminaali uusiksi tai aja komento `source ~/.zshrc`. Jos haluat varmistaa, että komennot ovat ajettuna oikein, tarkista löytyykö jokin pyenvin tarvitsemista ympäristömuuttujista. Alla yksi esimerkeistä:
+
+```bash
+# Tämän pitää tulostaa zsh eikä tyhjää merkkijonoa
+$ echo $PYENV_SHELL 
+zsh
+```
+
+## Asenna Pythonin riippuvuudet
+
+Pyenv:n ajama Python-asennus voi vaatia joitakin riippuvuuksia, joista Homebrew ei tiedä. Kirjoitushetkellä ainut tällainen on `xs`. Mikäli tätä ei ole asennettuna, myöhemmin pyenv valittaa `WARNING: The Python lzma extension was not compiled. Missing the lzma lib?`. XS-kirjasto on LZMA-kirjaston seuraaja ja sitä käytetään datan pakkaamiseen ja purkamiseen. Mikäli kiinnostaa, sen oma dokumentaatio löytyy [täältä](https://tukaani.org/xz/).
+
+```bash
+$ brew install xz
+```
+
+## Asenna Python pyenvillä
+
+Mikäli kaikki vaiheet yllä on suoritettu onnistuneesti, voit alkaa asentaa useita eri Python-versioita ja hallinnoimaan niitä kuten pyenvin dokumentaatiossa neuvotaan. Ensimmäiseksi sinun pitää päättää, minkä Python-version haluat. Suosittelen asentamaan Pythonin, joka on sillä hetkellä tuorein `bugfix` tai `security` maintenance statuksella oleva Python-versio. Tämän voit käydä tarkistamassa [Pythonin sivuilta](https://www.python.org/downloads/). Kirjoitushetkellä `bugfix`-tilassa on 3.11, joten haluan asentaa 3.11.x version. Versionumeron kolme pisteellä erotettua versionumeroa ovat `major.minor.patch`. Python on saman major (3.x.x) version sisällä taaksepäin yhteensopiva, mutta uudemmissa Pythoneissa on toimintoja, jotka eivät toimi vanhemmissa versioissa. Vanha 2.x Python on virallisesti kuollut ja kuopattu. Sitä ei pitäisi käyttää tuotannossa.
+
+Tämän dokumentaation kirjoitushetkellä tuorein bugfix-vaiheessa oleva Python patch on `3.11.5`. Sen voi asentaa alla olevalla komennolla. Komento täydentää itse tuoreimman patch-numeron.
+
+```bash
+# Asenna Python
+$ pyenv install 3.11
+python-build: use openssl from homebrew
+python-build: use readline from homebrew
+Downloading Python-3.11.5.tar.xz...
+...
+Installing Python-3.11.5...
+...
+```
+
+Huomaa, että pyenv asentaa Pythonin sinun kotikansioosi. Asennuslokaatio on yllä asetettu `$PYENV_ROOT` eli esimerkiksi `/home/jani/.pyenv/versions/3.11.5/`.
+
+Asetetaan vielä tuorein versio globaaliksi oletukseksi. Näin pyenv käyttää valittua versiota globaalina oletuksena, jonka tosin voi jyrätä lokaalilla versiolla. Tutustu dokumentaatiosta, kuinka lokaali versio asetetaan. Globaalin voi vaihtaa näin:
+
+```bash
+# Tarkistetaan ensin vanha oletusarvo
+$ pyenv global
+system
+
+# Asetetaan uusi
+$ pyenv global 3.11
+
+# Tarkistetaan uusi
+$ pyenv global
+3.11
+```
+
+
+## Kuinka päivittää jatkossa?
+
+Jos haluat myöhemmin päivittää Pythonia, asenna uusi ja vaihda global siihen.
+
+```bash
+pyenv install 3.x
+pyenv global 3.x
+```
