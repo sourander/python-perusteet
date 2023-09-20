@@ -2,7 +2,7 @@
 
 Mikäli sinulla on jo Visual Studio Code asennettuna, hyppää seuraavaan aliotsikkoon. 
 
-Windowsille Visual Studio Code asennetaan [Visual Studio Code](https://code.visualstudio.com/download):n sivuilta. macOS:lle voit asentaa sen joko lataamalla asennuspaketin samalta sivustolta, tai, käyttämällä Homebrew:ta. Tämä on neuvottu tämän saitin [macOS](macOS.md)-ohjeessa, jonka toivon mukaan olet jo lukenut, jos olet macOS-käyttäjä.
+Windowsille Visual Studio Code asennetaan [Visual Studio Code](https://code.visualstudio.com/download):n sivuilta. macOS:lle voit asentaa sen joko lataamalla asennuspaketin samalta sivustolta, tai, käyttämällä Homebrew:ta. Homebrew:n asennus ja peruskäyttö on neuvottu tämän saitin [macOS](macOS.md)-ohjeessa, jonka toivon mukaan olet jo lukenut, jos olet macOS-käyttäjä.
 
 Jos asennat macOS:ssä Homebrew:tä käyttäen, aja komento:
 

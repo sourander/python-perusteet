@@ -1,3 +1,6 @@
+!!! warning
+    Poetry on pip:iä hieman edistyneempi työkalu. Ellei opettaja ohjeista kurssin puitteissa, sinun ei ole millään tavoin pakko asentaa Poetryä.
+
 Poetry käyttää Pythonin omia `venv` ja `pip` työkaluja konepellin alla, mutta tarjoaa käyttäjäystävällisen kokemuksen. Työkalu vaatii hieman opettelua alkuun, mutta pitkässä juoksussa sen käyttö on todella suositeltua. Sen kilpailija ja/tai edeltäjä on `pipenv`, johon voit myös halutessasi tutustua.
 
 Poetryllä on oma, selkeä dokumentaatio, joten en turhaan toista suurta osaa ohjeista tässä dokumentissa. Alla on hyvin tiivistetty asennusohje, jossa on mainittuna pari pientä seikkaa, joita dokumentaatio ei tee selväksi.
