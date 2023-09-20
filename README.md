@@ -1,4 +1,4 @@
-# Tietoliikenneohjelmointi
+# Python Perusteet
 
 Tämä on Python Perusteet -oppimateriaali. Projekti löytyy tavallisena HTTP-sivustona verkosta (ks. linkki tämän sivun About-osiosta), mutta sen voi tarpeen mukaan ajaa myös lokaalisti.
 
