@@ -54,3 +54,35 @@ Jos sinulla on sekä pyenv että Python Poetry asennettuna, eli todennäköisest
 ```bash
 poetry config virtualenvs.prefer-active-python true
 ```
+
+## Vikatilanteet
+
+### Pythonia ei löydy
+
+Huomaathan, että Poetry tarvitsee toimiakseen Pythonin, ja vakiona se käyttää sitä Pythonia, jota käyttäen se on asennettu. Esimerkiksi seuraava työnkulku aiheuttaa virheilmoituksen:
+
+1. Asennat Python 3.10:n
+2. Asennat Poetryn käyttäen Python 3.10:ä
+3. Asennat uudemman Python 3.11:n
+4. Poistat edellisen Python 3.10:n
+
+Jatkossa tulee jotakuinkin tällainen ilmoitus Git Bash:ssä:
+
+```bash
+$ poetry --version
+No Python at '$LOCALAPPDATA\Programs\Python\Python310\python.exe'
+```
+
+### Poetryn päivittäminen epäonnistuu
+
+Poetryn itsensä voi päivittää komennolla `poetry self update`. Mikäli tämä nostaa virheilmoituksia, on usein helpoin ratkaisu poistaa Poetry ja asentaa se uusiksi. Tähän menee merkittävästi vähemmän aikaa kuin debuggaamiseen. Ohjeet tähän löytyy [Poetry doc:sta](https://python-poetry.org/docs/), mutta lyhyt vastaus on ajaa seuraavat komennot:
+
+```bash
+# Poista asennus
+curl -sSL https://install.python-poetry.org | python - --uninstall
+
+# Asenna takaisin
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+Mikäli komento ei syystä tai toisesta toimi Git Bash:ssä, kannattaa kokeilla ajaa se Komentokehoitteessa eli Command Promptissa.

@@ -28,16 +28,17 @@ Listalta pitäisi löytyä seuraavat vaihtoehdot:
 
 Huomaat, että lähes kaikkia asetuksia voi säätää joko menujen kautta tai kirjoittamalla käsin JSON-konfiguraatiotiedostoon rivejä. Osa asetuksista vaatii, että kirjoitat ne käsin, osalle löytyy menuista mukava, valmis nappi.
 
-Jos valitsit VS Coden käynnistymisen yhteydessä väriteeman "Default Dark Modern" ja laitat menuista (Preferences: Open User Setttings) asetuksen "Git: Autofetch" tilaan `false`, niin JSON näyttää tältä:
+Jos valitsit VS Coden käynnistymisen yhteydessä väriteeman "Default Dark Modern" ja laitat menuista (Preferences: Open User Setttings) asetuksen "Git: Autofetch" tilaan `false`, ja asetat Git Bashin oletusterminaaliksi, niin JSON näyttää tältä:
 
 ```json
 {
   "workbench.colorTheme": "Default Dark Modern",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
   "git.autofetch": false
 }
 ```
 
-Jos lisäksi asetat oletus-shelliksi `zsh`:n, JSON näyttää tältä:
+Jos olet **macOS-käyttäjä**, sinulla ei ole Git Bashiä laisinkaan vaan oletusshell on `zsh`:n. Vastaava JSON näyttää tältä:
 
 ```json
 {
@@ -47,7 +48,7 @@ Jos lisäksi asetat oletus-shelliksi `zsh`:n, JSON näyttää tältä:
 }
 ```
 
-Asetuksiin kannattaa tutustua ajan kanssa. VS Codessa voi, ja ajoittain joutuu, säätämään hyvinkin pikkutarkkoja asetuksia, kuten asetuksia, jotka kohdistuvat vain tiettyjen tiedostopäätteiden tiedostoihin.
+Asetuksiin kannattaa tutustua ajan kanssa. VSCodessa voi, ja ajoittain joutuu, säätämään hyvinkin pikkutarkkoja asetuksia, kuten asetuksia, jotka kohdistuvat vain tiettyjen tiedostopäätteiden tiedostoihin.
 
 ## Extensions
 
@@ -67,14 +68,6 @@ Voit lukea extensionin ohjeet Visual Studio Marketplacesta [Markdown All in One]
     1. Luo muutama otsikko ja Table of Contents
     2. Luo Markdown-taulukko. Kokeile Table formatter -ominaisuutta.
 
-Mikäli haluat, että extension ajaa Format Document käskyn aina tallennuksen yhteydessä, lisää seuraavat rivit yllä neuvottuun User Settings JSON -tiedostoon:
-
-```json
-{
-  "kissa": 5,
-  "koira": 3
-}
-```
 
 ### Extension: Prettier - Code Formatter
 
@@ -111,6 +104,10 @@ Asenna Prettier yllä neuvotulla tavalla.
 
 ### Extension: Python
 
-Asenna kuten aiemmat; tai asenna kun VS Code kysyy sitä. Tyypillisesti VS Code tarjoaa tämän Extensionin asenatamista, kun luot tai avaat ensimmäisen `.py`-päätteisen tiedoston. 
+Asenna kuten aiemmat tai asenna kun Code kysyy sitä. Tyypillisesti Code tarjoaa tämän Extensionin asenatamista, kun luot tai avaat ensimmäisen `.py`-päätteisen tiedoston. 
 
 Anna tämän extensionin olla vakioasetuksilla.
+
+### Extension: Jupyter
+
+Asenna kuten aiemmat tai asenna kun Code kysyy sitä. Tyypillisesti Code tarjoaa muutaman Jupyteriin liittyvän extensionin asentamista, kun luot tai avaat ensimmäisen `.ipynb`-päätteisen tiedoston.

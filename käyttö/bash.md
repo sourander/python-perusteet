@@ -1,0 +1,1 @@
+TODO, tee tälle sivulle bashin perusteet todella, todella tiiviissä muodossa.
