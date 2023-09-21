@@ -1,4 +1,6 @@
 nav:
   - windows.md
   - macOS: macOS.md
+  - linux.md
+  - VSCode: vscode.md
   - ...

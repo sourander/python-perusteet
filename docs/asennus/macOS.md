@@ -120,10 +120,10 @@ zsh
 
 ## Asenna Pythonin riippuvuudet
 
-Pyenv:n ajama Python-asennus voi vaatia joitakin riippuvuuksia, joista Homebrew ei tiedä. Kirjoitushetkellä ainut tällainen on `xs`. Mikäli tätä ei ole asennettuna, myöhemmin pyenv valittaa `WARNING: The Python lzma extension was not compiled. Missing the lzma lib?`. XS-kirjasto on LZMA-kirjaston seuraaja ja sitä käytetään datan pakkaamiseen ja purkamiseen. Mikäli kiinnostaa, sen oma dokumentaatio löytyy [täältä](https://tukaani.org/xz/).
+Pyenv:n ajama Python-asennus voi vaatia joitakin riippuvuuksia, joista Homebrew ei tiedä. Pelkän `xs`:n pitäisi riittää, mutta [pyenv:n dokumentaatio](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) suosittelee seuraavia:
 
 ```bash
-$ brew install xz
+$ brew install openssl readline sqlite3 xz zlib tcl-tk
 ```
 
 ## Asenna Python pyenvillä
