@@ -5,16 +5,18 @@ Poetry käyttää Pythonin omia `venv` ja `pip` työkaluja konepellin alla, mutt
 
 Poetryllä on oma, selkeä dokumentaatio, joten en turhaan toista suurta osaa ohjeista tässä dokumentissa. Alla on hyvin tiivistetty asennusohje, jossa on mainittuna pari pientä seikkaa, joita dokumentaatio ei tee selväksi.
 
+
+
 ## Asennus
 
 !!! tip "Windows"
 
     Mikäli käytössäsi on Windows, ja dokumentaatiosta löytyvä rivi. Riippuen ympäristöstäsi, sinulla ehkä toimii komento `python3`, ehkä ei. Jos ei, aja alempi rivi.
-
+    
     ```bash
     # Näin
     curl -sSL https://install.python-poetry.org | python3 -
-
+    
     # Tai näin, jos python3 ei viittaa mihinkään
     curl -sSL https://install.python-poetry.org | python -
     ```
@@ -26,6 +28,7 @@ Poetryllä on oma, selkeä dokumentaatio, joten en turhaan toista suurta osaa oh
     # Asenna käyttäen pyenvin globaalia Pythonia
     curl -sSL https://install.python-poetry.org | python -
     ```
+
 
 
 ## Poetryn lisääminen PATH:iin
@@ -47,6 +50,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 Jatkossa, kunhan olet ajanut komennon `source .zshrc` tai käynnistänyt Terminaalin uusiksi, komennon `poetry --version` pitäisi palauttaa Python Poetryn versionumero.
 
+
+
 ## Pyenv ja Poetry
 
 Jos sinulla on sekä pyenv että Python Poetry asennettuna, eli todennäköisesti olet joko macOS- tai Linux-käyttäjä, niin aktivoi myös seuraava konfiguraatio:
@@ -54,6 +59,8 @@ Jos sinulla on sekä pyenv että Python Poetry asennettuna, eli todennäköisest
 ```bash
 poetry config virtualenvs.prefer-active-python true
 ```
+
+
 
 ## Vikatilanteet
 

@@ -26,7 +26,7 @@ Tässä ohjeessa neuvotaan asentamaan pip:llä paketit **virtuaaliympäristöön
 ├── my_project
 │   ├── __init__.py
 │   └── main.py
-└── .venv
+└── .venv          # <= Tämä kansio sisältää virtuaaliympäristön
     ├── bin
     ├── include
     ├── lib
@@ -35,7 +35,22 @@ Tässä ohjeessa neuvotaan asentamaan pip:llä paketit **virtuaaliympäristöön
 
 ```
 
+Virtuaaliympäristö ei ole välttämättä nimeltään `.venv`, mutta tätä käytäntöä noudetetaan tällä kurssilla. Virtuaaliympäristön ei myöskään ole pakko olla projektikansion sisällä, vaan sen voisi sijoittaa muualle tiedostojärjestelmään. Mikäli haaveissa on käyttää yhtä virtuaaliympäristöä eri projekteissa, kannattaa tutustua venv-moduulin ja pip:n lisäksi muihin työkaluihin, kuten pipx sekä virtualenv ja pyenv-virtualenv. Jos käytät Pythonia ensimmäistä kertaa, kannattaa ympäristö koittaa pitää yksinkertaisena, ja suosia Pythonin omaa venv-moduulia.
 
+Virtuaaliympäristön tuoma hyöty on se, että kun asennat projektiisi joitakin kirjastoja (komennolla `pip install <jokin-paketti>`), et sotke tähän koko järjestelmän laajuista Pythonia, vaan nämä kirjastot asennetaan **tämän projektikansion sisään**. Unix-pohjaisissa käyttöjärjestelmissä relatiivinen polku on esimerkiksi: `.venv/lib/python3.11/site-packages/`.
+
+??? tip "Symbolic links"
+    Komento `python -venv <kansionnimi>` kopioi tai luo symbolisen linkin Python executableen, jolla kyseinen komento ajettiin. Se, onko kyseessä defaulttina kopio vai symbolinen linkki, riippuu käyttöjärjestelmässä. 
+    
+    Windowsissa tiedostot kopioidaan fyysisesti `.venv/Scripts`-kansion alaisuuteen, mukaan lukien `python.exe`. Unix-pohjaissa käyttöjärjestelmissä default on käyttää symbolista linkkiä, jolloin tiedosto `.venv/bin/python` viittaa esimerkiksi tiedostoon `/usr/bin/python3` tai `~/.pyenv/versions/3.11.5/bin/python`. Mikäli poistat tämän virtuaaliympäristön hyödyntämän Pythonin, se virtuaaliympäristö lakkaa toimimasta. Mikäli virtuaaliympäristö viittaa järjestelmätason Pythoniin (eli `/usr/bin/`), on myös mahdollista että käyttöjärjestelmäpäivitys tai paketinhallinnan `update`-komento päivittää Pythonin tuoreempaan versioon, jolloin myös virtuaaliympäristösi versio päivittyy.
+    
+    Mikäli haluat Unix-pohjaisissa käyttöjärjestelmissä varmistaa, että Python **kopioidaan** kyseiseen kansioon, tarvitsee sinun ajaa venv-moduuli lisäparametrilla, näin:
+    
+    ```bash
+    $ python -m venv --copies .venv
+    ```
+    
+    Parempi ratkaisu on kuitenkin käyttää pyenv:iä ja olla poistamatta vanhoja Python-versioita.
 
 
 
@@ -45,7 +60,7 @@ Tässä ohjeessa neuvotaan asentamaan pip:llä paketit **virtuaaliympäristöön
 ## Asennus ja käyttö: Windows
 
 !!! warning
-   Huomaa, että Git Bash emuloi Linux-maailmasta tuttua Bash-shelliä. Tämän takia esimerkiksi hakemistojen välissä käytetty erotin on ajoittain komentojen tuloisteissa POSIX- eli Linux-suuntaan (`/`) ja ajoittain Windows-suuntaan (`\`). Git Bash on outo sekoitus Windowsia ja Linuxia: sen kanssa pitää vain oppia tulemaan toimeen, mikäli käyttää Windowsia kehitysympäristönä. Merkki `~` eli tilde eli aalto viittaa käyttäjän kotihakemistoon.
+    Huomaa, että Git Bash emuloi Linux-maailmasta tuttua Bash-shelliä. Tämän takia esimerkiksi hakemistojen välissä käytetty erotin on ajoittain komentojen tuloisteissa POSIX- eli Linux-suuntaan (`/`) ja ajoittain Windows-suuntaan (`\`). Git Bash on outo sekoitus Windowsia ja Linuxia: sen kanssa pitää vain oppia tulemaan toimeen, mikäli käyttää Windowsia kehitysympäristönä. Merkki `~` eli tilde eli aalto viittaa käyttäjän kotihakemistoon.
 
 Windowsissa pip asentuu Pythonin mukana. Se asentuu lokaatioon `$LOCALAPPDATA/Programs/Python/Python311/Scripts/pip.exe`. Komento ei välttämättä ole $PATH:ssa eikä sitä täten voi ajaa suoraan komentokehotteesta, mutta tällä ei ole väliä. Meille riittää, että komento toimii virtuaaliympäristöissä.
 
@@ -117,3 +132,35 @@ $ deactivate
 Mikäli käytät Linux-distribuution mukana tullutta Pythonia, sinulta puuttuu todennäköisesti joitakin riippuvuuksia. Nämä, joihin lukeutunee todennäköisesti ainakin `python3-pip`, tulostetaan ruudulle kun yrität luoda virtuaaliympäristöä komennolla `python -m venv .venv`. Noudata ohjeita ja asenna ne.
 
 Mikäli asensin pyenv:n aiemmin esiteltyjen ohjeiden mukaisesti, voit noudattaa tismalleen samoja ohjeita kuin yllä macOS:n kohdalla.
+
+
+
+## Käyttö: Visual Studio Code
+
+Virtuaaliympäristö tulee ottaa käyttöön aina, kun ajat projektisi koodia tai asennat siihen kirjastoja `pip`:llä. Tähän "aina"-tilanteeseen luetaan myös IDE:t kuten Visual Studio Code.
+
+Kun haluat muokata projektisi koodia Codessa, **älä avaa yksittäisiä tiedostoja vaan koko hakemisto (eli kansio)** Codessa. Tämä onnistuu muun muassa seuraavin keinoin:
+
+**Ensimmäinen keino**: kun olet Git Bashissä (tai käyttöjärjestelmäsi mukaisessa shellissä) projektikansiossa, joka on tämän esimerkin kohdalla `~/Code/username/testiprojekti`, kirjoita `code .` komentoriville ja paina enter. Code viittaa Visual Studio Codeen, ja piste viittaa nykyiseen hakemistoon. Komento on siis "Visual Studio Code, plz avaa tämä hakemisto."
+
+**Toinen keino:** avaa Visual Studio Code käynnistysmenusta tai muusta pikakuvakkeesta. Valitse vasemmalta yltäältä `File => Open Folder`. Navigoi kansionäkymässä oikeaan hakemistoon ja paina Open.
+
+Kun projektin hakemisto on avattuna, vasemman laidan Explorerissa pitäisi näkyä otsikkona kyseisen kansion nimi. Katso Kuvio 1.
+
+![vscode-venv-interpreter](../../images/vscode-venv-interpreter.png)
+
+**Kuvio 1**: *Virtuaaliympäristö (tai mikä tahansa muu valittu Python-tulkki) näkyy Visual Studio Coden ikkunan oikeassa alalaidassa silloin kun sinulla on Python-tiedosto avattuna ja aktiivisena. Mikäli olet luonut virtuaaliympäristön ennen Coden avaamista, löytää Code sen usein automaattisesti.*
+
+Mikäli Visual Studio Code ei näytä mitään Python-tulkkia oikeassa alalaidassa, varmista, että sinulla on jokin `.py`-päätteinen tiedosto avattuna, kuten Kuviossa 1 näkyy (`myapp/main.py`).Seuraavaksi varmista, että onhan virtuaaliympäristö varmasti sinun projektikansiossasi. Yllä olevan Kuvio 1:n tapauksessa kansiot ovat:
+
+```
+# Projektikansio
+~/Code/username/testiprojekti    # <= Tämä on avattu Codeen kansiona
+
+# Virtuaaliympäristä
+~/Code/username/testiprojekti/.venv
+
+# Koodia sisältävä moduuli
+~/Code/username/testiprojekti/myapp/
+```
+

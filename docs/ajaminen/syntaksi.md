@@ -1,7 +1,7 @@
 Python lyhyesti:
 
 * Python-ohjelma koostuu riveistä, jotka suoritetaan järjestyksessä ylhäältä alas.
-* Rivit päättyvän rivinvaihtomerkkiin (tarkemmin `LF` tai `CR+LF`). Koodin rivejä ei tarvitse päättää esimerkiksi `;`-merkkiin, kuten monissa muissa kielissä.
+* Rivit päättyvän rivinvaihtoon (tarkemmin merkkeihin `LF` tai `CR+LF`). Siispä komentoja ei päätetä esimerkiksi `;`-merkkiin, kuten monissa muissa kielissä.
 * Tyhjät rivit ovat sallittuja ja luettavuuden parantamiseksi jopa suositeltavia. Koodin voi jakaa loogisiin kokonaisuuksiin samalla tavalla kuin tavallisessa tekstissä kappaleet.
 * Koodia ei erikseen käännetä binääriksi vaan Python-tulkki lukee `.py`-tiedostoa ja tulkkaa sitä tavukoodiksi. Kyseessä on siis **tulkattava** ohjelmointikieli.
 * Python on olio-ohjelmointikieli, mutta ei sulje pois muiden paradigmojen kuten proseduraalisen tai funktionaalisen ohjelmoinnin käyttöä.
@@ -11,6 +11,8 @@ Python lyhyesti:
 
 !!! question "Tehtävä"
     Lue Python Docsin oma [Whetting Your Appetite](https://docs.python.org/3/tutorial/appetite.html), joka mainostaa Pythonin vahvuuksia
+
+
 
 ## Esimerkkikoodia
 
@@ -42,6 +44,8 @@ def print_as_tabular(           # (1)
 5. Uusia muuttujia ei tarvitse erikseen alustaa mitenkään eikä niille tarvitse määritellä tiettyä tyyppiä kuten `int` tai `str`. Tyyppivihje on kuitenkin tuettuna; sitä ei vain käytetä tässä esimerkissä.
 6.  Kontrolli- ja silmukkarakenteet kuten `for`  muistuttavat funktion määrittelyä rakenteeltaan. Rivin viimeinen merkki on puolipiste. Rakenteen runko on sisennetty 4 välilyönnillä määrittelyyn nähden.
 7. Tavallisesti sisäänrakennetun `print`-funktion kutsuminen luo yhden rivin per kutsu. Tässä sitä rikotaan antamalla funktiolle keyword-argumentti `end`, jossa rivi lopetetaan rivinvaihdon sijasta pelkällä tyhjällä.
+
+
 
 ## Varatut avainsanat
 

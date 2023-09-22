@@ -1,6 +1,6 @@
 nav:
-  - windows.md
-  - macOS: macOS.md
-  - linux.md
+  - Python (win): windows.md
+  - Python (mac): macOS.md
+  - Python (linux): linux.md
   - VSCode: vscode.md
   - ...

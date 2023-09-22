@@ -1,6 +1,6 @@
 IDLE:n (Integrated Development and Learning Environment) on interaktiivinen prompt, joka muistaa yhden session ajan kaikki luomasi muuttujat, funktiot ja objektit. Sillä on vaikea kirjoittaa yhtä tai kahta riviä pidempiä funktioita, mutta ensimmäisten askeleiden ottamiseen se on täydellinen leikkikenttä.
 
-Kunhan olet asentanut Pythonin sinun käyttöjärjestelmääsi soveltuvalla tavalla, aja seuraava komento shellissä, joka on käyttöjärjestelmästäsi riippuen esimerkiksi Git Bash:
+Kunhan olet asentanut Pythonin sinun käyttöjärjestelmääsi soveltuvalla tavalla, aja alla näkyä komento shellissä, joka on käyttöjärjestelmästäsi riippuen esimerkiksi Git Bash.
 
 ```bash
 $ python -i

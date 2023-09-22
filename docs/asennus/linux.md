@@ -1,5 +1,9 @@
 Useimmissa distribuutioissa on jokin Python-versio jo valmiiksi asennettuna. Sinulla on vaihtoehtoina joko käyttää valmiiksi asennettua versiota tai asentaa tuoreempi. Kummassakin on hyötynsä ja haittansa.
 
+## Asenna git
+
+Mikäli sinun distribuutiosi ei asenna gittiä automaattisesti, asenna se. Ubuntussa se asennetaan komennolla `sudo apt update && sudo apt install git -y`. Laita myös konfiguraatiot kuntoon. Nämä voit tarkistaa macOS-asennusohjeesta tai How to Git repositoriosta.
+
 ## Oletus Python3:n käyttäminen
 
 Tämä ohje on kirjoitettu Ubuntussa, joka käyttää Debianista perittyä `APT`-paketinhallintaa. Mikäli sinulla on eri distribuutio, tutki, mikä on vastaava paketinhallinta ja vastaavat komennot.
@@ -14,13 +18,13 @@ Mikäli versio on kurssin puitteissa riittävän tuore, voit käyttää sitä. T
 
 ## Pyenv ja Ubuntu
 
-Mikäli haluat käyttää toista Pythonia, on suositeltavaa ottaa käyttöön pyenv. Voit käyttää Homebrew:ta aivan kuten macOS:ssä tai pyenv:n omaa shell-skriptiä. Alla olevassa esimerkissä käytetään pyenv:n omaa asennusohjetta. Riippuvuudet listataan [pyenv:n dokumentaatiossa](https://github.com/pyenv/pyenv/wiki#suggested-build-environment), mutta listalle on lisätty varmuuden vuoksi git. Sen tarvitsee pyenv.run:n shelliskripti.
+Mikäli haluat käyttää toista Pythonia, on suositeltavaa ottaa käyttöön pyenv. Voit käyttää Homebrew:ta aivan kuten macOS:ssä tai pyenv:n omaa shell-skriptiä. Alla olevassa esimerkissä käytetään pyenv:n omaa asennusohjetta. Riippuvuudet listataan [pyenv:n dokumentaatiossa](https://github.com/pyenv/pyenv/wiki#suggested-build-environment), ja ne ovat alla esillä:
 
 ```bash
 # Asenna riippuvuudet
 $ sudo apt update
 $ sudo apt install -y build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev curl git \
+libbz2-dev libreadline-dev libsqlite3-dev curl \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 # Asenna shelli-skriptillä

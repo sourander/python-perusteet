@@ -71,7 +71,7 @@ rehash
 
 # Konfiguroi git
 
-Gittiin kannattaa asettaa itselleen sopivat global konfiguraatiot. Nämä neuvotaan How to Git -kurssilla, mutta alla todennäköisesti sinulle toimivat arvot. Vaihda nimen tilalle oma nimesi ja sähköpostiosoitteen tilalle koulun sähköpostiosoitteesi.
+Gittiin kannattaa asettaa itselleen sopivat global konfiguraatiot. Nämä neuvotaan How to Git -materiaalissa, mutta alla todennäköisesti sinulle toimivat arvot. Vaihda nimen tilalle oma nimesi ja sähköpostiosoitteen tilalle koulun sähköpostiosoitteesi.
 
 ```bash
 $ git config --global user.name "Etunimi Sukunimi"
