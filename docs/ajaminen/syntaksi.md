@@ -12,6 +12,7 @@ Python lyhyesti:
 !!! question "Tehtävä"
     Lue Python Docsin oma [Whetting Your Appetite](https://docs.python.org/3/tutorial/appetite.html), joka mainostaa Pythonin vahvuuksia
 
+Tietokoneohjelmat tallentavat tietokoneen muistiin (eli "rammiin") muuttujien arvot. Monissa matalamman tason ohjelmointikielissä, kuten C-kielessä, arvot tallennetaan muistiin kohtalaisen raakana. Python on hyvin korkean tason (eng. high level) ohjelmointikieli, joten yksinkertaisimmatkin asiat kuten kokonaisluvut (eng. integer) tallennetaan muistiin *objekteina*. Pythonissa ei ole C-kielestä tuttu pointtereita.
 
 
 ## Esimerkkikoodia
