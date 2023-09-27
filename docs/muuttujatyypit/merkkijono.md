@@ -112,11 +112,50 @@ long_string = " ".join(list_of_strings)
 
 ## Merkkijono ja operaattorit
 
-TODO.
+Merkkijonot eivät ole lukuja, mutta valitut Pythonin aritmeettiset operaatiot, vertailuoperaattorit, loogiset operaattorit sekä jäsenyyttä testaavat operaattorit toimivat niitä vasten silti. 
 
-## F-string
+#### Aritmeettiset
+
+| Operaattori | Esimerkki           |
+| ----------- | ------------------- |
+| +           | `"kissa" + "koira"` |
+| *           | `"x" * 72`          |
+
+#### Vertailu
+
+| Operaattori  | Esimerkki            |
+| ------------ | -------------------- |
+| ==           | `"kissa" == "kissa"` |
+| !=           | `"KISSA" != "kissa"` |
+| >, <, >=, <= | `"a" > "b"`          |
+
+#### Loogiset
+
+| Operaattori | Esimerkki |
+| ----------- | --------- |
+| TODO        | TODO      |
+
+
+
+## Format ja F-string
 
 TODO. Muista lisätä tähän ohjeeseen tämä: [PEP 498 – Literal String Interpolation](https://peps.python.org/pep-0498/)
+
+
+
+## Merkkijonon metodit
+
+TODO (lower etc)
+
+
+
+# Moduuli: pathlib
+
+Tässä käsitellään pathlib-moduuli, joka liittyy läheisesti hyvin tyypilliseen merkkijonon käsittelyyn eli hakemistopolkuun. Tässä saadut taidot voi yhdistää lopussa olevaan tiedoston avaamiseen liittyvään harjoitukseen.
+
+TODO
+
+
 
 ## Mikä ihmeen Unicode?
 
@@ -198,7 +237,28 @@ print("Letters are the same?: ", b1 == b2 == b3)
 
 
 
-## Pidempi esimerkki
+## Harjoittele: Merkkijono tiedostosta
+
+Alla on koodi, joka lukee test.txt-tiedostosta UTF-8-koodausta käyttäen sisällön muuttujaan `content`. Kokeile koodia tiedostolla, jonka luot esimerkiksi `nano`:lla, Windowsin notepadilla tai Visual Studio Codella. Tiedoston tulee olla samassa kansiossa kuin mistä koodi ajetaan; tiedostopolku on siis relatiivinen.
+
+```python
+# Vaihtoehto 1: Avaa tiedosto ja osoita TextIOWrapper:n instanssi muuttujaan 
+#               f. Lue sisältö. Lopuksi sulje tiedosto
+f = open("test.txt", "r", encoding="utf-8")
+content = f.read()
+f.close()
+
+# Vaihtoehto 2: Avaa tietdosto with:llä eli context managerilla.
+#               Lue sisältö. Tiedostoa ei tarvitse itse sulkea.
+with open("test.txt", "r") as f:
+        content = f.read()
+```
+
+
+
+## Harjoittele: Merkkijonon Unicode-analyysi
+
+Alla on koodi, joka käy `message`-muuttujan merkit yksitellen läpi (`for`-silmukassa) ja tulostaa Unicode-merkkiin liittyvää tietoa. Kokeile ajaa koodia ja lue se läpi. Silmukat ja muut kontrollirakenteet opetetaan myöhemmin, mutta sen toiminnan voi lukiessaan päätellä ihan lausemuodosta `for char in message` eli `per jokainen merkki merkkijonossa`.
 
 ```python
 # Tulostettava viesti
