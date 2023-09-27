@@ -3,7 +3,7 @@ Tämän otsakkeen alla olevissa luvuissa käsitellään osa Pythonin sisäänrak
 | Ryhmä dokumentaatiossa | Käsitellään                     | Ei käsitellä |
 | ---------------------- | ------------------------------- | ------------ |
 | Numeric Types          | `int`, `float`                  | `complex`    |
-| Sequence Types         | `list`, `tuple`, `range`, `str` |              |
+| Sequence Types         | `list`, `tuple`, `range`        |              |
 | Text Sequence Type     | `str`                           |              |
 | Binary Sequence Types  | `bytes`, `bytearray`            | `memoryview` |
 | Set Types              | `set`                           | `frozenset`  |

@@ -44,7 +44,7 @@ Tyypillisesti koodi kannattaa kirjoittaa siten, että käytät yhtä tyyliä lä
 ```python
 # Vaihtoehto 1: käytä vastakkaisia merkkejä
 incl_apostrophe = "A scratch? Your arm's off!"
-incl_quotes = 'A "scratch"? Your arm is off!"
+incl_quotes = 'A "scratch"? Your arm is off!'
 
 # Vaihtoehto 2: Käytä backslashiä karkaamaan seuraava merkki
 incl_both = "A \"scratch\"? Your arm's off!"
@@ -62,13 +62,15 @@ Vaihtoehto kolme on vaikealukuinen ja saattaa herättää kysymyksiä. Kenoviiva
 | `\t`   | Tabulaattori eli sarkain                                |
 | `\b`   | Askelpalautin eli backspace                             |
 
-Kokeile ihmeessä, kuinka nykyajan tietokone reagoi käskyyn, jossa pyydät palauttamaan kirjoituskoneen vaunun alkuasentoonsa. Tai kuinka se reagoi, jos sijoitat keskelle merkkijonoa askelpalauttimia? Entäpä uudet rivit? Selvitä, mitä seuraavat komennot tulostavat:
+Kokeile ihmeessä, kuinka nykyajan tietokone reagoi käskyyn, jossa pyydät palauttamaan kirjoituskoneen vaunun alkuasentoonsa. Tai kuinka se reagoi, jos sijoitat keskelle merkkijonoa askelpalauttimia? Entäpä uudet rivit? Selvitä, mitä seuraavat komennot tulostavat.
 
 ```python
 print("This is a sentence that will be partially \r Overwritten")
-print("This is a sentence that will be partially \b\b\b\b\b Overwritten")
+print("This is a sentence that will be partially \b\b\b\b\b Overwritten") # (1)
 print("This \n is \n awesome")
 ```
+
+1. Huomaathan, että `\b`toimii IDLE:ssä, mutta ei Jupyter Notebookissa.
 
 Entä, jos sinulla on tarve käyttää kenoviivaa merkkijonossa? Tämän ongelman voit ratkaista pakenemalla kenoviivan itsensä tai :
 
@@ -131,21 +133,34 @@ Merkkijonot eivät ole lukuja, mutta valitut Pythonin aritmeettiset operaatiot, 
 
 #### Loogiset
 
-| Operaattori | Esimerkki |
-| ----------- | --------- |
-| TODO        | TODO      |
+| Operaattori | Esimerkki             |
+| ----------- | --------------------- |
+| and         | `"kissa" and "koira"` |
+| or          | `"" or "koira"`       |
+| not         | `not ""`              |
 
 
 
 ## Format ja F-string
 
-TODO. Muista lisätä tähän ohjeeseen tämä: [PEP 498 – Literal String Interpolation](https://peps.python.org/pep-0498/)
+```python
+red, green, blue = 255, 128, 0
+
+# Vaihtoehto 1: merkkijonon metodi format
+text_a = "Values are ({r},{g},{b}) (rgb)"
+text_a_formatted = text_a.format(r=red, g=green, b=blue)
+
+# Vaihtoehto 2: F-string
+text_b = f"Values are ({red},{green},{blue}) (rgb)"
+```
+
+TODO: Lisää F-stringin formattereita: https://docs.python.org/3/reference/lexical_analysis.html#f-strings
 
 
 
 ## Merkkijonon metodit
 
-TODO (lower etc)
+TODO (lower etc): https://docs.python.org/3/library/stdtypes.html#string-methods
 
 
 
