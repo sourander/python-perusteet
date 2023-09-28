@@ -3,13 +3,17 @@ REPL:n (Integrated Development and Learning Environment) on interaktiivinen prom
 !!! tip
     REPL on myös huomattavan nopea tapa tehdä perus laskutoimituksia: sitä voi käyttää korvaamaan käyttöjärjestemän vakio Calculator-sovelluksen nopeissa laskutoimituksissa.
 
-Kunhan olet asentanut Pythonin sinun käyttöjärjestelmääsi soveltuvalla tavalla, aja alla näkyä komento shellissä, joka on käyttöjärjestelmästäsi riippuen esimerkiksi Git Bash, Bash tai Z Shell.
+Kunhan olet asentanut Pythonin sinun käyttöjärjestelmääsi soveltuvalla tavalla, aja alla näkyvistä komennoista sinun käyttöjärjestelmääsi sopiva. Toistaiseksi Git Bash:ssä `node`, `python` ja muut pseudoterminaalia käyttävät komentotulkit tulee ajaa `winpty`-ohjelmalla. Mikäli tätä lukiessa ei ole vuosi 2023 vaan jokin tuoreempi, tämä on voinut muuttua.
 
 ```bash
-$ python -i
+# macOS tai Linux
+$ python
+
+# Git Bash (Git for Windows)
+$ winpty python
 ```
 
-Shelliin aukeaa uudenlainen prompt, jossa eivät enää toimi vanhat `ls` ja `pwd` komennot laisinkaan. Kyseessä on REPL, joka ymmärtää Pythonia. Git Bash:ssä Python Shell eli REPL saattaa tuntua ajoittain hieman bugiselta: voit ajaa sitä myös Command Promptista, käynnistää Start-menusta Pythonin, tai käynnistää Start-menusta IDLE:n. Lopulta kaikki tekevät saman asian.
+Shelliin aukeaa uudenlainen prompt, jossa eivät enää toimi vanhat `ls` ja `pwd` komennot laisinkaan. Kyseessä on REPL, joka ymmärtää Pythonia.
 
 ![REPL-3-11-zsh](../images/REPL-3-11-zsh.png)
 
