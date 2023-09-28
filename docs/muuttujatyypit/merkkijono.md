@@ -139,6 +139,9 @@ Merkkijonot eivät ole lukuja, mutta valitut Pythonin aritmeettiset operaatiot, 
 | or          | `"" or "koira"`       |
 | not         | `not ""`              |
 
+!!! question "Tehtävä"
+    Kokeile kaikki yllä olevat operaattorit läpi. Selvitä, mitä ne tekevät. Vertailuoperaattorit suurempi/pienempi kuin, kuten myös loogiset operaattorit, saattavat tuntua merkkijonojen kanssa epäloogisilta. Ota selvää!
+
 ## Merkkijonojen muotoilu
 
 Merkkijonoihin voi upottaa muiden muuttujen arvoja, vaikka ne eivät olisi merkkijonoja itsessään. Alla on kolme tapaa tehdä tämä: yksi vanha ja kaksi tuoreempaa.
@@ -162,25 +165,42 @@ Tyyli muistuttaa C-kielestä tuttua `printf`:ää, ja siitä voikin lukea lisä�
 ```python
 red, green, blue = 255, 128, 0
 
-# Vaihtoehto 1: merkkijonon metodi format
-text_a = "Values are ({r},{g},{b}) (rgb)"
-text_a_formatted = text_a.format(r=red, g=green, b=blue)
-
-# Vaihtoehto 2: F-string
-text_b = f"Values are ({red},{green},{blue}) (rgb)"
+text_a = "Values are ({r},{g},{b})".format(r=red, g=green, b=blue)
 ```
+
+Vanha format-tyyli on luettavuudeltaan parempi kuin edeltäjänsä, mutta se on silti saanut vielä paremman seuraajan. Jatka lukemista.
 
 ### F-string
 
 ```python
+red, green, blue = 255, 128, 0
+
 #        Huomaa f-kirjain
 #        ↓
-text_b = f"Values are ({red},{green},{blue}) (rgb)"
+text_b = f"Values are ({red},{green},{blue})"
 ```
 
+Kun merkkijonoista puhutaan, f-string mahdollistaa muun muassa merkkijonon tulostamisen tietyn levyisenä eli `left|center|right padding`. Yllä olevissa esimerkissä aaltosulkeiden sisään laitettiin pelkkä muuttujan nimi: tässä tapauksessa se tulostaa muuttujan arvon (repr-presentaation). Kokeillaan seuraavksi sijoittaa muuttujan lisäksi aaltosulkeisiin muotoiluohjeita, jotka sijoitetaan kaksoispisteen jälkeen, kuten `{muuttuja:muotoiluohjeet}`. Alla olevien esimerkkien avulla on helppo muodostaa tabulaarista eli taulukkomallista tulostetta, ja tästä löytyy esimerkki luvun lopusta.
 
+```python
+ingredient = "spam"
 
-TODO: Lisää F-stringin formattereita: https://docs.python.org/3/reference/lexical_analysis.html#f-strings
+# Voit kirjoittaa aaltosulkujen väliin koodia
+print(f"{ingredient * 10}")
+
+# ...tai :-merkin jälkeen antaa muotoiluun ohjeita
+print(f"{ingredient:<42}")
+print(f"{ingredient:>42}")
+print(f"{ingredient:^42}")
+print(f"{ingredient:*^42}")
+
+# Myös muotoiluohje saa sisältää muuttujia
+# kunhan ne kääritään aaltosulkeisiin
+n = 42
+print(f"{ingredient:*^{n}}")
+```
+
+F-string eli "formatted string literal" on hyödyllinen myös muiden muuttujatyyppien kuin merkkijonojen tulostamisessa. Siispä tähän aiheeseen palataan aiheeseen kurssilla useassa eri luvussa. Jos mielenkiinto heräsi, voit toki lukea aiheesta jo nyt lisää, esimerkiksi [fstring.help](https://fstring.help/)-sivustolta tai [Pythonin omasta dokumentaatiosta](https://docs.python.org/3/library/string.html#format-specification-mini-language).
 
 
 
