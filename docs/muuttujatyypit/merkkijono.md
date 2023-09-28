@@ -9,7 +9,7 @@ print(message)
 
 ## Merkkijonon luonti
 
-Literaalin merkkijonon voi luoda kirjoittamalla jotakin lainausmerkkien väliin tai heittomerkkien väliin. Seuraavat komennot toimivat IDLE:ssä:
+Literaalin merkkijonon voi luoda kirjoittamalla jotakin lainausmerkkien väliin tai heittomerkkien väliin. Seuraavat komennot toimivat REPL:ssä:
 
 ```python
 >>> 'Cat'
@@ -20,7 +20,7 @@ Literaalin merkkijonon voi luoda kirjoittamalla jotakin lainausmerkkien väliin 
 Cat
 ```
 
-Tyypillisesti merkkijono sijoitetaan muuttujaan, jotta sitä voi käyttää myöhemmin. Alla oleva koodi on ajettu IDLE:ssä:
+Tyypillisesti merkkijono sijoitetaan muuttujaan, jotta sitä voi käyttää myöhemmin. Alla oleva koodi on ajettu REPL:ssä:
 
 ```python
 >>> animal = "Cat"
@@ -70,7 +70,7 @@ print("This is a sentence that will be partially \b\b\b\b\b Overwritten") # (1)
 print("This \n is \n awesome")
 ```
 
-1. Huomaathan, että `\b`toimii IDLE:ssä, mutta ei Jupyter Notebookissa.
+1. Huomaathan, että `\b`toimii REPL:ssä, mutta ei Jupyter Notebookissa.
 
 Entä, jos sinulla on tarve käyttää kenoviivaa merkkijonossa? Tämän ongelman voit ratkaista pakenemalla kenoviivan itsensä tai :
 

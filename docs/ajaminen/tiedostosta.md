@@ -1,4 +1,4 @@
-Nyt kun olet päässyt koodin suorittamiseen asti siten, että sinulla on olemassa pelkän IDLE:n sijasta tiedostoja, luothan projektille oman hakemiston, ja hakemiston sisään oman virtuaaliympäristön. Aktivoi virtuaaliympäristö aina kun ajat koodia.
+Nyt kun olet päässyt koodin suorittamiseen asti siten, että sinulla on olemassa pelkän REPL:n sijasta tiedostoja, luothan projektille oman hakemiston, ja hakemiston sisään oman virtuaaliympäristön. Aktivoi virtuaaliympäristö aina kun ajat koodia.
 
 
 

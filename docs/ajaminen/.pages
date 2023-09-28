@@ -1,5 +1,5 @@
 nav:
     - syntaksi.md
-    - IDLE: IDLE.md
+    - REPL: REPL.md
     - tiedostosta.md
     - ...
