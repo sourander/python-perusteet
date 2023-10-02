@@ -240,6 +240,19 @@ Merkkijono on sekvenssi, ja siihen toimii sisäänrakennettu `len()` funktio sam
 
 
 
+## Muuttumattomuus
+
+Yllä todettiin, että merkkijono on muuttumaton sarja merkkejä (tai Unicode-koodipisteitä.) Tämä tarkoittaa, että et voi muokata merkkijonoa samalla tavalla kuin listaa, johon perehdytään myöhemmissä luvuissa. Kokeile, mitä tapahtuu, kun yrität muokata merkkijonon ensimmäistä kirjainta:
+
+```python
+>>> name = "bond, James Bond"
+>>> name[0] = "B"
+```
+
+
+
+
+
 ## Moduuli: pathlib
 
 Yksi hyvin yleinen käyttötarkoitus  merkkijonoille ovat hakemisto- ja tiedostonimet. Niiden käsittely käsin on yllättävän haasteellista muun muassa siksi, että hakemistoerotin riippuu käyttöjärjestelmästä. Windowsissa se on `\` ja Unix-pohjaisissa järjestelmissä `/`. Suuri osa Pythonin tehokkuudesta tulee sen kattavasta kirjastosta erilaisia kirjastoja. Yksi todella näppärä kirjasto nimenomaan tähän käyttötarkoitukseen on pathlib, jonka dokumentaatioon kannattaa tutustua Python docsissa: [pathlib — Object-oriented filesystem paths](https://docs.python.org/3/library/pathlib.html). Kirjasto on Pythoniin sisäänrakennettu, joten sitä ei tarvitse erikseen asentaa, mutta täytyy importoida ennen käyttöä. 
