@@ -161,11 +161,15 @@ Vinkki: `enumerate` numeroi silmukan iteraatiot, eli `index` saa ensimmäisellä
 ```python
 def ip_to_integer(ip_address:str, verbose=False) -> int:
     """Convert IP address into an integer.
-    Example: "1.0.0.0" -> 16_777_216
+    
+    Example: 
+    >>> ip_to_integer("1.0.0.0")
+    16_777_216
     """
     
     # Convert to list "1.2.3.4" => [1, 2, 3, 4]
     ip_parts = [int(x) for x in ip_address.split(".")]
+    assert len(ip_parts) == 4, "IP must be in format x.x.x.x"
     total = 0
     
     for index, ip_part in enumerate(ip_parts[::-1]):
@@ -174,15 +178,21 @@ def ip_to_integer(ip_address:str, verbose=False) -> int:
         if verbose:
             print(
                 f"[INFO] {index+1}th from right ({ip}) " 
-                f"is bitshifted binary {ip_shifted:32b}"
+                f"is in bitshifted binary: {ip_shifted:32b}"
             )
     
     return total
 
+
 def integer_to_ip(ip_integer: int) -> str:
     """Convert integer into an IP address
-    Example: 16_777_216 -> "1.0.0.0"
+    
+    Example: 
+    >>> integer_to_ip(16_777_216)
+    "1.0.0.0"
     """
+
+    assert 0 <= ip_integer <= 2 ** 32 - 1, "Integer should be in range 0-4_294_967_295"
     
     ip_parts = []
     for _ in range(4):
@@ -199,3 +209,15 @@ def integer_to_ip(ip_integer: int) -> str:
     return ip_address
 ```
 
+Funktioita voi käyttää nyt kääntämään IP-osoitteita ja aliverkon peitteitä kokonaisluvuiksi, ja näiden välillä voi suorittaa bittioperaatioita. Täten voimme tarkistaa, mikä on verkon osoite, jos tiedämme aliverkon peitteen ja IP-osoitteen:
+
+```python
+host = ip_to_integer("192.168.131.17")
+mask = ip_to_integer("255.255.128.0")
+
+network_address = integer_to_ip(host & mask)
+print(network_address)
+# Kokeile, mitä tämä tulostaa!
+```
+
+Huomaathan, että esimerkki on äärimmäisen naiivi. Se sallii epäkelpoja aliverkon peitteitä (esim. `255.128.255.0`). Pythonin `ipaddress`-kirjasto hoitaa saman tehtävän vähemmän naiivisti ja käyttää olio-ohjelmoinnin keinoja. Kirjaston dokumentaatio löytyy [Python Docs: ipaddress — IPv4/IPv6 manipulation library](https://docs.python.org/3/library/ipaddress.html).
