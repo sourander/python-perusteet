@@ -47,7 +47,7 @@ Huomaa, että Python sallii matemaattiset operaatiot eri numeeristen tyyppien v�
 | ------------ | ------------ |
 | ==           | `3 == 2 + 1` |
 | !=           | `3 != 4`     |
-| >, <, >=, <= | `"2.51 > 2`  |
+| >, <, >=, <= | `2.51 > 2`   |
 
 ### Loogiset
 
@@ -62,14 +62,14 @@ Huomaa, että Python sallii matemaattiset operaatiot eri numeeristen tyyppien v�
 
 ### Bitti
 
-| Operaatio |                   |              |
-| --------- | ----------------- | ------------ |
-| &         | AND               | `0b1 % 0b1`  |
-| \|        | OR                | `0b0 OR 0b1` |
-| ^         | XOR               | `0b1 ^ 0b0`  |
-| ~         | NOT               | `~ 0b0111`   |
-| <<        | Siirto vasemmalle | `0b1 << 1`   |
-| >>        | Siirto oikealle   | `0b10 >> 1`  |
+| Operaatio |                   |                    |
+| --------- | ----------------- | ------------------ |
+| &         | AND               | `0b1111 & 0b1111`  |
+| \|        | OR                | `0b0000 OR 0b1111` |
+| ^         | XOR               | `0b1010 ^ 0b0101`  |
+| ~         | NOT               | `~ 0b0111`         |
+| <<        | Siirto vasemmalle | `0b0001 << 1`      |
+| >>        | Siirto oikealle   | `0b0010 >> 1`      |
 
 !!! tip
     Näistä on esimerkkejä alempana tässä samassa luvussa. 
