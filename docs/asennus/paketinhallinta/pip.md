@@ -14,7 +14,8 @@ $ pip install notebook
 
 Lopulta, kun olet luonut ensimmäisen projektisi ja haluat jakaa sen muiden kanssa, voit tehdä omasta projektistasi pip-asennettavan paketin setuptools:n avulla. Tarvitset vain `setup.py`-tiedoston. Tähän aiheeseen kannattaa tutustua hieman myöhemmin, kun olet sinut pip:n kanssa. 
 
-
+!!! warning
+    Ethän siis asenna `pip`:llä paketteja, ellei sinulla ole virtuaaliympäristö aktivoituna.
 
 ## Mikä ihmeen venv?
 

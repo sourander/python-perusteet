@@ -2,4 +2,5 @@ nav:
     - syntaksi.md
     - REPL: REPL.md
     - tiedostosta.md
+    - Jupyter: jupyter.md
     - ...

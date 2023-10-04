@@ -1,4 +1,6 @@
-Pythonin tyypillisimmin käytössä olevat numeraaliset tietotyypit ovat kokonaisluku eli integer (`int`) sekä desimaaliluku eli floating point number (`float`). Pythonissa on myös kompleksiluku (`complex`), mutta se jätetään tässä materiaalissa käsittelemättä. Vahvasti tyypitetyissä kielissä, kuten C ja Java, on eri kokoisille luvuille omat muuttujatyyppinsä. Esimerkiksi pieniä lukuja varten, jotka mahtuvat välille `-128...127`, on oma muuttujatyyppintä byte. 1, 2, 3 ja 4-tavuisia numeroita varten ovat erikseen byte, short, int ja long. Pythonissa kaikkia näitä varten käytetään samaa tyyppiä: `int`. Myös `float` aina aina float, eikä eriksee 4- tai 8-tavuinen `float` tai `double`.
+Pythonin tyypillisimmin käytössä olevat numeraaliset tietotyypit ovat kokonaisluku eli integer (`int`) sekä desimaaliluku eli floating point number (`float`). Tarkemmin ottaen kyseessä ei kuitenkaan ole desimaali- vaan liukuluku; tästä aiheesta on listätietoa alla. Pythonissa on myös kompleksiluku (`complex`), mutta se jätetään tässä materiaalissa käsittelemättä. Vahvasti tyypitetyissä kielissä, kuten C ja Java, on eri kokoisille luvuille omat muuttujatyyppinsä. Esimerkiksi pieniä lukuja varten, jotka mahtuvat välille `-128...127`, on oma muuttujatyyppintä byte. 1, 2, 3 ja 4-tavuisia numeroita varten ovat erikseen byte, short, int ja long. Pythonissa kaikkia näitä varten käytetään samaa tyyppiä: `int`. Myös `float` aina aina float, eikä eriksee 4- tai 8-tavuinen `float` tai `double`.
+
+## Numeroiden luonti
 
 Alla olevassa snippetissä luodaan kokonaisluku ja desimaaliluku ja tulostetaan niiden arvot aiemmin opittua F-stringiä hyödyntäen:
 
@@ -17,7 +19,7 @@ billion = 1e9        # float
 million = 1_00_0000  # Python ei valita tästä
 ```
 
-## Operaatiot
+## Numerot ja operaatiot
 
 ### Aritmaattiset
 
@@ -74,7 +76,7 @@ Huomaa, että Python sallii matemaattiset operaatiot eri numeeristen tyyppien v�
 
 
 
-## Numerot ja F-string
+## Numeroiden muotoilu
 
 Numeroita voi muotoilla F-stringin avulla. Kokeile ajaa alla oleva koodi, joka tulostaa edellisestä luvusta tutut Unicode plane -alueet.
 
@@ -99,6 +101,9 @@ Aiemmin tutun "padding and aligning"-operaation lisäksi numeroita voi muotoilla
 | `{pi:.2f}`                  | `3.14`      | Tulosta 2 desimaalin tarkkuudella.                  |
 | `{42:.2f}`                  | `42.00`     | ... joka pätee myös kokonaislukuihin.               |
 
+!!! tip
+    Aiemmin mainitut vanhemmat muotoilutavat (format ja %-syntaksi) jätetään käsittelemättä tässä luvussa, mutta mikäli aihe kiinnostaa, tutustu vapaasti numeroiden tulostamiseen `"".format()` avulla. Toimiiko muoto `"{0:.2f}".format(42.00001)"` ?
+
 Otetaan heksadesimaalimuunnos hyötykäyttöön, ja muokataan yllä olevaa Unicode plane -tulostinta. Alla sama koodi muokattuna siten, että se tulostaa numerot heksadesimaaleina. Luku vie aina vähintään 6 merkkiä; täytteenä toimii välilyöntimerkki:
 
 ```python
@@ -113,6 +118,76 @@ for section in range(17):
 
 !!! question "Tehtävä"
     Päättele yllä olevien avulla, kuinka käännät luvun binääriksi ja tulostat 8 merkkiä pitkänä. Luvusta 127 pitäisi tulostua `01111111`, mukaan lukien ensimmäinen nolla. Vihje: `b`.
+
+
+
+## Numeroiden metodit
+
+Toisin kuin merkkijonot, joihin liittyy useita hyödyllisiä metodeja kuten `.lower()`, numerot ovat merkillisen tylsiä. Kokeile tätä itse esimerkiksi Jupyter Notebookissa tai Visual Studio Codessa:
+
+```python
+# Luo muuttuja
+num = 5
+num.     # paina tabia (1)
+
+# Kokeile myös floattia
+other = 3.14
+other.   # paina tabia
+
+# Kokeile myös class methodeja eli ei olion vaan itse luokan funktioita
+int().   # paina tabia
+float(). # paina tabia
+```
+
+1. Tabulaattorin, eli Q-näppäimen vasemmalla puolella olevan näppäimen, klikkaaminen käynnistää IDE:n koodin täydennyksen (code completion), joka listaa kaikki kyseisen olion metodit (eli olion omat funktiot) ja ominaisuudet (propertyt), jotka eivät ala alaviivalla eli eivät ole yksityisiä. IDE:stä riipppuen mukaan saattaa tulostua ties mitä muuta, kuten tiedostopolkuja.
+
+
+
+## Moduuli: datetime
+
+Sinulla on nyt hallussa merkkijonojen ja numeroiden perusteet, joten voit alkaa käsitellä päivämääriä ja aikoja. Päivämääriä varten löytyy `datetime.date` ja aikoja varten `datetime.datetime`. Alla pari peruskomentoa, joilla pääset alkuun, mutta Internet on täynnä esimerkkejä aiheesta.
+
+Huomaa, että päivämääriä ja aikoja voi tulostaa ANSI C -standardin mukaisilla koodeilla, joissa esimerkiksi `Y` edustaa nelinumeroista vuotta. Koko lista löytyy [Pythonin dokumentaatiosta](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes).
+
+```python
+import datetime
+
+# Today hakee käyttöjärjestelmän kellolta päivämäärän
+today = datetime.date.today()
+
+# Vaihtoehto 1: muotoile merkkijono strftime funktiolla
+today_str = today.strftime("%Y:%m:%d - %A")
+print(today_str)
+
+# Vaihtoehto 2: muotoile F-stringin muotoiluosassa
+print(f"{today:%Y:%m:%d - %A}")
+
+# P.S.
+# Muista, että voit myös näin voi tehdä:
+dt_format = "%Y:%m:%d - %A"
+print(f"{today:{dt_format}}")
+```
+
+Kellonaikoja koskeva matematiikka on inha koodata käsin. Jos haluat lisätä aikaan `13:37` esimerkiksi `25` minuuttia, niin sinun pitää osata ottaa huomioon, että yksi tunti on 60 minuuttia. Tätä varten Pythonin datetime-moduuli tarjoaa onneksi timedeltan.
+
+```python
+import datetime
+
+now = datetime.datetime.now()
+delta = datetime.timedelta(hours=1, minutes=15)
+
+# Suorita laskuoperaatio
+past = now - delta
+
+print(past.isoformat())
+```
+
+
+
+!!! warning
+    Kellonaikojen käsittely on huomattavan vaikeaa, varsinkin jos mukaan sotketaan eri aikavyöhykkeet ja kesäajat tai kaukana historiassa olevat Juliaaniset sekä Gregoriaaniset kalenterit. Huomaa, että pyörää ei välttämättä kannata keksiä uudestaan. Datetimen ympärille on rakennettu kirjastoja, kuten [Arrow](https://arrow.readthedocs.io/en/latest/), jotka käsittelevät aikoja oletetusti aikavyöhykkeeseen sidottuna.
+
+
 
 ## Kymmenjärjestelmästä poikkeavat luvut
 
@@ -150,9 +225,88 @@ Jos sinulla on merkkijono, joka edustaa binääriä, käännä se numeroksi sis�
 
 
 
+## Floatin ongelmat
+
+On houkuttelevaa, ja usein käytännöllistä, kutsua float-lukuja suomeksi desimaaliluvuiksi. On tärkeää muistaa, että kyseessä on kuitenkin liukuluku, ja ero on ajoittain merkittävä. Liukulukuihin liittyvä matematiikka on tämän kurssin skoopin ulkopuolella, mutta sen vaikutukset käytännön ohjelmoinnissa on hyvä tuntea. Float-luku kääntyy suomeksi liukuluvuksi ja kyseessä on aina binäärimuotona tallennettu luku, joka esitetään käyttäjälle pyöristetyssä desimaalimuodossa. Siksi yllä Desimaalijärjestelmässä meidän kantaluku on 10, joten jos lisäät mihin tahansa lukuun nollan perään, kerrot sen kymmenellä. Binäärissä kertoisit luvun kahdella. Mikäli poistat nollan, jaat sen kymmenellä. Binäärissä jakaisit sen kahdella. Mikäli luvussa on desimaalierotin (suomessa pilkku, amerikassa piste), erottimen vasemmalla puolella on kokonaisluku, oikealle puolella sen desimaaliosa.
+
+Mikäli desimaaliosan yrittäisi sanallistaa desimaali- ja binäärilukujen osalta, sen voisi tehdä näin:
+
+```
+# Kantaluku 10
+0.1   = yksi kymmenesosa
+0.01  = yksi sadasosa
+0.001 = yksi tuhannesosa
+
+# Kantaluku 2
+0.1   = puolet
+0.01  = neljäsosa
+0.001 = kahdeksasosa
+```
+
+Koska tietokone tallentaa luvun binäärinä, siihen kohdistuvat binäärilukujärjestelmän rajoitteet. Huomaa, että murtoluku `yksi kolmasosa` on mahdoton esittää desimaalijärjestelmässä desimaalilukuna täydessä tarkkuudessaan. Se on päättymätön `0.33333...`. Kantaluvun kolme järjestelmässä tuo luku olisi yksinkertaisesti `0.1`. Kuinka tämä sitten näkyy käytännössä binäärijärjestelmän lukujen kanssa? Se näkyy pyöristysvirheinä:
+
+```python
+>>> 1/10 + 2/10 == 3/10
+False
+
+>>> 1/10 + 2/10
+0.30000000000000004
+
+>>> print(f"{3/10:.16f}")
+0.3000000000000000
+
+>>> print(f"{3/10:.17f}")
+0.29999999999999999
+
+>>> round(2.5)
+3
+
+>>> num = 0.1
+>>> num.as_integer_ratio()
+(3602879701896397, 36028797018963968) 
+# Pythonin näkökulmasta 0.1 on suunnilleen sama kuin
+# kokonaislukujen 3_602_879_701_896_397 ja 2**55 suhde 
+```
+
+Jos luot murtolukujen avulla liukulukuja **missä tahansa ohjelmointikielessä**, noudata äärimmäistä varovaisuutta! Suorita pyöristysoperaatio aina vasta viimeisenä, ja mielellään riittävällä tarkkuudella, kuten rahan kohdalla sentteinä. Mikäli tarvitset tieteellisen laskennan tarkkuutta, käytä avuksi kirjastoja kuten Pythonin built-in kirjastot `decimal` tai `franctions`.
+
+
+
 ## Harjoituksia
 
-### Kommentoi IP-osoitefunktiot
+### Harjoittele: Nykyhetki Unix-ajassa
+
+Selvitä, paljon jokin valitsemasi kellonaika on Unix-ajassa. Unix-ajalla tarkoitetaan sekunteja (tai joissakin tapauksissa milli-, mikro- tai nanosekunteja) 1970-luvun alusta alkaen. Luku voi olla myös negatiivinen. Voit unohtaa mahdolliset aikavyöhykkeiden tuomat ongelmat tässä harjoitteessa:
+
+```python
+import datetime
+
+# Selvitä, mitä argumentteja datetime() kaipaa
+event_time = datetime.datetime()
+
+# Selvitä, mitä tämä palauttaa
+event_time.timestamp()
+```
+
+
+
+### Harjoittele: Etsi edellinen maanantai
+
+Kirjoita skripti, joka tulostaa, kuinka monta päivää sitten oli edellinen maanantai, ja mikä kyseinen päivä on kalenterissa (ISO 8601 formaatissa). Tulostuvan lauseen pitäisi olla (`"Last Monday was # days ago: YYYY-MM-DD"`). Jos osaat, tee koodiin muutos, joka tulostaa `"Today is Monday, you silly!"`, jos tänään on maanantai.
+
+```python
+import datetime
+
+# Aloita tästä
+today = datetime.date.today()
+```
+
+??? tip "Vihje"
+    Vihje: `weekday()` tai `%w`.
+
+
+
+### Harjoittele: Kommentoi IP-osoitefunktiot
 
 Tutustu alla oleviin funktioihin. Kopioi koodi omaan Jupyter Notebookiin tai `.py`-tiedostoon ja kommentoi koodirivit parhaasi mukaan. Kaksi vaikeinta riviä, joissa käsitellään listoja, on kommentoitu jo valmiiksi. Yritä selvittää, mitä muut rivit tekevät: etenkin rivit, joissa tapahtuu bittioperaatiot `<<` ja `&` ja `>>`. Silmukkarakenne `for` käydään läpi myöhemmässä luvussa, joten voi olla, että osa koodista jää hämärän peittoon. Yritä kuitenkin!
 
@@ -221,3 +375,6 @@ print(network_address)
 ```
 
 Huomaathan, että esimerkki on äärimmäisen naiivi. Se sallii epäkelpoja aliverkon peitteitä (esim. `255.128.255.0`). Pythonin `ipaddress`-kirjasto hoitaa saman tehtävän vähemmän naiivisti ja käyttää olio-ohjelmoinnin keinoja. Kirjaston dokumentaatio löytyy [Python Docs: ipaddress — IPv4/IPv6 manipulation library](https://docs.python.org/3/library/ipaddress.html).
+
+!!! question "Tehtävä"
+    Yritä kirjoittaa muutama rivi koodia, jotka varmistavat, että verkon peite (eli mask) kelpaa oikeasti peitteeksi. Sovitaan, että peitteen pitää sisältää `8-29` ykköstä ja loput nollia eli sallitaan CIDR:t `/8 - /29`. Jos CIDR ei ole tuttu käsite, käväise esimerkiksi [Wikipedia: Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Vasemmalta alkavien ykkösten välissä ei saa siis olla yhtään nollaa, mikä tarkoittaa että `255.0.255.0` maskin pitäisi nostaa AssertionError! Käytä tähän `assert something_that_should_be_true` muotoa, kuten yllä olevissa esimerkeissä.
