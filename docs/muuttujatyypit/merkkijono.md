@@ -28,7 +28,7 @@ Tyypillisesti merkkijono sijoitetaan muuttujaan, jotta sitä voi käyttää myö
 Cat
 ```
 
-Voit luoda myös muista muuttujatyypeistä merkkijonona ja syötämällä ne `str`-funktiolle argumenttina. Tämä toimii kaikkiin objekteihin, ellei objektista ole tarkoituksella poistettu tätä toiminnallisuutta (eli metodia `__str__`). Alla esimerkkejä:
+Voit luoda myös muista muuttujatyypeistä merkkijonona ja syötämällä ne `str`-konstruktorille argumenttina. Tämä toimii kaikkiin objekteihin, ellei objektista ole tarkoituksella poistettu tätä toiminnallisuutta (eli metodia `__str__`). Alla esimerkkejä:
 
 ```python
 >>> str(4)    # Kokonaisluku (int)

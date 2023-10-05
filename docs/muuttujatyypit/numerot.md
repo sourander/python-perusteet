@@ -207,7 +207,7 @@ Bittien käsittely Pythonissa ei ehkä ole aivan jokapäiväistä työtä, mutta
 '00000111'
 ```
 
-Jos sinulla on merkkijono, joka edustaa binääriä, käännä se numeroksi sisäänrakennettua `int()`-funktiota.
+Jos sinulla on merkkijono, joka edustaa binääriä, käännä se numeroksi sisäänrakennettua `int()`-konstruktoria käyttäen.
 
 ```python
 # Binääriä esittävä merkkijono numeroksi

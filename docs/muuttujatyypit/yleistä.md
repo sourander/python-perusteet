@@ -1,15 +1,15 @@
-Tämän otsakkeen alla olevissa luvuissa käsitellään osa Pythonin sisäänrakennetuista
+Tämän otsakkeen alla olevissa luvuissa käsitellään osa Pythonin sisäänrakennetuista tietotyypeistä:
 
-| Ryhmä dokumentaatiossa | Käsitellään luvussa (linkki) | Ei käsitellä |
-| ---------------------- | ---------------------------- | ------------ |
-| Numeric Types          | [int ja float](numerot.md)   | `complex`    |
-| Sequence Types         | `list`, `tuple`, `range`     |              |
-| Text Sequence Type     | [str](merkkijono.md)         |              |
-| Binary Sequence Types  | `bytes`, `bytearray`         | `memoryview` |
-| Set Types              | `set`                        | `frozenset`  |
-| Mapping Type           | `dict`                       |              |
-| Boolean Type           | `bool`                       |              |
-| None Type              | `NoneType`                   |              |
+| Ryhmä dokumentaatiossa | Käsitellään luvussa (linkki)          | Ei käsitellä |
+| ---------------------- | ------------------------------------- | ------------ |
+| Numeric Types          | [int ja float](numerot.md)            | `complex`    |
+| Sequence Types         | [list, tuple ja range](sekvenssit.md) |              |
+| Text Sequence Type     | [str](merkkijono.md)                  |              |
+| Binary Sequence Types  | `bytes`, `bytearray`                  | `memoryview` |
+| Set Types              | `set`                                 | `frozenset`  |
+| Mapping Type           | `dict`                                |              |
+| Boolean Type           | `bool`                                |              |
+| None Type              | `NoneType`                            |              |
 
 Tämän otsakkeen luvut ovat **tarkoituksella lyhyitä ja tiiviitä**. Oppimiskäyrä saattaa siis tuntua hieman jyrkältä: tämä on tarkoitus. Luvut pyrkivät hyödyntämään kahta asiaa:
 
