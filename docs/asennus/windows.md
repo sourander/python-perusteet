@@ -11,7 +11,7 @@ Mene [Python.org](https://www.python.org/) sivustolle ja lataa etusivulla mainos
 **Kuvio 1:** *Pythonin asennusohjelma. Huomaa ruudun alalaidassa oleva Add python.exe to PATH. Sen ruksin pitää olla aktiivisena.*
 
 !!! warning
-   TÄRKEÄÄ! Kun asenna Pythonia, asennus kysyy, lisätäänkö Python PATH:iin. Salli se.
+    TÄRKEÄÄ! Kun asenna Pythonia, asennus kysyy, lisätäänkö Python PATH:iin. Salli se.
 
 !!! tip
     Koodisnippettien lukuohje. Ajettava komento alkaa aina `$`-merkillä, aivan kuten Git Bash:n promt itsessään. Mikäli rivi alkaa `#`-merkillä, rivi on ohjeistuksena toimiva kommentti. Muissa tapauksissa kyseessä on tuloste, joka syntyy kun painat komennon jälkeen enteriä. Irrallisten komentojen väliin on lisätty tyhjä rivi parantamaan luettavuutta.

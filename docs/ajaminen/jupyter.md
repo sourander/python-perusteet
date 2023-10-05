@@ -9,7 +9,7 @@ JupyterLabin hyötyjä ovat muun muassa:
 Tiiviisti sanottuna: klassinen Jupyter Notebook, jos työskentelet yhden tiedoston koodin parissa.
 
 !!! warning
-   Ethän asenna Jupyter Notebookia järjestelmätason Pythoniin vaan virtuaaliympäristöön. Lue siis [pip](.../asennus/paketinhallinta/pip.md)-luku ennen seuraavien komentojen ajamista!
+    Ethän asenna Jupyter Notebookia järjestelmätason Pythoniin vaan virtuaaliympäristöön. Lue siis [pip](.../asennus/paketinhallinta/pip.md)-luku ennen seuraavien komentojen ajamista!
 
 Pidemmät asennusohjeet löytyvät [Jupyter:n dokumentaatiosta](https://jupyter.org/install), mutta alkuun pääsee kahdella seuraavalla komennolla:
 
