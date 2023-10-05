@@ -1,6 +1,6 @@
 ## Mikä ihmeen pip?
 
-PIP (Preferred Installer Program) on työkalu, jolla voi asentaa kirjastoja muun muassa PyPi:stä (Python Package Index). Merkittävä osa Pythonin hyödyllisyydestä perustuu kattavaan PyPi:n ja täten myös communityn kattavuuteen. Kunhan sinulla on pip asennettuna oikein, voit asentaa (mielellään virtuaaliympäristöön!) tarvitsemasi kirjastot. Alla kaksi esimerkkiä:
+PIP (Preferred Installer Program) on työkalu, jolla voi asentaa kirjastoja muun muassa PyPi:stä (Python Package Index). Merkittävä osa Pythonin hyödyllisyydestä perustuu kattavaan PyPi:n kirjastoon ja muuhun Python-yhteisön luomaan sisältöön kuten tutoriaaleihin. Kunhan sinulla on pip asennettuna oikein, voit asentaa (mielellään virtuaaliympäristöön!) tarvitsemasi kirjastot. Alla kaksi esimerkkiä:
 
 ```bash
 # Tämä asentaisi Amazon Web Services SDK:n, jolla voit muun muassa
