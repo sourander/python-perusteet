@@ -12,7 +12,17 @@ $ pip install boto3
 $ pip install notebook
 ```
 
-Lopulta, kun olet luonut ensimmäisen projektisi ja haluat jakaa sen muiden kanssa, voit tehdä omasta projektistasi pip-asennettavan paketin setuptools:n avulla. Tarvitset vain `setup.py`-tiedoston. Tähän aiheeseen kannattaa tutustua hieman myöhemmin, kun olet sinut pip:n kanssa. 
+Lopulta, kun olet luonut ensimmäisen projektisi ja haluat jakaa sen muiden kanssa, voit tehdä omasta projektistasi pip-asennettavan paketin setuptools:n avulla. Tarvitset vain `setup.py`-tiedoston. Tähän aiheeseen kannattaa tutustua hieman myöhemmin, kun olet sinut pip:n kanssa.
+
+Kaikki asennetut paketit voit listata komennolla freeze:
+
+```bash
+$ pip freeze
+# tulostaa rivejä, esim:
+# certifi==2023.7.22
+```
+
+
 
 !!! warning
     Ethän siis asenna `pip`:llä paketteja, ellei sinulla ole virtuaaliympäristö aktivoituna.
@@ -115,7 +125,7 @@ $ mkdir -p ~/Code/<kirjoita-gitlab-tunnuksesi>/testiprojekti/
 $ cd ~/Code/<kirjoita-gitlab-tunnuksesi>/testiprojekti/
 
 # Luo virtuaaliympäristö hakemistoon $PWD/.venv/
-$ python -m venv .venv
+$ python -m venv --copies .venv
 
 # Aktivoi virtuaaliympäristö
 $ source .venv/bin/activate
@@ -165,3 +175,15 @@ Mikäli Visual Studio Code ei näytä mitään Python-tulkkia oikeassa alalaidas
 ~/Code/username/testiprojekti/myapp/
 ```
 
+
+
+## Vahingossa asennettujen kirjastojen poisto
+
+Mikäli vahingossa ajat esimerkiksi komennon `pip install notebook` käsin asentamaasi Python-versioon, pip asentaa siihen aivan valtavan määrän riippuvuuksia, jotka eivät valitettavasti poistu `pip uninstall notebook`-komennolla. 
+
+```bash
+$ pip uninstall -y  $(pip freeze | cut -d"=" -f1)
+```
+
+!!! warning
+    Ethän poista Linuxissa tai macOS:ssä järjestelmätason Pythonista (eli `/usr/bin/python3`) riippuvuuksia!

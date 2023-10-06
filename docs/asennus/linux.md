@@ -31,7 +31,7 @@ libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-d
 $ curl https://pyenv.run | bash
 ```
 
-Tee, kuten asennus ohjeistaa, eli lisää seuraavat rivit tiedostoon `.profile` tai `.bash_profile`, riippuen kumpi kotihakemistostasi löytyy, vakiona `.profile`:een:
+Tee, kuten asennus ohjeistaa, eli lisää seuraavat rivit tiedostoon `.bashrc`:
 
 ```bash
 # Initialize pyenv

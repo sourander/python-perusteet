@@ -166,6 +166,10 @@ $ pyenv global
 Jos haluat myöhemmin päivittää Pythonia, asenna uusi ja vaihda global siihen.
 
 ```bash
+# Jos sama minor, niin tämä riittää
+pyenv install 3.11
+
+# Muutoin
 pyenv install 3.x
 pyenv global 3.x
 ```

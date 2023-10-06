@@ -33,5 +33,5 @@ jobs:
           key: venv-${{ hashFiles('poetry.lock') }}
       - name: Install the project dependencies
         run: poetry install
-      - name: Run the automated tests (for example)
+      - name: Deploy to gh-pages branch
         run: poetry run mkdocs gh-deploy --force # -f mkdocs.yml

@@ -250,3 +250,4 @@ Listalla on omia metodeita, joita muut sekvenssit toteuta. Näitä ovat `append`
 # Lue output !
 ```
 
+Kun olet tutustunut kunkin metodin help-tekstiin eli docstringiin, kokeile kutakin käytännössä.
