@@ -251,3 +251,18 @@ Listalla on omia metodeita, joita muut sekvenssit toteuta. Näitä ovat `append`
 ```
 
 Kun olet tutustunut kunkin metodin help-tekstiin eli docstringiin, kokeile kutakin käytännössä.
+
+
+
+### Harjoittele: Array
+
+Mikäli tarvitset sekvenssiä, joka koostuu vain yhden tyyppisistä muuttujista, ja haluat olla varma ettei sinne vahingossakaan voi laittaa muita, Python tarjoaa myös tyyppimääritellyn `array`:n. Koska kyseinen sekvenssi on tyypitetty, se on muistinkäytön suhteen tehokkaampi kuin lista tai tuple. Tutustu tähän lyhyesti ja pohdi, missä sitä voisi käyttää.
+
+```python
+import array
+arr = array.array('d', [1, 2, 3])
+arr.append(42)
+arr.append(123)
+print(arr)
+```
+
