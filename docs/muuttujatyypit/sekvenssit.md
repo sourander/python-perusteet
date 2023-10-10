@@ -1,5 +1,7 @@
 Pythonissa on useita tietotyyppejä, jotka lukeutuvat sekvensseihin, kuten [Yleistä](yleistä.md)-luvussa listattiin. Sekvenssit ovat joukkio elementtejä tietyssä järjestyksessä. Jokaisella elementillä on indeksi. Ensimmäisen elementin indeksi on nolla (eli lista on `zero-indexed`). Yksi on jo sinulle aiemmin tuttu: merkkijonot eli `str`. Tässä luvussa käsitellään kolme uutta: `list`, `tuple` ja `range`. Suomeksi nämä kääntyisivät listaksi, monikoksi ja kenties arvojoukoksi, mutta tässä luvussa käytetään vain ja ainoastaan niiden alkuperäisiä nimiä Finglish-tyylisesti taivutettuna. Merkkijono on staattisesti tyypitetty sekvenssi, eli jokainen merkki on Unicode-koodipiste.
 
+Range poikkeaa tuplesta ja listasta siten, että se on lasketaan auki vasta kun on pakko eli se on jossain määrin lazy evaluated. Kun edistyt Pythonissa, tulet oppimaan tähän liittyvien generaattoreiden käytön. Toistaiseksi voit hyväksyä, että range on tasavälinen sekvenssi, jota voi loopata ja jonka voi kääntää listaksi.
+
 ## Sekvenssien luonti
 
 ```python

@@ -1,4 +1,8 @@
 nav:
   - yleistä.md
   - merkkijono.md
+  - numerot.md
+  - sekvenssit.md
+  - tavut.md
+  - Joukko (set): joukko.md
   - ...
