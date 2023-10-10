@@ -1,4 +1,4 @@
-Pythonissa on useita tietotyyppejä, jotka lukeutuvat sekvensseihin, kuten [Yleistä](yleistä.md)-luvussa listattiin. Sekvenssit ovat joukkio elementtejä tietyssä järjestyksessä. Jokaisella elementillä on indeksi. Ensimmäisen elementin indeksi on nolla (eli lista on `zero-indexed`). Yksi on jo sinulle aiemmin tuttu: merkkijonot eli `str`. Tässä luvussa käsitellään kolme uutta: `list`, `tuple` ja `range`. Suomeksi nämä kääntyisivät listaksi, monikoksi ja kenties arvojoukoksi, mutta tässä luvussa käytetään vain ja ainoastaan niiden alkuperäisiä nimiä Finglish-tyylisesti taivutettuna.
+Pythonissa on useita tietotyyppejä, jotka lukeutuvat sekvensseihin, kuten [Yleistä](yleistä.md)-luvussa listattiin. Sekvenssit ovat joukkio elementtejä tietyssä järjestyksessä. Jokaisella elementillä on indeksi. Ensimmäisen elementin indeksi on nolla (eli lista on `zero-indexed`). Yksi on jo sinulle aiemmin tuttu: merkkijonot eli `str`. Tässä luvussa käsitellään kolme uutta: `list`, `tuple` ja `range`. Suomeksi nämä kääntyisivät listaksi, monikoksi ja kenties arvojoukoksi, mutta tässä luvussa käytetään vain ja ainoastaan niiden alkuperäisiä nimiä Finglish-tyylisesti taivutettuna. Merkkijono on staattisesti tyypitetty sekvenssi, eli jokainen merkki on Unicode-koodipiste.
 
 ## Sekvenssien luonti
 
@@ -48,7 +48,7 @@ Huomaa, että myös merkkijono on iterable - sehän on yksi sekvensseistä itsek
 
 ## Immutability
 
-Yllä olevien esimerkkien perusteella lista ja tuple saattavat tuntua huomattavan samanlaisilta. On siis tärkeää painottaa heti alkuun, että niillä on merkittävä eroavaisuus: immutability eli muuttumattomuus.
+Yllä olevien esimerkkien perusteella lista ja tuple saattavat tuntua huomattavan samanlaisilta. On siis tärkeää painottaa heti alkuun, että niillä on merkittävä eroavaisuus: immutability eli muuttumattomuus. Pythonin listaan voi lisätä ja siitä voi poistaa elementtejä luomisen jälkeen, joten useimmissa ohjelmointikielissä sen vastine olisi "dynamic array".
 
 !!! tip
     Muistisääntö saattaa auttaa tässä ainakin aluksi. Muutettavia (eli mutable) tietotyyppejä Pythonissa ovat **LSD**: List, Set, Dict.

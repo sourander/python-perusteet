@@ -116,3 +116,60 @@ def process(image:bytes,
     return header + output_bytes
 ```
 
+
+
+## Harjoitus: Käytä kirjastoa kuvien käsittelyyn
+
+Binääridataa, kuten kuvia, käsitellään useimmissa tapauksissa eri kirjastojen avulla. Kuvia voi käsitellä esimerkiksi kirjastoilla opencv ja Pillow. Kokeile jälkimmäistä. Huomaa, että Pillow on fork vanhemmasta kirjastosta PIL. Tästä johtuu se, että paketti on pypissä eri nimellä kuin millä se importattaan.
+
+Asenna kirjasto virtuaaliympäristöösi:
+
+```bash
+# Bashissä
+$ pip install Pillow
+
+# ...tai luo ja aja Jupyter Notebookissa magic cell
+%pip install Pillow
+```
+
+Jos haluat listata kaikki tiedostoformaatit, jotka voit Pillow:lla tällä hetkellä avata ja/tai kirjoittaa, aja komento:
+
+```python
+>>> from PIL import features
+>>> PIL.features.pilinfo()
+```
+
+Kirjoita koodi:
+
+```python
+from PIL import Image
+
+# Lataa kuva ja tarkista sen tietotyyppi
+img = Image.open("image.bmp")
+print(type(img))
+
+# Suurenna kuva tasan 4x suuremmaksi käyttämättä interpolointia, jotta
+# kaunis pixel art pysyy pixel arttina eikä mössönä.
+resized = img.resize((img.width * 4, img.height * 4), resample=Image.NEAREST)
+
+# Hae pikselit listana tupleja. Huomaa type hint.
+pixels: list[tuple[int, int, int]] = list(resized.getdata())
+
+# Prosessoi pikselit funktiolla, joka sinun tulee luoda
+pixels = process(pixels)
+
+# Laita muokatut pikselit paikoilleen
+resized.putdata(new_pixels)
+```
+
+Pillow ja Jupyter Notebookin käyttämä IPython tarjoavat mahdollisuuksia myös kuvan näyttämiseen. Jupyter Notebookissa kuvan voi katsoa ajamalla solun, jonka viimeinen rivi on kuvan sisältävä muuttuja, kuten `resized`, tai vaihtoehtoisesti `display()` funktion sisältä esimerkiksi solun keskeltä:
+
+```python
+# GUI pop-up. Toimii myös Python-skripteistä laukaistuna:
+resized.show()
+
+# IPythonin display. Toimii Jupyter Notebookissa:
+from IPython.display import display
+display(resized)
+```
+
