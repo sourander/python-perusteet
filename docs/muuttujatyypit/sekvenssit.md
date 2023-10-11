@@ -73,7 +73,7 @@ Käytännössä tämä tarkoittaa juuri sitä, miltä se kuulostaa. Listaa voi m
 
 
 
-## Operaatiot
+## Sekvenssit ja operaatiot
 
 ### Aritmaattiset, Vertailu ja Loogiset
 
@@ -164,6 +164,60 @@ Lue alla oleva koodi huolella läpi ja kokeile sitä itse käytännössä.
 
 
 
+## Listan järjestäminen
+
+Listan voi järjestää sort metodilla. Mikäli listan elementti on iterable, se järjestetään vakiona sen ensimmäisen elementin mukaan. Huomaa, että sort järjestää listan `in-place`-tyylisesti. Metodi ei siis palauta uutta, järjestettyä listaa, vaan lista itsessään päivittyy.
+
+```python
+scores = [(3, 5), (7,4), (2, 1), (5, 6)]
+scores.sort()
+print(scores)
+[(2, 1), (3, 5), (5, 6), (7, 4)]
+```
+
+Mikäli haluat luoda uuden, järjestetyn listan, käydä Pythonin sisäänrakennettua funktiota sorted.
+
+```python
+scores = [(3, 5), (7,4), (2, 1), (5, 6)]
+sorted_scores = sorted(scores)
+```
+
+Mikäli haluat järjestää listan elementit jollakin muulla tavalla kuin ensimmäisen entiteetin mukaan, sort-metodille tai sorted-funktiolle pitää antaa funktio, joka palauttaa järjestykseen käytettävän numeron. Funktiot opetetaan kurssilla myöhemmin, mutta alla on yksi tapa esiteltynä sekä tavallisen funktion että lambda-funktion avulla. Kummatkin tekevät saman asian.
+
+```python
+# Järjestysfunktion määrittely
+def sort_by_second(x):
+    return x[1]
+
+# Järjestäminen funktiolla
+scores = [(3, 5), (7,4), (2, 1), (5, 6)]
+print(sorted(scores, key=sort_by_second))
+
+# Järjestäminen lambda-funktiolla
+print(sorted(scores, key=lambda x: x[1]))
+```
+
+Järjestys on vakiona pienestä suureen. Sen voi vaihtaa käänteiseksi avainsana-argumentin avulla. Alla esimerkki, jossa järjestämiseen käytetään Pythonin sisäänrakennettua summafunktiota:
+```python
+>>> sorted(scores, key=sum, reverse=True)
+[(7, 4), (5, 6), (3, 5), (2, 1)]
+```
+
+
+
+## Listan aggregointi
+
+Mikäli haluat tietää listan suurimman tai pienimmän arvon, tai kaikkien arvojen summan, tähän löytyy valmiit funktiot min, max ja sum.
+
+```python
+grades = [3, 4, 2, 5, 1, 1]
+
+average = sum(grades) / len(grades)
+print(f"Average (mean) grade is {average:.2f}.")
+```
+
+
+
 ## Listan kopiointi
 
 Listalla on oma metodeja, joita muut sekvenssit eivät toteuta. Tutustut näistä useimpiin alla olevissa harjoituksissa. Alla käsitellään niistä yksi, joka on merkittävästi monimutkaisempi kuin muut eli `copy`.
@@ -238,6 +292,30 @@ Mitä tästä opimme? Jos haluat listasta kopion, muista, että `.copy()` palaut
 
 
 
+## Moduuli: itertools
+
+Listan ja tuplen yhteydessä erittäin hyödyllinen kirjasto on itertools, josta löyty metodit permutaation, kombinaation ja karteesisen tulon laskemiseen joukkojen osalta. Tutustu myös muihin metodeihin: [Python docs: itertools](https://docs.python.org/3/library/itertools.html). Alla esimerkki, jossa generoidaan kaikki 3-täytteiset valkoiset tai punaiset pizzat.
+
+```python
+import itertools
+
+# Tuples of ingredients
+base = ("tomato sauce", "french cream")
+ingredients = ("egg", "ham", "spam", "pineapple", "blue cheese")
+
+# Find all unique combinations of 3 ingredients
+unique_ingredient_sets = itertools.combinations(ingredients, 3)
+
+# Create all possible 3-ingredient pizzas
+pairs = list(itertools.product(base, unique_ingredient_sets))
+
+# Print the pairs
+for pair in pairs:
+    print(pair)
+```
+
+
+
 ## Harjoituksia
 
 ### Harjoittele: Listan omat metodit
@@ -268,3 +346,50 @@ arr.append(123)
 print(arr)
 ```
 
+
+
+### Harjoittele: Statistiikka
+
+Pythonin statistics-kirjastosta löytyvat mode, mean ja median funktiot. Käytä näitä tarkistamaan oma laskelmasi assert:n avulla. Korvaa alla olevassa koodissa None omalla laskukaavallasi. Huomaa, että saat luoda uusia muuttujia tarpeen mukaan.
+
+```python
+import random
+from statistics import mode, mean, median
+
+numbers = list(range(16))
+random.shuffle(numbers)
+
+# calculate mean
+manual_mean = None # laske tämä itse
+assert manual_mean == mean(numbers)
+
+# calculate median
+manual_median = None # laske tämä itse
+assert manual_mean == median(numbers), f"Median is {manual_median}, should be {median(numbers)}"
+
+# calculate mode
+manual_mode = None # laske tämä itse
+assert manual_mode == mode(numbers), f"Mode is {manual_mode}, should be {mode(numbers)}"
+```
+
+
+
+### Harjoittele: Anagrammi
+
+Yllä esiteltiin moduuli itertools. Käytä funktiota `itertools.permutations()` ja luo kaikki sanan "kissa" anagrammit – oli niissä suomen kielen kannalta järkeä tai ei.
+
+```python
+import itertools
+
+# Example using a tuple
+letters = list("kissa")
+
+# Create an iterator that generates permutations of the tuple
+permutations = None # Tee toteutus tässä
+
+# Print the permutations
+for perm in permutations:
+    print(perm)
+```
+
+Pohdi, kuinka selvittäisit, mitkä näistä sanoista ovat oikeasti suomen kielen sanoja.

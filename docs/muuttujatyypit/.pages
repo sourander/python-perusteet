@@ -3,6 +3,7 @@ nav:
   - merkkijono.md
   - numerot.md
   - sekvenssit.md
-  - tavut.md
+  - Tavujono: tavut.md
   - Joukko (set): joukko.md
+  - Sanakirja (dict): sanakirja.md
   - ...

@@ -21,6 +21,8 @@ million = 1_00_0000  # Python ei valita tästä
 
 ## Numerot ja operaatiot
 
+Huomaa, että merkkijonot-luvussa tämä otsikko oli vielä "operaattorit". Numeroiden kohdalla tämä on laajennettu sisältämään operaattoreiden (`+`, `%`, `and`, ...) lisäksi myös muita operaatioita, kuten Pythonin sisäänrakennettujen funktioiden käytön.
+
 ### Aritmaattiset
 
 | Operaatio       | Selite                                       |
@@ -62,14 +64,16 @@ Huomaa, että Python sallii matemaattiset operaatiot eri numeeristen tyyppien v�
 
 ### Bitti
 
-| Operaatio |                   |                    |
-| --------- | ----------------- | ------------------ |
-| &         | AND               | `0b1111 & 0b1111`  |
-| \|        | OR                | `0b0000 OR 0b1111` |
-| ^         | XOR               | `0b1010 ^ 0b0101`  |
-| ~         | NOT               | `~ 0b0111`         |
-| <<        | Siirto vasemmalle | `0b0001 << 1`      |
-| >>        | Siirto oikealle   | `0b0010 >> 1`      |
+Kokeile ajaa alla olevan taulukon esimerkit Pythonissa. Selvitä, mitä tapahtuu, jos muutat arvoja. Jos et onnistu päättelemään operaattoreiden toiminnallisuutta, lue aiheesta lisää esimerkiksi [Wikipedia: Bittioperaatio](https://fi.wikipedia.org/wiki/Bittioperaatio).
+
+| Operaattori | Termi tai selite  | Esimerkki          |
+| ----------- | ----------------- | ------------------ |
+| &           | AND               | `0b1111 & 0b1111`  |
+| \|          | OR                | `0b0000 OR 0b1111` |
+| ^           | XOR               | `0b1010 ^ 0b0101`  |
+| ~           | NOT               | `~ 0b0111`         |
+| <<          | Siirto vasemmalle | `0b0001 << 1`      |
+| >>          | Siirto oikealle   | `0b0010 >> 1`      |
 
 !!! tip
     Näistä on esimerkkejä alempana tässä samassa luvussa. 
