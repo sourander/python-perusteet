@@ -27,18 +27,18 @@ Huomaa, että merkkijonot-luvussa tämä otsikko oli vielä "operaattorit". Nume
 
 | Operaatio       | Selite                                       |
 | :-------------- | :------------------------------------------- |
-| `x + y`         | *x* plus *y* (summa)                         |
-| `x - y`         | *x* miinus *y* (erotus)                      |
-| `x * y`         | *x* kertaa *y* (tulo)                        |
-| `x / y`         | *x* jaettuna *y*:llä (osamäärä)              |
+| `x + y`         | _x_ plus _y_ (summa)                         |
+| `x - y`         | _x_ miinus _y_ (erotus)                      |
+| `x * y`         | _x_ kertaa _y_ (tulo)                        |
+| `x / y`         | _x_ jaettuna _y_:llä (osamäärä)              |
 | `x // y`        | Osamäärä pyöristettynä alas kokonaisluvuksi. |
 | `x % y`         | Jakojäännös                                  |
-| `-x`            | *x*:n negaatio                               |
+| `-x`            | _x_:n negaatio                               |
 | `abs(x)`        | x:n absoluuttinen arvo                       |
 | `int(x)`        | x konvertoituna kokonaisluvuksi              |
 | `float(x)`      | x konvertoituna desimaaliluvuksi             |
 | `divmod(x, y)`  | Tuple-muodossa seuraavat: `(x // y, x % y)`  |
-| `x ** y`        | *x* potenssiin y                             |
+| `x ** y`        | _x_ potenssiin y                             |
 | `round(x[, n])` | Pyöristä n desimaalin tarkkuudella. Vakio 0. |
 
 Huomaa, että Python sallii matemaattiset operaatiot eri numeeristen tyyppien välillä. Voit siis esimerkiksi vähentää kokonaisluvusta desimaaliluvun. Operaatiosta palautuvan luvun tietotyyppi riippuu operaatiosta. Esimerkiksi jakolasku palauttaa aina `float`:n, vaikka luku olisi jaollinen.
@@ -60,6 +60,7 @@ Huomaa, että Python sallii matemaattiset operaatiot eri numeeristen tyyppien v�
 | not         | `not 0`   |
 
 !!! question "Tehtävä"
+
     Kokeile kaikki yllä olevat operaattorit läpi. Selvitä, mitä ne tekevät. Loogiset operaattorit, saattavat tuntua lukujen kanssa epäloogisilta. Ota selvää!
 
 ### Bitti
@@ -76,9 +77,8 @@ Kokeile ajaa alla olevan taulukon esimerkit Pythonissa. Selvitä, mitä tapahtuu
 | >>          | Siirto oikealle   | `0b0010 >> 1`      |
 
 !!! tip
-    Näistä on esimerkkejä alempana tässä samassa luvussa. 
 
-
+    Näistä on esimerkkejä alempana tässä samassa luvussa.
 
 ## Numeroiden muotoilu
 
@@ -88,7 +88,7 @@ Numeroita voi muotoilla F-stringin avulla. Kokeile ajaa alla oleva koodi, joka t
 for section in range(17):
     start = (2 ** 16 * section)
     end = start + 2 ** 16 - 1
-    
+
     print(f"{section:<2}{start:>10}{end:>10}")
 ```
 
@@ -106,6 +106,7 @@ Aiemmin tutun "padding and aligning"-operaation lisäksi numeroita voi muotoilla
 | `{42:.2f}`                  | `42.00`     | ... joka pätee myös kokonaislukuihin.               |
 
 !!! tip
+
     Aiemmin mainitut vanhemmat muotoilutavat (format ja %-syntaksi) jätetään käsittelemättä tässä luvussa, mutta mikäli aihe kiinnostaa, tutustu vapaasti numeroiden tulostamiseen `"".format()` avulla. Toimiiko muoto `"{0:.2f}".format(42.00001)"` ?
 
 Otetaan heksadesimaalimuunnos hyötykäyttöön, ja muokataan yllä olevaa Unicode plane -tulostinta. Alla sama koodi muokattuna siten, että se tulostaa numerot heksadesimaaleina. Luku vie aina vähintään 6 merkkiä; täytteenä toimii välilyöntimerkki:
@@ -114,16 +115,13 @@ Otetaan heksadesimaalimuunnos hyötykäyttöön, ja muokataan yllä olevaa Unico
 for section in range(17):
     start = (2 ** 16 * section)
     end = start + 2 ** 16 - 1
-    
+
     print(f"{section:<2} {start:6x} {end:6x}")
 ```
 
-
-
 !!! question "Tehtävä"
+
     Päättele yllä olevien avulla, kuinka käännät luvun binääriksi ja tulostat 8 merkkiä pitkänä. Luvusta 127 pitäisi tulostua `01111111`, mukaan lukien ensimmäinen nolla. Vihje: `b`.
-
-
 
 ## Numeroiden metodit
 
@@ -144,8 +142,6 @@ float(). # paina tabia
 ```
 
 1. Tabulaattorin, eli Q-näppäimen vasemmalla puolella olevan näppäimen, klikkaaminen käynnistää IDE:n koodin täydennyksen (code completion), joka listaa kaikki kyseisen olion metodit (eli olion omat funktiot) ja ominaisuudet (propertyt), jotka eivät ala alaviivalla eli eivät ole yksityisiä. IDE:stä riipppuen mukaan saattaa tulostua ties mitä muuta, kuten tiedostopolkuja.
-
-
 
 ## Moduuli: datetime
 
@@ -186,12 +182,9 @@ past = now - delta
 print(past.isoformat())
 ```
 
-
-
 !!! warning
+
     Kellonaikojen käsittely on huomattavan vaikeaa, varsinkin jos mukaan sotketaan eri aikavyöhykkeet ja kesäajat tai kaukana historiassa olevat Juliaaniset sekä Gregoriaaniset kalenterit. Huomaa, että pyörää ei välttämättä kannata keksiä uudestaan. Datetimen ympärille on rakennettu kirjastoja, kuten [Arrow](https://arrow.readthedocs.io/en/latest/), jotka käsittelevät aikoja oletetusti aikavyöhykkeeseen sidottuna.
-
-
 
 ## Kymmenjärjestelmästä poikkeavat luvut
 
@@ -226,8 +219,6 @@ Jos sinulla on merkkijono, joka edustaa binääriä, käännä se numeroksi sis�
 >>> int("65", base=16)
 101
 ```
-
-
 
 ## Floatin ongelmat
 
@@ -267,14 +258,12 @@ False
 
 >>> num = 0.1
 >>> num.as_integer_ratio()
-(3602879701896397, 36028797018963968) 
+(3602879701896397, 36028797018963968)
 # Pythonin näkökulmasta 0.1 on suunnilleen sama kuin
-# kokonaislukujen 3_602_879_701_896_397 ja 2**55 suhde 
+# kokonaislukujen 3_602_879_701_896_397 ja 2**55 suhde
 ```
 
 Jos luot murtolukujen avulla liukulukuja **missä tahansa ohjelmointikielessä**, noudata äärimmäistä varovaisuutta! Suorita pyöristysoperaatio aina vasta viimeisenä, ja mielellään riittävällä tarkkuudella, kuten rahan kohdalla sentteinä. Mikäli tarvitset tieteellisen laskennan tarkkuutta, käytä avuksi kirjastoja kuten Pythonin built-in kirjastot `decimal` tai `franctions`.
-
-
 
 ## Harjoituksia
 
@@ -292,8 +281,6 @@ event_time = datetime.datetime()
 event_time.timestamp()
 ```
 
-
-
 ### Harjoittele: Etsi edellinen maanantai
 
 Kirjoita skripti, joka tulostaa, kuinka monta päivää sitten oli edellinen maanantai, ja mikä kyseinen päivä on kalenterissa (ISO 8601 formaatissa). Tulostuvan lauseen pitäisi olla (`"Last Monday was # days ago: YYYY-MM-DD"`). Jos osaat, tee koodiin muutos, joka tulostaa `"Today is Monday, you silly!"`, jos tänään on maanantai.
@@ -306,9 +293,8 @@ today = datetime.date.today()
 ```
 
 ??? tip "Vihje"
+
     Vihje: `weekday()` tai `%w`.
-
-
 
 ### Harjoittele: Kommentoi IP-osoitefunktiot
 
@@ -319,51 +305,51 @@ Vinkki: `enumerate` numeroi silmukan iteraatiot, eli `index` saa ensimmäisellä
 ```python
 def ip_to_integer(ip_address:str, verbose=False) -> int:
     """Convert IP address into an integer.
-    
-    Example: 
+
+    Example:
     >>> ip_to_integer("1.0.0.0")
     16_777_216
     """
-    
+
     # Convert to list "1.2.3.4" => [1, 2, 3, 4]
     ip_parts = [int(x) for x in ip_address.split(".")]
     assert len(ip_parts) == 4, "IP must be in format x.x.x.x"
     total = 0
-    
+
     for index, ip_part in enumerate(ip_parts[::-1]):
         ip_shifted = ip_part << (8 * index)
         total = total + ip_shifted
         if verbose:
             print(
-                f"[INFO] {index+1}th from right ({ip}) " 
+                f"[INFO] {index+1}th from right ({ip}) "
                 f"is in bitshifted binary: {ip_shifted:32b}"
             )
-    
+
     return total
 
 
 def integer_to_ip(ip_integer: int) -> str:
     """Convert integer into an IP address
-    
-    Example: 
+
+    Example:
     >>> integer_to_ip(16_777_216)
     "1.0.0.0"
     """
 
     assert 0 <= ip_integer <= 2 ** 32 - 1, "Integer should be in range 0-4_294_967_295"
-    
+
     ip_parts = []
     for _ in range(4):
         ip_part = ip_integer & 0b11111111
-        
+
         # Add this part into the list ip_parts
         ip_parts.append(str(ip_part))
-        
+
         ip_integer = ip_integer >> 8
 
     # Join parts with dot as separator, e.g. [4,3,2,1] -> "1.2.3.4"
     ip_address = ".".join(ip_parts[::-1])
-    
+
     return ip_address
 ```
 
@@ -381,4 +367,5 @@ print(network_address)
 Huomaathan, että esimerkki on äärimmäisen naiivi. Se sallii epäkelpoja aliverkon peitteitä (esim. `255.128.255.0`). Pythonin `ipaddress`-kirjasto hoitaa saman tehtävän vähemmän naiivisti ja käyttää olio-ohjelmoinnin keinoja. Kirjaston dokumentaatio löytyy [Python Docs: ipaddress — IPv4/IPv6 manipulation library](https://docs.python.org/3/library/ipaddress.html).
 
 !!! question "Tehtävä"
+
     Yritä kirjoittaa muutama rivi koodia, jotka varmistavat, että verkon peite (eli mask) kelpaa oikeasti peitteeksi. Sovitaan, että peitteen pitää sisältää `8-29` ykköstä ja loput nollia eli sallitaan CIDR:t `/8 - /29`. Jos CIDR ei ole tuttu käsite, käväise esimerkiksi [Wikipedia: Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Vasemmalta alkavien ykkösten välissä ei saa siis olla yhtään nollaa, mikä tarkoittaa että `255.0.255.0` maskin pitäisi nostaa AssertionError! Käytä tähän `assert something_that_should_be_true` muotoa, kuten yllä olevissa esimerkeissä.

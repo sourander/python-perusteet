@@ -1,6 +1,7 @@
 REPL:n (Integrated Development and Learning Environment) on interaktiivinen prompt, joka muistaa yhden session ajan kaikki luomasi muuttujat, funktiot ja objektit. Sillä on vaikea kirjoittaa yhtä tai kahta riviä pidempiä funktioita, mutta ensimmäisten askeleiden ottamiseen se on täydellinen leikkikenttä. Pythoniin liittyy myös kevyt IDE nimeltään IDLE, mutta siihen perehtyminen voidaan jättää tällä kurssilla pois: käytetään sen sijasta esimerkiksi Visual Studio Codea.
 
 !!! tip
+
     REPL on myös huomattavan nopea tapa tehdä perus laskutoimituksia: sitä voi käyttää korvaamaan käyttöjärjestemän vakio Calculator-sovelluksen nopeissa laskutoimituksissa.
 
 Kunhan olet asentanut Pythonin sinun käyttöjärjestelmääsi soveltuvalla tavalla, aja alla näkyvistä komennoista sinun käyttöjärjestelmääsi sopiva. Toistaiseksi Git Bash:ssä `node`, `python` ja muut pseudoterminaalia käyttävät komentotulkit tulee ajaa `winpty`-ohjelmalla. Mikäli tätä lukiessa ei ole vuosi 2023 vaan jokin tuoreempi, tämä on voinut muuttua.
@@ -17,7 +18,7 @@ Shelliin aukeaa uudenlainen prompt, jossa eivät enää toimi vanhat `ls` ja `pw
 
 ![REPL-3-11-zsh](../images/REPL-3-11-zsh.png)
 
-**Kuvio 1:** *REPL käynnissä macOS:ssä. Mikäli sinulla on Windows, REPL:n ympärillä näkyvä ikkuna on eri näköinen.*
+**Kuvio 1:** _REPL käynnissä macOS:ssä. Mikäli sinulla on Windows, REPL:n ympärillä näkyvä ikkuna on eri näköinen._
 
 Alla on esimerkkikoodia. Kokeile ajaa sama koodi REPL:ssä itse. Huomaa, että jos kirjoitat pelkän muuttujan nimen, se tulostaa sen arvon (nimeltään `repr`, printable **repr**esentation). Vaihtoehtoisesti voit syöttää muuttujan sisäänrakennetulle `print`-funktiolle, joka tulostaa sen merkkijonona (`str`). Ero on pieni, mutta joissakin tapauksissa merkittävä.
 
@@ -41,7 +42,7 @@ Alla lisää harjoituksia. Harjoitukset ovat tyypillistä Pythonia, joten kommen
 ```python
 # Tehtävä 1: keskiarvo
 a, b, c, d = 5, 5, 10, 10
-average = _  
+average = _
 # Keksi, kuinka tämä lasketaan
 
 # Tehtävä 2: muuttujan jyrääminen
@@ -55,16 +56,15 @@ help(print)
 # Katso, mitä help tekee. Pääset pois q-näppäintä painamalla.
 
 # Tehtävä 4: nollalla jakaminen
-result = 500 / 0   
+result = 500 / 0
 # Tutki, mitä tapahtuu kun painat enteriä
 
-# Tehtävä 5: f-string 
+# Tehtävä 5: f-string
 number = 42
 print(f"{number:08b}")
 # Pohdi, mitä tämä tekee.
 
 # Tehtävä 6: sammuta REPL
-quit()   
+quit()
 # Tai näppäinyhdistelmä CTRL + D (EOF, End Of File)
 ```
-

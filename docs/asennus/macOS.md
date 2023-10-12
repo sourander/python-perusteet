@@ -1,4 +1,5 @@
 !!! tip
+
     Lukuohje alla oleviin koodisnippetteihin: mikäli rivi alkaa `$`-merkillä, kyseinen rivi on ajettava komento. Kyseinen merkki ei kuulu komentoon, vaan on yksinkertaisesti dokumentaatiossa indikoimassa, että kyseessä on command promptiin syötetty käsky. Mikäli rivistä puuttuu tuo merkki, on kyseessä komennon palauttama tuloste. Mikäli tulosteessa on rivi `...`, tulostetta on lyhennetty luettavuuden parantamisen vuoksi. Oikea tuloste on tällöin pidempi.
 
 ## Käytä Z Shelliä
@@ -114,7 +115,7 @@ Käynnistä terminaali uusiksi tai aja komento `source ~/.zshrc`. Jos haluat var
 
 ```bash
 # Tämän pitää tulostaa zsh eikä tyhjää merkkijonoa
-$ echo $PYENV_SHELL 
+$ echo $PYENV_SHELL
 zsh
 ```
 
@@ -159,7 +160,6 @@ $ pyenv global 3.11
 $ pyenv global
 3.11
 ```
-
 
 ## Kuinka päivittää jatkossa?
 

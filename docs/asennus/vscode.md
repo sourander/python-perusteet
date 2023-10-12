@@ -1,10 +1,10 @@
 ## Asenna
 
-Mikäli sinulla on jo Visual Studio Code asennettuna, hyppää seuraavaan aliotsikkoon. 
+Mikäli sinulla on jo Visual Studio Code asennettuna, hyppää seuraavaan aliotsikkoon.
 
-* Windowsille Visual Studio Code asennetaan [Visual Studio Code](https://code.visualstudio.com/download):n sivuilta. 
-* macOS:lle voit asentaa sen joko lataamalla asennuspaketin samalta sivustolta, tai, käyttämällä Homebrew:ta. Homebrew:n asennus ja peruskäyttö on neuvottu tämän saitin [macOS](macOS.md)-ohjeessa, jonka toivon mukaan olet jo lukenut, jos olet macOS-käyttäjä.
-* Linuxissa asennus riippuu distrosta. Etsi työpöytäympäristöstäsi `GNOME Software` tai lataa käyttöjärjestelmääsi sopiva paketti [Visual Studio Code Downloads](https://code.visualstudio.com/download)-sivulta.
+- Windowsille Visual Studio Code asennetaan [Visual Studio Code](https://code.visualstudio.com/download):n sivuilta.
+- macOS:lle voit asentaa sen joko lataamalla asennuspaketin samalta sivustolta, tai, käyttämällä Homebrew:ta. Homebrew:n asennus ja peruskäyttö on neuvottu tämän saitin [macOS](macOS.md)-ohjeessa, jonka toivon mukaan olet jo lukenut, jos olet macOS-käyttäjä.
+- Linuxissa asennus riippuu distrosta. Etsi työpöytäympäristöstäsi `GNOME Software` tai lataa käyttöjärjestelmääsi sopiva paketti [Visual Studio Code Downloads](https://code.visualstudio.com/download)-sivulta.
 
 Jos asennat macOS:ssä Homebrew:tä käyttäen, aja komento:
 
@@ -65,11 +65,11 @@ Asennetaan dokumentaatiota helpottava extension **Markdown All in One**.
 Voit lukea extensionin ohjeet Visual Studio Marketplacesta [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one):n omalta sivulta.
 
 !!! question "Tehtävä"
+
     Noudata Marketplacesta löytyvää dokumentaatiota ja kokeile seuraavia asioita:
 
     1. Luo muutama otsikko ja Table of Contents
     2. Luo Markdown-taulukko. Kokeile Table formatter -ominaisuutta.
-
 
 ### Extension: Prettier - Code Formatter
 
@@ -106,7 +106,7 @@ Asenna Prettier yllä neuvotulla tavalla.
 
 ### Extension: Python
 
-Asenna kuten aiemmat tai asenna kun Code kysyy sitä. Tyypillisesti Code tarjoaa tämän Extensionin asenatamista, kun luot tai avaat ensimmäisen `.py`-päätteisen tiedoston. 
+Asenna kuten aiemmat tai asenna kun Code kysyy sitä. Tyypillisesti Code tarjoaa tämän Extensionin asenatamista, kun luot tai avaat ensimmäisen `.py`-päätteisen tiedoston.
 
 Anna tämän extensionin olla vakioasetuksilla.
 

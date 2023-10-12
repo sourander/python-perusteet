@@ -5,8 +5,6 @@ message = "Hello world! 😀"
 print(message)
 ```
 
-
-
 ## Merkkijonon luonti
 
 Literaalin merkkijonon voi luoda kirjoittamalla jotakin lainausmerkkien väliin tai heittomerkkien väliin. Seuraavat komennot toimivat REPL:ssä:
@@ -101,7 +99,7 @@ long_string = (
 )
 
 # Vaihtoehto 3: Yhdistämä list<str> tyypin muuttujan entiteetit
-list_of_strings = [ 
+list_of_strings = [
     "This is a very long string",
     "written in multiple list items",
     "but printed on a single line",
@@ -110,18 +108,16 @@ list_of_strings = [
 long_string = " ".join(list_of_strings)
 ```
 
-
-
 ## Merkkijono ja operaattorit
 
-Merkkijonot eivät ole lukuja, mutta valitut Pythonin aritmeettiset operaatiot, vertailuoperaattorit, loogiset operaattorit sekä jäsenyyttä testaavat operaattorit toimivat niitä vasten silti. 
+Merkkijonot eivät ole lukuja, mutta valitut Pythonin aritmeettiset operaatiot, vertailuoperaattorit, loogiset operaattorit sekä jäsenyyttä testaavat operaattorit toimivat niitä vasten silti.
 
 #### Aritmeettiset
 
 | Operaattori | Esimerkki           |
 | ----------- | ------------------- |
 | +           | `"kissa" + "koira"` |
-| *           | `"x" * 72`          |
+| \*          | `"x" * 72`          |
 
 #### Vertailu
 
@@ -140,7 +136,7 @@ Merkkijonot eivät ole lukuja, mutta valitut Pythonin aritmeettiset operaatiot, 
 | not         | `not ""`              |
 
 !!! question "Tehtävä"
-    Kokeile kaikki yllä olevat operaattorit läpi. Selvitä, mitä ne tekevät. Vertailuoperaattorit suurempi/pienempi kuin, kuten myös loogiset operaattorit, saattavat tuntua merkkijonojen kanssa epäloogisilta. Ota selvää!
+Kokeile kaikki yllä olevat operaattorit läpi. Selvitä, mitä ne tekevät. Vertailuoperaattorit suurempi/pienempi kuin, kuten myös loogiset operaattorit, saattavat tuntua merkkijonojen kanssa epäloogisilta. Ota selvää!
 
 ## Merkkijonojen muotoilu
 
@@ -202,8 +198,6 @@ print(f"{ingredient:*^{n}}")
 
 F-string eli "formatted string literal" on hyödyllinen myös muiden muuttujatyyppien kuin merkkijonojen tulostamisessa. Siispä tähän aiheeseen palataan aiheeseen kurssilla useassa eri luvussa. Jos mielenkiinto heräsi, voit toki lukea aiheesta jo nyt lisää, esimerkiksi [fstring.help](https://fstring.help/)-sivustolta tai [Pythonin omasta dokumentaatiosta](https://docs.python.org/3/library/string.html#format-specification-mini-language).
 
-
-
 ## Merkkijonon metodit
 
 Merkkijono on olio eli objekti, ja sillä on olio-ohjelmointiin tyypilliseen tapaan omia metodeja. Alla näkyy pari yleisesti hyödyllistä, mutta tutustu muihin [Pythonin dokumentaatiossa](https://docs.python.org/3/library/stdtypes.html#string-methods)
@@ -238,8 +232,6 @@ Merkkijono on sekvenssi, ja siihen toimii sisäänrakennettu `len()` funktio sam
 5
 ```
 
-
-
 ## Muuttumattomuus
 
 Yllä todettiin, että merkkijono on muuttumaton sarja merkkejä (tai Unicode-koodipisteitä.) Tämä tarkoittaa, että et voi muokata merkkijonoa samalla tavalla kuin listaa, johon perehdytään myöhemmissä luvuissa. Kokeile, mitä tapahtuu, kun yrität muokata merkkijonon ensimmäistä kirjainta:
@@ -249,15 +241,12 @@ Yllä todettiin, että merkkijono on muuttumaton sarja merkkejä (tai Unicode-ko
 >>> name[0] = "B"
 ```
 
-
-
-
-
 ## Moduuli: pathlib
 
-Yksi hyvin yleinen käyttötarkoitus  merkkijonoille ovat hakemisto- ja tiedostonimet. Niiden käsittely käsin on yllättävän haasteellista muun muassa siksi, että hakemistoerotin riippuu käyttöjärjestelmästä. Windowsissa se on `\` ja Unix-pohjaisissa järjestelmissä `/`. Suuri osa Pythonin tehokkuudesta tulee sen kattavasta kirjastosta erilaisia kirjastoja. Yksi todella näppärä kirjasto nimenomaan tähän käyttötarkoitukseen on pathlib, jonka dokumentaatioon kannattaa tutustua Python docsissa: [pathlib — Object-oriented filesystem paths](https://docs.python.org/3/library/pathlib.html). Kirjasto on Pythoniin sisäänrakennettu, joten sitä ei tarvitse erikseen asentaa, mutta täytyy importoida ennen käyttöä. 
+Yksi hyvin yleinen käyttötarkoitus merkkijonoille ovat hakemisto- ja tiedostonimet. Niiden käsittely käsin on yllättävän haasteellista muun muassa siksi, että hakemistoerotin riippuu käyttöjärjestelmästä. Windowsissa se on `\` ja Unix-pohjaisissa järjestelmissä `/`. Suuri osa Pythonin tehokkuudesta tulee sen kattavasta kirjastosta erilaisia kirjastoja. Yksi todella näppärä kirjasto nimenomaan tähän käyttötarkoitukseen on pathlib, jonka dokumentaatioon kannattaa tutustua Python docsissa: [pathlib — Object-oriented filesystem paths](https://docs.python.org/3/library/pathlib.html). Kirjasto on Pythoniin sisäänrakennettu, joten sitä ei tarvitse erikseen asentaa, mutta täytyy importoida ennen käyttöä.
 
 !!! tip
+
     Monissa Internetissä löytyvissä esimerkeissä käytetään vanhempaa `os` ja `os.path` moduulia samaan tehtävään. Suosi mieluummin oliopohjaista pathlibiä.
 
 ```python
@@ -299,11 +288,8 @@ assert content == read_content     # Mikä assert? (1)
 1. Assert on varattu avainsana Pythonissa, ja sitä voi käyttää totuuksien testaamiseen. Esimerkiksi `assert False` nostaa `AssertionErrorin`, mutta `assert True` ei.
 
 !!! tip
+
     Tämän luvun lopussa on pari harjoitusta, joissa tiedostoja luetaan ja kirjoitetaan sisäänrakennettua `open`-funktiota käyttäen. Kumpi on mielestäsi helpompi tai nopeampi tapa? Voit kokeilla tehdä samat tehtävät `pathlib`:iä käyttäen. Voit myös hallita tiedostopolut `pathlib`:llä, mutta kirjoittaa `open`:lla.
-
-
-
-
 
 ## Unicode
 
@@ -311,9 +297,9 @@ Yllä todettiin, että merkkijono on sarja Unicode-koodipisteitä. Unicoden Cons
 
 ![](../images/ASCII-Table-wide.svg)
 
-**Kuvio 1:** *ASCII-merkistö taulukkona. (Public domain: [lähde](https://simple.wikipedia.org/wiki/ASCII#/media/File:ASCII-Table-wide.svg).)*
+**Kuvio 1:** _ASCII-merkistö taulukkona. (Public domain: [lähde](https://simple.wikipedia.org/wiki/ASCII#/media/File:ASCII-Table-wide.svg).)_
 
-Unicode jakaa vanhan ASCII-merkistön kanssa ensimmäiset 127 merkkiä - joka siis kattaa perinteisen ASCII-merkistön kokonaan eli merkit `00`-`7F` (binäärinä `0000 0000`-`0111 1111`, desimaalina `0-127`). Aja alla oleva koodi ja tarkista, että kirjain "A" viittaa oikeaan Unicode/ASCII-koodipisteeseen. 
+Unicode jakaa vanhan ASCII-merkistön kanssa ensimmäiset 127 merkkiä - joka siis kattaa perinteisen ASCII-merkistön kokonaan eli merkit `00`-`7F` (binäärinä `0000 0000`-`0111 1111`, desimaalina `0-127`). Aja alla oleva koodi ja tarkista, että kirjain "A" viittaa oikeaan Unicode/ASCII-koodipisteeseen.
 
 ```python
 letter = "A"
@@ -325,7 +311,7 @@ print(hex_letter)
 ```
 
 !!! question "Tehtävä"
-    Selvitä, mikä on välilyönnin desimaaliarvo Unicodessa ja täten myös ASCII:ssa. Entä rivinvaihdon?
+Selvitä, mikä on välilyönnin desimaaliarvo Unicodessa ja täten myös ASCII:ssa. Entä rivinvaihdon?
 
 Aikoinaan kaikki muut merkit, kuten suomalaisista aakkosista tutut ääkköset tai skandit, lisättiin erilaisilla koodauksilla. Internetissä HTML-standardin default oli HTML 4.0:aan asti `ISO-8859-1` eli `latin-1`. Voit tutustua siihen lyhyesti Wikipedia-sivulla [Ääkköset](https://fi.wikipedia.org/wiki/%C3%84%C3%A4kk%C3%B6set).
 
@@ -337,8 +323,6 @@ Unicodessa tilanne on ratkaistu siten, että merkkiavaruutta on kasvatettu 8 bit
 | SMP        | 1       | `10000`-`1FFFF` (5 merkkiä!)  |
 | SIP        | 2       | `20000`-`2FFFF` (5 merkkiä!)  |
 | jne.       | jne     | jne.                          |
-
-
 
 ### Puhelinluettelovertaus
 
@@ -360,7 +344,7 @@ Yllä olevat heksadesimaalit ja planet saattavat hämmentää, joten alla on tä
 | 1 - SMP  | 65537   | `𐀁`                             |
 | 1 - SMP  | 65538   | `𐀂`                             |
 | ...      | ...     | ...                             |
-| 1 - SMP  | 128512  | `😀`                             |
+| 1 - SMP  | 128512  | `😀`                            |
 | ...      | ...     | ...                             |
 | 1 - SMP  | 131071  | `[UNASSIGNED]`                  |
 | 2 - SIP  | 131072  | `[CJK UNIFIED IDEOGRAPH-20000]` |
@@ -378,7 +362,7 @@ Huomaa, että käyttämäsi fontin täytyy sisältää merkki, jotta sen voi pii
 
 ### UTF-8
 
-Urasi aikana tulee äärimmäisen suurella todennäköisyydellä vastaan myös sellaisia tilanteita, että saat käsiisi tiedoston tai bytearrayn, jonka pitäisi sisältää tekstiä, mutta Python nostaa UnicodeDecodeErrorin. Tällöin tiedosto on yleensä enkoodattu esimerkiksi `latin-1`:llä ja sisältää jonkin extended ascii -merkin (`1xxx xxxx`) kuten `ä`. Python olettaa vakiona, että tiedostot ovat enkoodattu `utf-8`:lla (olettaen että sinulle on tuore Linux, macOS tai Windows). 
+Urasi aikana tulee äärimmäisen suurella todennäköisyydellä vastaan myös sellaisia tilanteita, että saat käsiisi tiedoston tai bytearrayn, jonka pitäisi sisältää tekstiä, mutta Python nostaa UnicodeDecodeErrorin. Tällöin tiedosto on yleensä enkoodattu esimerkiksi `latin-1`:llä ja sisältää jonkin extended ascii -merkin (`1xxx xxxx`) kuten `ä`. Python olettaa vakiona, että tiedostot ovat enkoodattu `utf-8`:lla (olettaen että sinulle on tuore Linux, macOS tai Windows).
 
 ```python
 # Luo muuttujat
@@ -396,12 +380,11 @@ print("... and decoded: ", as_str)
 ```
 
 !!! question "Tehtävä"
-    Kopioi yllä oleva komento Jupyter Notebookiin tai `.py`-tiedostoon. Muokkaa string, encoder ja decoder muuttujien arvoja ja aja koodia uudestaan ja uudestaan. Tulet huomaamaan, että UTF-8 on tuottaa merkistä riippuen eri määrän tavuja eli on *variable length encoding*. Kannattaa tutustua UTF-8:iin esimerkiksi [Wikipediassa](https://en.wikipedia.org/wiki/UTF-8).
+Kopioi yllä oleva komento Jupyter Notebookiin tai `.py`-tiedostoon. Muokkaa string, encoder ja decoder muuttujien arvoja ja aja koodia uudestaan ja uudestaan. Tulet huomaamaan, että UTF-8 on tuottaa merkistä riippuen eri määrän tavuja eli on _variable length encoding_. Kannattaa tutustua UTF-8:iin esimerkiksi [Wikipediassa](https://en.wikipedia.org/wiki/UTF-8).
 
 !!! tip
-    Unicode on siis **merkistö**, jossa kutakin merkkiä vastaa jokin kokonaisluku, joka usein esitetään muodossa `U+FFFF` tai `U+1FFFF` jos se kuuluu). Jos merkkijono materialisoidaan eli kirjoitetaan tiedostoon, ne pitää enkoodata siten, että sen voi kirjoittaa tavuina. Eri enkoodauksia ovat muun muassa `latin-1`, `utf-8` ja  `utf-16`. Näistä huomattavasti yleisin, useiden käyttöjärjestelmien ja esimerkiksi HTML 5:n vakio, on `utf-8`.
 
-
+    Unicode on siis **merkistö**, jossa kutakin merkkiä vastaa jokin kokonaisluku, joka usein esitetään muodossa `U+FFFF` tai `U+1FFFF` jos se kuuluu). Jos merkkijono materialisoidaan eli kirjoitetaan tiedostoon, ne pitää enkoodata siten, että sen voi kirjoittaa tavuina. Eri enkoodauksia ovat muun muassa `latin-1`, `utf-8` ja `utf-16`. Näistä huomattavasti yleisin, useiden käyttöjärjestelmien ja esimerkiksi HTML 5:n vakio, on `utf-8`.
 
 ### Unicode Pythonissa
 
@@ -415,6 +398,7 @@ print("Letters are the same?: ", b1 == b2 == b3)
 ```
 
 !!! question "Tehtävä"
+
     Valitse mikä tahansa symboli, kuten theta eli `Θ` tai peukku ylös hymil eli `👍`, ja käy syöttämässä se FileFormat-sivuston [Unicode Character Search](https://www.fileformat.info/info/unicode/char/search.htm)-hakukenttään. Klikkaa Search, skrollaa alas ja seuraa sopivinta hakutulosta. Jos tulosta ei löydy, kokeile syöttää haku sanana, kuten `thumb`.
 
 ## Harjoituksia
@@ -424,7 +408,7 @@ print("Letters are the same?: ", b1 == b2 == b3)
 Alla on koodi, joka lukee test.txt-tiedostosta UTF-8-koodausta käyttäen sisällön muuttujaan `content`. Kokeile koodia tiedostolla, jonka luot esimerkiksi `nano`:lla, Windowsin notepadilla tai Visual Studio Codella. Tiedoston tulee olla samassa kansiossa kuin mistä koodi ajetaan; tiedostopolku on siis relatiivinen.
 
 ```python
-# Vaihtoehto 1: Avaa tiedosto ja osoita TextIOWrapper:n instanssi muuttujaan 
+# Vaihtoehto 1: Avaa tiedosto ja osoita TextIOWrapper:n instanssi muuttujaan
 #               f. Lue sisältö. Lopuksi sulje tiedosto
 f = open("test.txt", "r", encoding="utf-8")
 content = f.read()
@@ -437,6 +421,7 @@ with open("test.txt") as f:
 ```
 
 !!! tip
+
     Huomaa, että yllä näkyvästä Vaihtoehto 2:sta puuttuvat positionaalinen argumentti `"r"` ja asiasana-argumentti `encoding`. Vaihtoehdossa 1 käytetyt arvot ovat defaultit, joten ne voi jättää määrittämättä, mikäli haluaa tiivistää koodia.
 
 ### Harjoittele: Merkkijono tiedostoon
@@ -451,6 +436,7 @@ with open("test.txt", "w") as file:
 ```
 
 !!! question "Lisätehtävä"
+
     Löytyy myös muita moodeja kuin `r` ja `w`. Kokeile tai selvitä, mitä moodi `a` tekee. Selvitä myös, mitä `b`-liite moodissa tekee: tällöin moodi on kokonaisuudessaan esimerkiksi `rb` tai `wb`.
 
 ### Harjoittele: Merkkijonon Unicode-analyysi
@@ -462,14 +448,14 @@ Alla on koodi, joka käy `message`-muuttujan merkit yksitellen läpi (`for`-silm
 message = "Hi! 😀\U0001F08F"
 
 # Taulukon otsikkorivi
-print("Merkki | Escape-formaatti | Koodipiste | UTF-8-enkoodaus") 
+print("Merkki | Escape-formaatti | Koodipiste | UTF-8-enkoodaus")
 
 # Merkkijono on sarja, joten se voidaan loopata
 for char in message:
-    
+
     # Unicode-koodipiste kokonaislukuna
     code_point = ord(char)
-    
+
     # UTF-8 enkoodaus välilyönnillä erotettuna heksana
     char_utf8 = char.encode('utf-8')
     char_utf8_hex = " ".join([f"{x:2X}" for x in char_utf8])
@@ -481,7 +467,7 @@ for char in message:
     else:
         char_esc_format = f"\\U{code_point:08X}"
         code_hex = hex(code_point)
-    
+
     # Print the information
     print(f"{char:<3}{char_esc_format:>21}{code_hex:>12}{char_utf8_hex:>18}")
 ```
@@ -497,4 +483,3 @@ i                 \u0069        0x69                69
 😀            \U0001F600     0x1f600       F0 9F 98 80
 🂏             \U0001F08F     0x1f08f       F0 9F 82 8F
 ```
-

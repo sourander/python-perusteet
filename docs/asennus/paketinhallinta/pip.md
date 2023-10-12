@@ -22,9 +22,8 @@ $ pip freeze
 # certifi==2023.7.22
 ```
 
-
-
 !!! warning
+
     Ethän siis asenna `pip`:llä paketteja, ellei sinulla ole virtuaaliympäristö aktivoituna.
 
 ## Mikä ihmeen venv?
@@ -51,31 +50,33 @@ Virtuaaliympäristö ei ole välttämättä nimeltään `.venv`, mutta tätä k�
 Virtuaaliympäristön tuoma hyöty on se, että kun asennat projektiisi joitakin kirjastoja (komennolla `pip install <jokin-paketti>`), et sotke tähän koko järjestelmän laajuista Pythonia, vaan nämä kirjastot asennetaan **tämän projektikansion sisään**. Unix-pohjaisissa käyttöjärjestelmissä relatiivinen polku on esimerkiksi: `.venv/lib/python3.11/site-packages/`.
 
 ??? tip "Symbolic links"
-    Komento `python -venv <kansionnimi>` kopioi tai luo symbolisen linkin Python executableen, jolla kyseinen komento ajettiin. Se, onko kyseessä defaulttina kopio vai symbolinen linkki, riippuu käyttöjärjestelmässä. 
-    
+
+    Komento `python -venv <kansionnimi>` kopioi tai luo symbolisen linkin Python executableen, jolla kyseinen komento ajettiin. Se, onko kyseessä defaulttina kopio vai symbolinen linkki, riippuu käyttöjärjestelmässä.
+
     Windowsissa tiedostot kopioidaan fyysisesti `.venv/Scripts`-kansion alaisuuteen, mukaan lukien `python.exe`. Unix-pohjaissa käyttöjärjestelmissä default on käyttää symbolista linkkiä, jolloin tiedosto `.venv/bin/python` viittaa esimerkiksi tiedostoon `/usr/bin/python3` tai `~/.pyenv/versions/3.11.5/bin/python`. Mikäli poistat tämän virtuaaliympäristön hyödyntämän Pythonin, se virtuaaliympäristö lakkaa toimimasta. Mikäli virtuaaliympäristö viittaa järjestelmätason Pythoniin (eli `/usr/bin/`), on myös mahdollista että käyttöjärjestelmäpäivitys tai paketinhallinnan `update`-komento päivittää Pythonin tuoreempaan versioon, jolloin myös virtuaaliympäristösi versio päivittyy.
-    
+
     Mikäli haluat Unix-pohjaisissa käyttöjärjestelmissä varmistaa, että Python **kopioidaan** kyseiseen kansioon, tarvitsee sinun ajaa venv-moduuli lisäparametrilla, näin:
-    
+
     ```bash
     $ python -m venv --copies .venv
     ```
-    
+
     Parempi ratkaisu on kuitenkin käyttää pyenv:iä ja olla poistamatta vanhoja Python-versioita.
 
-
-
 !!! warning
+
     Huomaathan, että virtuaaliympäristö tulee aktivoida **aina uudestaan** kun käynnistät uuden Git Bash -ikkunan, tai sammutat ja käynnistät tietokoneen uudestaan, tai muutoin päädyt kansioon siten, että ympäristö on vaihtunut. Kyseessä ei siis ole millään tavoin istunnosta toiseen pysyvä asetus!
 
 ## Asennus ja käyttö: Windows
 
 !!! warning
+
     Huomaa, että Git Bash emuloi Linux-maailmasta tuttua Bash-shelliä. Tämän takia esimerkiksi hakemistojen välissä käytetty erotin on ajoittain komentojen tuloisteissa POSIX- eli Linux-suuntaan (`/`) ja ajoittain Windows-suuntaan (`\`). Git Bash on outo sekoitus Windowsia ja Linuxia: sen kanssa pitää vain oppia tulemaan toimeen, mikäli käyttää Windowsia kehitysympäristönä. Merkki `~` eli tilde eli aalto viittaa käyttäjän kotihakemistoon.
 
 Windowsissa pip asentuu Pythonin mukana. Se asentuu lokaatioon `$LOCALAPPDATA/Programs/Python/Python311/Scripts/pip.exe`. Komento ei välttämättä ole $PATH:ssa eikä sitä täten voi ajaa suoraan komentokehotteesta, mutta tällä ei ole väliä. Meille riittää, että komento toimii virtuaaliympäristöissä.
 
 !!! tip
+
     Lukuohje ympäristömuuttujiin. Bashissä, kuten myös Windowsissa, on olemassa ympäristömuuttujia. Linuxissa näihin viitataan syntaksilla `$MUUTTUJA` ja Windowsissa `%MUUTTUJA%`. Osa näistä on aina olemassa, kuten `$PATH`, joka sisältää puolipisteellä erotellun listan hakemistoista, joista ajettavia komentoja etsitään. Tutustu olemassa oleviin ympäristömuuttujiin ajamalla Git Bash:ssä komento `printenv`. Niitä on huomattavan paljon. Käytän paria näistä alla olevissa komennoissa lyhentämään muutoin kammottavan pitkiä tiedosto- tai hakemistopolkuja.
 
 Avaa Git Bash ja siirry johonkin kansioon, jossa uskallat kokeilla virtuaaliympäristöjä.
@@ -102,7 +103,7 @@ source .venv/Scripts/activate
 # seuraavalle riville.
 (.venv) $
 
-# Varmista vielä, että ensimmäinen Python listalla on nimenomaan projektin alla oleva 
+# Varmista vielä, että ensimmäinen Python listalla on nimenomaan projektin alla oleva
 # paikallinen python.exe eli virtuaaliympäristö.
 $ py -0p
   *               $PWD\.venv\Scripts\python.exe
@@ -111,7 +112,7 @@ $ py -0p
 # Näin voit deaktivoida virtuaaliympäristön
 $ deactivate
 
-# Mikäli vahingossa deaktivoit virtuaaliympäristön, aktivoi se uusiksi komennolla 
+# Mikäli vahingossa deaktivoit virtuaaliympäristön, aktivoi se uusiksi komennolla
 # source .venv/Scripts/activate
 ```
 
@@ -144,8 +145,6 @@ Mikäli käytät Linux-distribuution mukana tullutta Pythonia, sinulta puuttuu t
 
 Mikäli asensin pyenv:n aiemmin esiteltyjen ohjeiden mukaisesti, voit noudattaa tismalleen samoja ohjeita kuin yllä macOS:n kohdalla.
 
-
-
 ## Käyttö: Visual Studio Code
 
 Virtuaaliympäristö tulee ottaa käyttöön aina, kun ajat projektisi koodia tai asennat siihen kirjastoja `pip`:llä. Tähän "aina"-tilanteeseen luetaan myös IDE:t kuten Visual Studio Code.
@@ -160,7 +159,7 @@ Kun projektin hakemisto on avattuna, vasemman laidan Explorerissa pitäisi näky
 
 ![vscode-venv-interpreter](../../images/vscode-venv-interpreter.png)
 
-**Kuvio 1**: *Virtuaaliympäristö (tai mikä tahansa muu valittu Python-tulkki) näkyy Visual Studio Coden ikkunan oikeassa alalaidassa silloin kun sinulla on Python-tiedosto avattuna ja aktiivisena. Mikäli olet luonut virtuaaliympäristön ennen Coden avaamista, löytää Code sen usein automaattisesti.*
+**Kuvio 1**: _Virtuaaliympäristö (tai mikä tahansa muu valittu Python-tulkki) näkyy Visual Studio Coden ikkunan oikeassa alalaidassa silloin kun sinulla on Python-tiedosto avattuna ja aktiivisena. Mikäli olet luonut virtuaaliympäristön ennen Coden avaamista, löytää Code sen usein automaattisesti._
 
 Mikäli Visual Studio Code ei näytä mitään Python-tulkkia oikeassa alalaidassa, varmista, että sinulla on jokin `.py`-päätteinen tiedosto avattuna, kuten Kuviossa 1 näkyy (`myapp/main.py`).Seuraavaksi varmista, että onhan virtuaaliympäristö varmasti sinun projektikansiossasi. Yllä olevan Kuvio 1:n tapauksessa kansiot ovat:
 
@@ -175,15 +174,14 @@ Mikäli Visual Studio Code ei näytä mitään Python-tulkkia oikeassa alalaidas
 ~/Code/username/testiprojekti/myapp/
 ```
 
-
-
 ## Vahingossa asennettujen kirjastojen poisto
 
-Mikäli vahingossa ajat esimerkiksi komennon `pip install notebook` käsin asentamaasi Python-versioon, pip asentaa siihen aivan valtavan määrän riippuvuuksia, jotka eivät valitettavasti poistu `pip uninstall notebook`-komennolla. 
+Mikäli vahingossa ajat esimerkiksi komennon `pip install notebook` käsin asentamaasi Python-versioon, pip asentaa siihen aivan valtavan määrän riippuvuuksia, jotka eivät valitettavasti poistu `pip uninstall notebook`-komennolla.
 
 ```bash
 $ pip uninstall -y  $(pip freeze | cut -d"=" -f1)
 ```
 
 !!! warning
+
     Ethän poista Linuxissa tai macOS:ssä järjestelmätason Pythonista (eli `/usr/bin/python3`) riippuvuuksia!

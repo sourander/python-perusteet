@@ -1,19 +1,19 @@
 Python lyhyesti:
 
-* Python-ohjelma koostuu riveistä, jotka suoritetaan järjestyksessä ylhäältä alas.
-* Rivit päättyvän rivinvaihtoon (tarkemmin merkkeihin `LF` tai `CR+LF`). Siispä komentoja ei päätetä esimerkiksi `;`-merkkiin, kuten monissa muissa kielissä.
-* Tyhjät rivit ovat sallittuja ja luettavuuden parantamiseksi jopa suositeltavia. Koodin voi jakaa loogisiin kokonaisuuksiin samalla tavalla kuin tavallisessa tekstissä kappaleet.
-* Koodia ei erikseen käännetä binääriksi vaan Python-tulkki lukee `.py`-tiedostoa ja tulkkaa sitä tavukoodiksi. Kyseessä on siis **tulkattava** ohjelmointikieli.
-* Python on olio-ohjelmointikieli, mutta ei sulje pois muiden paradigmojen kuten proseduraalisen tai funktionaalisen ohjelmoinnin käyttöä.
-* Koodin on luonut Guido van Rossum ja sen nimi tulee Monty Python's Flying Circus -tv-sarjasta. Mikäli sarja on sinulle tuttu, tulet huomaamaan dokumentaatiossa useita viitteitä ohjelmaan, kuten egg, ham, spam, spam, spam ...
-* Kooditiedostot ovat tavallisesti UTF-8 -enkoodattuja ja tukevat näin valtavaa merkistöä. Myös emojit toimivat. :snake:
-* Sisennyksellä on erityinen merkitys! Sillä on siis merkitystä, että alkaako rivi ilman välilyöntejä vai 4, 8, 16 tai jollakin muulla määrällä välilyöntejä. Konventio on, että välilyöntejä on aina neljällä jaollinen määrä, ja että sisennykseen käytetään nimenomaan välilyöntiä eikä koskaan tabulaattoria.
+- Python-ohjelma koostuu riveistä, jotka suoritetaan järjestyksessä ylhäältä alas.
+- Rivit päättyvän rivinvaihtoon (tarkemmin merkkeihin `LF` tai `CR+LF`). Siispä komentoja ei päätetä esimerkiksi `;`-merkkiin, kuten monissa muissa kielissä.
+- Tyhjät rivit ovat sallittuja ja luettavuuden parantamiseksi jopa suositeltavia. Koodin voi jakaa loogisiin kokonaisuuksiin samalla tavalla kuin tavallisessa tekstissä kappaleet.
+- Koodia ei erikseen käännetä binääriksi vaan Python-tulkki lukee `.py`-tiedostoa ja tulkkaa sitä tavukoodiksi. Kyseessä on siis **tulkattava** ohjelmointikieli.
+- Python on olio-ohjelmointikieli, mutta ei sulje pois muiden paradigmojen kuten proseduraalisen tai funktionaalisen ohjelmoinnin käyttöä.
+- Koodin on luonut Guido van Rossum ja sen nimi tulee Monty Python's Flying Circus -tv-sarjasta. Mikäli sarja on sinulle tuttu, tulet huomaamaan dokumentaatiossa useita viitteitä ohjelmaan, kuten egg, ham, spam, spam, spam ...
+- Kooditiedostot ovat tavallisesti UTF-8 -enkoodattuja ja tukevat näin valtavaa merkistöä. Myös emojit toimivat. :snake:
+- Sisennyksellä on erityinen merkitys! Sillä on siis merkitystä, että alkaako rivi ilman välilyöntejä vai 4, 8, 16 tai jollakin muulla määrällä välilyöntejä. Konventio on, että välilyöntejä on aina neljällä jaollinen määrä, ja että sisennykseen käytetään nimenomaan välilyöntiä eikä koskaan tabulaattoria.
 
 !!! question "Tehtävä"
+
     Lue Python Docsin oma [Whetting Your Appetite](https://docs.python.org/3/tutorial/appetite.html), joka mainostaa Pythonin vahvuuksia
 
-Tietokoneohjelmat tallentavat tietokoneen muistiin (eli "rammiin") muuttujien arvot. Monissa matalamman tason ohjelmointikielissä, kuten C-kielessä, arvot tallennetaan muistiin kohtalaisen raakana. Python on hyvin korkean tason (eng. high level) ohjelmointikieli, joten yksinkertaisimmatkin asiat kuten kokonaisluvut (eng. integer) tallennetaan muistiin *objekteina*. Pythonissa ei ole C-kielestä tuttu pointtereita.
-
+Tietokoneohjelmat tallentavat tietokoneen muistiin (eli "rammiin") muuttujien arvot. Monissa matalamman tason ohjelmointikielissä, kuten C-kielessä, arvot tallennetaan muistiin kohtalaisen raakana. Python on hyvin korkean tason (eng. high level) ohjelmointikieli, joten yksinkertaisimmatkin asiat kuten kokonaisluvut (eng. integer) tallennetaan muistiin _objekteina_. Pythonissa ei ole C-kielestä tuttu pointtereita.
 
 ## Esimerkkikoodia
 
@@ -29,7 +29,7 @@ def print_as_tabular(           # (1)
     # Calculate variables       # (4)
     column_width = max([len(x) for x in words]) + margin
     n_words = len(words)                                  # (5)
-    
+
     # Loop and print
     for batch in range(0, n_words, per_row):              # (6)
         row_words = words[batch:batch + per_row]
@@ -43,10 +43,8 @@ def print_as_tabular(           # (1)
 3. Funktion määrittely lopetetaan sulken jälkeen puolipisteeseen. Funktion runko jatkuu seuraavilla riveillä siten, että sitä on sisennetty neljällä välilyönnillä. Pythonissa lähes aina yksittäinen rivi sisältää jonkin kokonaisuuden, kuten funktion määrittelyn. Sulkeet ovat poikkeus. Sulkeiden välissä olevan sisällön saa jakaa haluamalleen määrälle rivejä, kunhan noudattaa sisennyssääntöjä.
 4. Yhden rivin kommentit aloitetaan risuaidalla.
 5. Uusia muuttujia ei tarvitse erikseen alustaa mitenkään eikä niille tarvitse määritellä tiettyä tyyppiä kuten `int` tai `str`. Tyyppivihje on kuitenkin tuettuna; sitä ei vain käytetä tässä esimerkissä.
-6.  Kontrolli- ja silmukkarakenteet kuten `for`  muistuttavat funktion määrittelyä rakenteeltaan. Rivin viimeinen merkki on puolipiste. Rakenteen runko on sisennetty 4 välilyönnillä määrittelyyn nähden.
+6. Kontrolli- ja silmukkarakenteet kuten `for` muistuttavat funktion määrittelyä rakenteeltaan. Rivin viimeinen merkki on puolipiste. Rakenteen runko on sisennetty 4 välilyönnillä määrittelyyn nähden.
 7. Tavallisesti sisäänrakennetun `print`-funktion kutsuminen luo yhden rivin per kutsu. Tässä sitä rikotaan antamalla funktiolle keyword-argumentti `end`, jossa rivi lopetetaan rivinvaihdon sijasta pelkällä tyhjällä.
-
-
 
 ## Varatut avainsanat
 
@@ -63,18 +61,16 @@ print_as_tabular(keyword.kwlist)
 Ruudulle tulostuu:
 
 ```
-False     None      True      and       as        
-assert    async     await     break     class     
-continue  def       del       elif      else      
-except    finally   for       from      global    
-if        import    in        is        lambda    
-nonlocal  not       or        pass      raise     
-return    try       while     with      yield      
+False     None      True      and       as
+assert    async     await     break     class
+continue  def       del       elif      else
+except    finally   for       from      global
+if        import    in        is        lambda
+nonlocal  not       or        pass      raise
+return    try       while     with      yield
 ```
 
 Listalla näkyvistä sanoista lähes jokainen tulee tämän kurssin aikana sinulle tutuksi.
-
-
 
 ## Välteltävät avainsanat
 
@@ -94,22 +90,20 @@ print_as_tabular(low_case_builtins, per_row=4)
 Ruudulle tulostuu:
 
 ```
-abs           aiter         all           anext         any           ascii         
-bin           bool          breakpoint    bytearray     bytes         callable      
-chr           classmethod   compile       complex       copyright     credits       
-delattr       dict          dir           display       divmod        enumerate     
-eval          exec          execfile      filter        float         format        
-frozenset     get_ipython   getattr       globals       hasattr       hash          
-help          hex           id            input         int           isinstance    
-issubclass    iter          len           license       list          locals        
-map           max           memoryview    min           next          object        
-oct           open          ord           pow           print         property      
-range         repr          reversed      round         runfile       set           
-setattr       slice         sorted        staticmethod  str           sum           
-super         tuple         type          vars          zip           
+abs           aiter         all           anext         any           ascii
+bin           bool          breakpoint    bytearray     bytes         callable
+chr           classmethod   compile       complex       copyright     credits
+delattr       dict          dir           display       divmod        enumerate
+eval          exec          execfile      filter        float         format
+frozenset     get_ipython   getattr       globals       hasattr       hash
+help          hex           id            input         int           isinstance
+issubclass    iter          len           license       list          locals
+map           max           memoryview    min           next          object
+oct           open          ord           pow           print         property
+range         repr          reversed      round         runfile       set
+setattr       slice         sorted        staticmethod  str           sum
+super         tuple         type          vars          zip
 ```
-
-
 
 ## Case: Snake case
 
@@ -141,11 +135,9 @@ PEP 8 -tyyliohje löytyy kokonaisuudessaan täältä: [PEP 8 – Style Guide for
 
 Lopuksi on hyvä mainita vielä piilotetut tai salaiset muuttujat. Jos näet muuttujan muotoa `_variable` tai `_Foo__variable`, älä pakota sille mitään arvoa vaan anna sen olla. Lisäksi Pythonissa on tiettyjä erityisiä, "magic object or attributes"-ryhmään kuuluvia itemeitä, jotka tunnistaa kahdella alaviivalla alkavasta ja loppuvasta nimestä. Näitä ovat esimerkiksi `__init.py__`-moduulin nimi, `__str__`-funktio, `__name__`-objekti ja niin edelleen. Älä keksi vastaavia itse lisää vaan käytä niitä kuten dokumentaatio neuvoo.
 
-
-
 ## Muuttujien nimet
 
-Muuttujien nimistä on hyvä käydä vielä pari lisäkäytäntöä sekä sääntöä. Pidättäydy ASCII-merkistössä eli mieluiten kirjaimissa a-z. Jätä suuret kirjaimet luokkien ja pysyvien muuttujien käyttöön. Python sallii tiettyjä erityismerkkejä  muuttujan nimeksi. Älä käytä niitä. Alla esimerkki:
+Muuttujien nimistä on hyvä käydä vielä pari lisäkäytäntöä sekä sääntöä. Pidättäydy ASCII-merkistössä eli mieluiten kirjaimissa a-z. Jätä suuret kirjaimet luokkien ja pysyvien muuttujien käyttöön. Python sallii tiettyjä erityismerkkejä muuttujan nimeksi. Älä käytä niitä. Alla esimerkki:
 
 ```bash
 π = 3.141592653589793  # EI
