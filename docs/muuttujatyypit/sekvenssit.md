@@ -46,13 +46,12 @@ Huomaa, että myös merkkijono on iterable - sehän on yksi sekvensseistä itsek
 ['s', 'p', 'a', 'm']
 ```
 
-
-
 ## Immutability
 
 Yllä olevien esimerkkien perusteella lista ja tuple saattavat tuntua huomattavan samanlaisilta. On siis tärkeää painottaa heti alkuun, että niillä on merkittävä eroavaisuus: immutability eli muuttumattomuus. Pythonin listaan voi lisätä ja siitä voi poistaa elementtejä luomisen jälkeen, joten useimmissa ohjelmointikielissä sen vastine olisi "dynamic array".
 
 !!! tip
+
     Muistisääntö saattaa auttaa tässä ainakin aluksi. Muutettavia (eli mutable) tietotyyppejä Pythonissa ovat **LSD**: List, Set, Dict.
 
 Käytännössä tämä tarkoittaa juuri sitä, miltä se kuulostaa. Listaa voi muuttaa luomisen jälkeen, tuplea ei.
@@ -67,11 +66,9 @@ Käytännössä tämä tarkoittaa juuri sitä, miltä se kuulostaa. Listaa voi m
 # Saman yrittäminen tuplelle
 >>> items = ("a", "b", "c")
 >>> items[0] = "x"
->>> print(items)  
+>>> print(items)
 ??? # Kokeile, mitä tulostuu !
 ```
-
-
 
 ## Sekvenssit ja operaatiot
 
@@ -110,18 +107,17 @@ Nämä toimivat listan ja tuplen kanssa samalla tavalla kuin merkkijonojen kanss
 | `(2, 2, 2).count(2)` | Kysytyn elementin lukumäärä                           |
 
 !!! question "Tehtävä"
+
     Kokeile yllä olevia operaatioita listan tai rangen kanssa. Näin syntaksi jää paremmin mieleesi!
-
-
 
 ### Sekvenssin pilkkominen
 
-Listan ja sekvenssin pilkkominen on  huomattavasti monipuolisempi ominaisuus kuin muut yllä listatut sekvenssioperaatiot. Sillä voi näppärästi päästä käsiksi haluttuihin elementteihin tai esimerkiksi kääntää listan edes-takaisin. Siksi tälle operaatiolle on varattu oma otsikkonsa. Huomaa, että `range(i, j, k)`-konstruktori toimii hyvin samalla tavalla kuin indeksointiin ja leikkelyyn käytetty syntaksi (`[i:j:k]`), jossa argumentit ovat:
+Listan ja sekvenssin pilkkominen on huomattavasti monipuolisempi ominaisuus kuin muut yllä listatut sekvenssioperaatiot. Sillä voi näppärästi päästä käsiksi haluttuihin elementteihin tai esimerkiksi kääntää listan edes-takaisin. Siksi tälle operaatiolle on varattu oma otsikkonsa. Huomaa, että `range(i, j, k)`-konstruktori toimii hyvin samalla tavalla kuin indeksointiin ja leikkelyyn käytetty syntaksi (`[i:j:k]`), jossa argumentit ovat:
 
-| `[i:j:k]` | Selite                                                       |
-| --------- | ------------------------------------------------------------ |
-| `i`       | Start eli aloituspiste. Inklusiivinen.                       |
-| `j`       | End eli lopetuspiste. Eksklusiivinen eli kirjoitettu numero ei kuulu mukaan valintaan. |
+| `[i:j:k]` | Selite                                                                                      |
+| --------- | ------------------------------------------------------------------------------------------- |
+| `i`       | Start eli aloituspiste. Inklusiivinen.                                                      |
+| `j`       | End eli lopetuspiste. Eksklusiivinen eli kirjoitettu numero ei kuulu mukaan valintaan.      |
 | `k`       | Step size eli askelkoko. Startin ja endin väli käydään askelletaan läpi tällä välityksellä. |
 
 Lue alla oleva koodi huolella läpi ja kokeile sitä itse käytännössä.
@@ -160,9 +156,8 @@ Lue alla oleva koodi huolella läpi ja kokeile sitä itse käytännössä.
 ```
 
 !!! question "Tehtävä"
+
     Kokeile, mitä pelkkä `nums[::-1]` tekee!
-
-
 
 ## Listan järjestäminen
 
@@ -198,12 +193,11 @@ print(sorted(scores, key=lambda x: x[1]))
 ```
 
 Järjestys on vakiona pienestä suureen. Sen voi vaihtaa käänteiseksi avainsana-argumentin avulla. Alla esimerkki, jossa järjestämiseen käytetään Pythonin sisäänrakennettua summafunktiota:
+
 ```python
 >>> sorted(scores, key=sum, reverse=True)
 [(7, 4), (5, 6), (3, 5), (2, 1)]
 ```
-
-
 
 ## Listan aggregointi
 
@@ -215,8 +209,6 @@ grades = [3, 4, 2, 5, 1, 1]
 average = sum(grades) / len(grades)
 print(f"Average (mean) grade is {average:.2f}.")
 ```
-
-
 
 ## Listan kopiointi
 
@@ -290,8 +282,6 @@ Tämä tulostaa, ehkä hieman yllättäen, kaksi identtistä ja yhden uniikin li
 
 Mitä tästä opimme? Jos haluat listasta kopion, muista, että `.copy()` palauttaa SHALLOW-tyyppisen kopion. Tämä voi aiheuttaa vaikeasti debugattavia ongelmia, mikäli lista on moniulotteinen eli sisältää listoja (tai esimerkiksi dictionaryjä).
 
-
-
 ## Moduuli: itertools
 
 Listan ja tuplen yhteydessä erittäin hyödyllinen kirjasto on itertools, josta löyty metodit permutaation, kombinaation ja karteesisen tulon laskemiseen joukkojen osalta. Tutustu myös muihin metodeihin: [Python docs: itertools](https://docs.python.org/3/library/itertools.html). Alla esimerkki, jossa generoidaan kaikki 3-täytteiset valkoiset tai punaiset pizzat.
@@ -314,8 +304,6 @@ for pair in pairs:
     print(pair)
 ```
 
-
-
 ## Harjoituksia
 
 ### Harjoittele: Listan omat metodit
@@ -332,8 +320,6 @@ Listalla on omia metodeita, joita muut sekvenssit toteuta. Näitä ovat `append`
 
 Kun olet tutustunut kunkin metodin help-tekstiin eli docstringiin, kokeile kutakin käytännössä.
 
-
-
 ### Harjoittele: Array
 
 Mikäli tarvitset sekvenssiä, joka koostuu vain yhden tyyppisistä muuttujista, ja haluat olla varma ettei sinne vahingossakaan voi laittaa muita, Python tarjoaa myös tyyppimääritellyn `array`:n. Koska kyseinen sekvenssi on tyypitetty, se on muistinkäytön suhteen tehokkaampi kuin lista tai tuple. Tutustu tähän lyhyesti ja pohdi, missä sitä voisi käyttää.
@@ -345,8 +331,6 @@ arr.append(42)
 arr.append(123)
 print(arr)
 ```
-
-
 
 ### Harjoittele: Statistiikka
 
@@ -371,8 +355,6 @@ assert manual_mean == median(numbers), f"Median is {manual_median}, should be {m
 manual_mode = None # laske tämä itse
 assert manual_mode == mode(numbers), f"Mode is {manual_mode}, should be {mode(numbers)}"
 ```
-
-
 
 ### Harjoittele: Anagrammi
 

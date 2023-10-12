@@ -127,12 +127,21 @@ Aritmeettiset ja vertailuoperaattorit, poislukien `==`, eivät toimi sanakirjoje
 
 Aivan kuten joukolla, myös sanakirjalla on nippu omia, hyödyllisiä operaatioita tai metodeja.
 
-| Operaatio      | Selite                                                        |
-| -------------- | ------------------------------------------------------------- |
-| list(d)        | Palauttaa listan avaimista.                                   |
-| len(d)         | Palauttaa avainten lukumäärän                                 |
-| d[key]         | Palauttaa avaimen key arvon                                   |
-| d[key] = value | Asettaa avaimen key arvoksi value                             |
-| del d[key]     | Poistaa avaimen key ja sen arvon                              |
-| key in d       | Palauttaa True, jos avain key on sanakirjassa d, muuten False |
-| iter(d)        | Palauttaa sanakirjan avaimet iteraattorina                    |
+| Operaatio      | Selite                                                               |
+| -------------- | -------------------------------------------------------------------- |
+| list(d)        | Palauttaa listan avaimista.                                          |
+| len(d)         | Palauttaa avainten lukumäärän                                        |
+| d[key]         | Palauttaa avaimen key arvon                                          |
+| d.get(key)     | Palauttaa avaimen key arvon (tai None)                               |
+| d[key] = value | Asettaa avaimen key arvoksi value                                    |
+| del d[key]     | Poistaa avaimen key ja sen arvon                                     |
+| key in d       | Palauttaa True, jos avain key on sanakirjassa d, muuten False        |
+| iter(d)        | Palauttaa sanakirjan avaimet iteraattorina                           |
+| d.pop(key)     | Poistaa avaimen key ja palauttaa sen arvon                           |
+| d.popitem()    | Poistaa ja palauttaa satunnaisen avaimen ja arvon                    |
+| d.reverse()    | Kääntää sanakirjan avaimet                                           |
+| d &#124; other | Palauttaa yhdistetyn, uuden sanakirjan, joka sisältää d:n ja other:n |
+
+## Sanakirjan käyttö Queue:na
+
+Sanakirjaa voi käyttää `.popitem()`:n ja
