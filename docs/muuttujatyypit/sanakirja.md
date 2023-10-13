@@ -142,6 +142,47 @@ Aivan kuten joukolla, myös sanakirjalla on nippu omia, hyödyllisiä operaatioi
 | d.reverse()    | Kääntää sanakirjan avaimet                                           |
 | d &#124; other | Palauttaa yhdistetyn, uuden sanakirjan, joka sisältää d:n ja other:n |
 
-## Sanakirjan käyttö Queue:na
+## Sanakirjan käyttö Stack:nä
 
-Sanakirjaa voi käyttää `.popitem()`:n ja
+Sanakirjaa voi käyttää `.popitem()`:n avulla stäkkinä. Tuoreissa Pythonin versioissa (3.7+) dictionary muistaa järjestyksen, jossa entiteetit on siihen lisätty. Kokeile, mitä alla oleva koodi tulostaa. Tutki, missä järjestyksessä entiteetit tulostuvat, ja lisäksi missä tietotyypissä ne ovat.
+
+```python
+my_stack = dict()
+my_stack['a'] = 1
+my_stack['b'] = 2
+my_stack['c'] = 3
+
+for _ in range(2):
+    print(my_stack.popitem())
+
+my_stack['z'] = 20
+my_stack['x'] = 19
+my_stack['y'] = 18
+
+while my_stack:
+    print(my_stack.popitem())
+```
+
+## Moduuli: JSON
+
+Sanakirja ja JSON ovat muodoltaan läheistä sukua toisilleen. JSON on JavaScript Object Notation, joka on JavaScriptin objektien ja sanakirjojen muotoiluun tarkoitettu notaatio. Pythonin JSON-moduuli tarjoaa kaksi funktiota, `json.dumps()` ja `json.loads()`, jotka muuntavat Pythonin sanakirjan JSON-muotoon ja takaisin.
+
+```python
+import json
+
+ingredients = [
+    {"id": 0, "name": "Egg", "price": 1.00},
+    {"id": 1, "name": "Ham", "price": 0.50},
+    {"id": 2, "name": "Späm", "price": 42.00},
+]
+
+# Python -> JSON
+ingredients_json = json.dumps(ingredients, indent=4)
+print("JSON: ", ingredients_json)
+
+# JSON -> Python
+ingredients_dict = json.loads(ingredients_json)
+assert ingredients_dict == ingredients
+```
+
+Aja yllä oleva koodi ja tutki, kuinka Späm-sanan ääkkönen käyttäytyy JSON-merkkijonoksi materialisoituna. Kokeile myös, mitä tapahtuu, jos käytät parametriä `ensure_ascii=False` `json.dumps()`-funktiolle. Huomaa, että mikäli kirjoitat jälkimmäisellä tavalla JSON-tiedoston, joudut määrittämään tiedoston koodauksen, jotta ääkköset tallentuvat oikein. UTF-8 on tällöin suositus.
