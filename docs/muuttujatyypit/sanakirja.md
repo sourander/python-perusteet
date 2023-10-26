@@ -138,7 +138,7 @@ Aivan kuten joukolla, myös sanakirjalla on nippu omia, hyödyllisiä operaatioi
 | key in d       | Palauttaa True, jos avain key on sanakirjassa d, muuten False        |
 | iter(d)        | Palauttaa sanakirjan avaimet iteraattorina                           |
 | d.pop(key)     | Poistaa avaimen key ja palauttaa sen arvon                           |
-| d.popitem()    | Poistaa ja palauttaa satunnaisen avaimen ja arvon                    |
+| d.popitem()    | Poistaa ja palauttaa viimeiseksi lisätyn avaimen ja arvon            |
 | d.reverse()    | Kääntää sanakirjan avaimet                                           |
 | d &#124; other | Palauttaa yhdistetyn, uuden sanakirjan, joka sisältää d:n ja other:n |
 
@@ -186,3 +186,49 @@ assert ingredients_dict == ingredients
 ```
 
 Aja yllä oleva koodi ja tutki, kuinka Späm-sanan ääkkönen käyttäytyy JSON-merkkijonoksi materialisoituna. Kokeile myös, mitä tapahtuu, jos käytät parametriä `ensure_ascii=False` `json.dumps()`-funktiolle. Huomaa, että mikäli kirjoitat jälkimmäisellä tavalla JSON-tiedoston, joudut määrittämään tiedoston koodauksen, jotta ääkköset tallentuvat oikein. UTF-8 on tällöin suositus.
+
+## Harjoittele
+
+### Harjoittele JSON:sta objektiksi ja takaisin
+
+Tallenna [wikipediasta löytyvä JSON-esimerkki](https://en.wikipedia.org/wiki/JSON#Syntax) tiedostoon `input.json`. Voit tehdä tämän vaiheen Visual Studio Codella, Pythonilla, vim:llä tai muulla valitsemallasi työkalulla. JSON kokonaisuudessaan alla:
+
+```json
+{
+  "first_name": "John",
+  "last_name": "Smith",
+  "is_alive": true,
+  "age": 27,
+  "address": {
+    "street_address": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10021-3100"
+  },
+  "phone_numbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [
+    "Catherine",
+    "Thomas",
+    "Trevor"
+  ],
+  "spouse": null
+}
+```
+
+Tee sitten seuraavat:
+
+1. Lue tiedosto `input.json` ja tallenna sen sisältö muuttujaan `data`.
+2. Muunna `data` Pythonin sanakirjaksi.
+3. Lisää John:lle uusi lapsi, esimerkiksi "Jane".
+4. Lisää John:lle uusi puhelinnumero, esimerkiksi "555-555-5555"
+5. Muunna sanakirja takaisin JSON-muotoon.
+6. Tallenna JSON-tiedosto `output.json`-nimellä.

@@ -1,6 +1,6 @@
 Tässä osiossa on esitelty Pythonin muuttujatyypit siinä laajuudessa, että voit luoda kokonaisia ohjelmia koskematta yhteenkään uuteen aiheeseen. Tämän osion jälkeen voit siirtyä opiskelemaan Pythonin muita ominaisuuksia, kuten ehtolauseita ja silmukoita.
 
-Pythonin muuttujatyypit ovat hyvin yksinkertaisia, mutta niiden avulla voidaan kuitenkin tehdä monimutkaisia ohjelmia. Tämä on yksi Pythonin vahvuuksista: se on helppo oppia, mutta sillä voi tehdä monenlaisia asioita.
+Pythonin muuttujatyypit ovat hyvin yksinkertaisia, mutta niiden avulla voidaan kuitenkin tehdä monimutkaisia ohjelmia. Tämä on yksi Pythonin vahvuuksista: se on helppo oppia, mutta sillä voi luoda tuotantokäyttöön soveltuvia applikaatioita.
 
 ## Muuttujatyypin valitseminen
 

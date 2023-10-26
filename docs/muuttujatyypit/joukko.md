@@ -29,6 +29,7 @@ Joukkoon lisättävän entiteetin tulee olla häshättävää tyyppiä. Duplikaa
 ```
 
 !!! tip
+
     Aiempi muistisääntö LSD, jolla tunnistaa mutable eli muutettavat tietotyypit, pätee myös tähän. Häshäämättömät tietotyypit ovat LSD eli: list, set, dictionary.
 
 Joukkoa ei voi indeksoida, slicettää tai käyttää LIFO-tyylisenä (List In, First Out) jonona. Juokko on kuitenkin huomattavan hyödyllinen, kun haluat tutkia, millaisista alkioista jokin populaatio koostuu, tai miten kaksi eri populaatiota vertautuvat toisiinsa.
@@ -49,16 +50,16 @@ Nämä käyttäytyvät samalla tavalla kuin sekvenssien kanssa. `set_a or set_b 
 
 Joukko tukee aivan omanlaisiaan operaatioita, jotka saattavat olla sinulle ennestään tuttuja matematiikasta. Mikäli olet jo opiskellut SQL:ää, saatat tunnistaa yhtenäisyyttä näissä JOIN-operaatioihin sekä SQL-komentoon DISTINCT.
 
-| Operaatio                   | Vaihtoehto         | Selite                                                       |
-| --------------------------- | ------------------ | ------------------------------------------------------------ |
-|                             | `a == b`           | Joukot a ja b ovat täysin samat. Ei varsinaisesti joukko-operaatio, mutta on hyvä esitellä tässä yhteydessä. |
-| `a.isdisjoint(b)`           |                    | Palauttaa True, jos joukoilla ei ole yhteisiä jäseniä.       |
-| `a.issubset(b)`             | `a < b`            | Palauttaa True, jos joukko a kuuluu kokonaisudessaan joukkoon b |
-| `a.issuperset(b)`           | `a > b`            | Palauttaa True, jos joukko b kuuluu kokonaisudessaan joukkoon a |
-| `a.union(b, c, ...)`        | `a | b | c  | ...` | Palauttaa joukkojen unionin eli yhdisteen eli joukon, johon kuuluvat kaikkien joukkojen uniikit alkiot. |
-| `a.intersection(b, c, ...)` | `a & b & c & ...`  | Palauttaa joukon alkioista, jotka kuuluvat kaikkiin joukkoihin. |
-| `a.difference(b, c, ...)`   | `a - b - c - ...`  | Palauttaa joukkoerotuksen eli alkiot, jotka kuuluvat joukkoon a, mutta eivät muihin joukkoihin. |
-| `a.symmetric_difference(b)` | `a ^ b`            | Palauttaa ne alkiot, jotka ovat a:ssa mutta eivät b:ssä, ja ne, jotka ovat b:ssä mutta eivät a:ssa. |
+| Operaatio                   | Vaihtoehto        | Selite                                                                                                       |
+| --------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------ |
+|                             | `a == b`          | Joukot a ja b ovat täysin samat. Ei varsinaisesti joukko-operaatio, mutta on hyvä esitellä tässä yhteydessä. |
+| `a.isdisjoint(b)`           |                   | Palauttaa True, jos joukoilla ei ole yhteisiä jäseniä.                                                       |
+| `a.issubset(b)`             | `a < b`           | Palauttaa True, jos joukko a kuuluu kokonaisuudessaan joukkoon b                                             |
+| `a.issuperset(b)`           | `a > b`           | Palauttaa True, jos joukko b kuuluu kokonaisuudessaan joukkoon a                                             |
+| `a.union(b, c, ...)`        | `a                | b                                                                                                            | c | ...` | Palauttaa joukkojen unionin eli yhdisteen eli joukon, johon kuuluvat kaikkien joukkojen uniikit alkiot. |
+| `a.intersection(b, c, ...)` | `a & b & c & ...` | Palauttaa joukon alkioista, jotka kuuluvat kaikkiin joukkoihin.                                              |
+| `a.difference(b, c, ...)`   | `a - b - c - ...` | Palauttaa joukkoerotuksen eli alkiot, jotka kuuluvat joukkoon a, mutta eivät muihin joukkoihin.              |
+| `a.symmetric_difference(b)` | `a ^ b`           | Palauttaa ne alkiot, jotka ovat a:ssa mutta eivät b:ssä, ja ne, jotka ovat b:ssä mutta eivät a:ssa.          |
 
 
 
