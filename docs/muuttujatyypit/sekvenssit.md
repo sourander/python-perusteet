@@ -93,7 +93,7 @@ Nämä toimivat listan ja tuplen kanssa samalla tavalla kuin merkkijonojen kanss
 () or (1, 2, 3)
 ```
 
-### Sekvenssi
+### Sekvenssi-operaatiot
 
 | Operaatio            | Selite                                                |
 | :------------------- | :---------------------------------------------------- |
@@ -109,6 +109,8 @@ Nämä toimivat listan ja tuplen kanssa samalla tavalla kuin merkkijonojen kanss
 !!! question "Tehtävä"
 
     Kokeile yllä olevia operaatioita listan tai rangen kanssa. Näin syntaksi jää paremmin mieleesi!
+
+## Sekvenssin käsittely
 
 ### Sekvenssin pilkkominen
 
@@ -159,7 +161,56 @@ Lue alla oleva koodi huolella läpi ja kokeile sitä itse käytännössä.
 
     Kokeile, mitä pelkkä `nums[::-1]` tekee!
 
-## Listan järjestäminen
+
+### Sekvenssin pakkaus ja purku
+
+Sekvenssin `packing` ja `unpacking` ovat yllättävän näppärä tapa käsitellä listoja tai tupleja. Pakkaus tarkoittaa sitä, että useasta muuttujasta luodaan yksi sekvenssi. Purku tarkoittaa sitä, että sekvenssistä luodaan useampi muuttuja. Pakkaus ja purku toimivat samalla tavalla listan ja tuplen kanssa. Pakkaus tuottaa tupleja, purku purkaa listoja.
+
+```python
+# Pakkaus
+>>> my_tuple = 1, 2, 3  # tai (1, 2, 3)
+>>> my_tuple
+(1, 2, 3)
+
+# Purku
+>>> a, b, c = my_tuple
+>>> a
+1
+
+# Purku ja pakkaus sekaisin
+>>> eka, toka, *loput = 1, 2, 3, 4, 5
+>>> loput
+[3, 4, 5]
+
+# Purku
+>>> (*letters, ) = "kissa"
+>>> letters
+['k', 'i', 's', 's', 'a']
+```
+
+Pakkauksen ja purun kanssa voi käyttää myös tähteä (`*`) edustamaan n-kappaletta elementtejä.
+
+```python
+# Pakkaus
+>>> eka, toka, *loput = 1, 2, 3, 4, 5
+>>> loput
+[3, 4, 5]
+
+
+### Sekvenssin aggregointi
+
+Mikäli haluat tietää listan suurimman tai pienimmän arvon, tai kaikkien arvojen summan, tähän löytyy valmiit funktiot min, max ja sum.
+
+```python
+grades = [3, 4, 2, 5, 1, 1]
+
+average = sum(grades) / len(grades)
+print(f"Average (mean) grade is {average:.2f}.")
+```
+
+## Listalle ominaiset operaatiot
+
+### Listan järjestäminen
 
 Listan voi järjestää sort metodilla. Mikäli listan elementti on iterable, se järjestetään vakiona sen ensimmäisen elementin mukaan. Huomaa, että sort järjestää listan `in-place`-tyylisesti. Metodi ei siis palauta uutta, järjestettyä listaa, vaan lista itsessään päivittyy.
 
@@ -199,18 +250,8 @@ Järjestys on vakiona pienestä suureen. Sen voi vaihtaa käänteiseksi avainsan
 [(7, 4), (5, 6), (3, 5), (2, 1)]
 ```
 
-## Listan aggregointi
 
-Mikäli haluat tietää listan suurimman tai pienimmän arvon, tai kaikkien arvojen summan, tähän löytyy valmiit funktiot min, max ja sum.
-
-```python
-grades = [3, 4, 2, 5, 1, 1]
-
-average = sum(grades) / len(grades)
-print(f"Average (mean) grade is {average:.2f}.")
-```
-
-## Listan kopiointi
+### Listan kopiointi
 
 Listalla on oma metodeja, joita muut sekvenssit eivät toteuta. Tutustut näistä useimpiin alla olevissa harjoituksissa. Alla käsitellään niistä yksi, joka on merkittävästi monimutkaisempi kuin muut eli `copy`.
 

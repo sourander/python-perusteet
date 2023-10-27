@@ -187,7 +187,7 @@ console.log("Hello World!");
 ```
 
 
-### Stringin muotoilu
+### Merkkijonon muotoilu
 
 ```python
 # F-string

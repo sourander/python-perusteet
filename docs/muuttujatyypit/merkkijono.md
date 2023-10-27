@@ -136,7 +136,8 @@ Merkkijonot eivät ole lukuja, mutta valitut Pythonin aritmeettiset operaatiot, 
 | not         | `not ""`              |
 
 !!! question "Tehtävä"
-Kokeile kaikki yllä olevat operaattorit läpi. Selvitä, mitä ne tekevät. Vertailuoperaattorit suurempi/pienempi kuin, kuten myös loogiset operaattorit, saattavat tuntua merkkijonojen kanssa epäloogisilta. Ota selvää!
+
+    Kokeile kaikki yllä olevat operaattorit läpi. Selvitä, mitä ne tekevät. Vertailuoperaattorit suurempi/pienempi kuin, kuten myös loogiset operaattorit, saattavat tuntua merkkijonojen kanssa epäloogisilta. Ota selvää!
 
 ## Merkkijonojen muotoilu
 
@@ -311,7 +312,8 @@ print(hex_letter)
 ```
 
 !!! question "Tehtävä"
-Selvitä, mikä on välilyönnin desimaaliarvo Unicodessa ja täten myös ASCII:ssa. Entä rivinvaihdon?
+
+    Selvitä, mikä on välilyönnin desimaaliarvo Unicodessa ja täten myös ASCII:ssa. Entä rivinvaihdon?
 
 Aikoinaan kaikki muut merkit, kuten suomalaisista aakkosista tutut ääkköset tai skandit, lisättiin erilaisilla koodauksilla. Internetissä HTML-standardin default oli HTML 4.0:aan asti `ISO-8859-1` eli `latin-1`. Voit tutustua siihen lyhyesti Wikipedia-sivulla [Ääkköset](https://fi.wikipedia.org/wiki/%C3%84%C3%A4kk%C3%B6set).
 
@@ -344,7 +346,7 @@ Yllä olevat heksadesimaalit ja planet saattavat hämmentää, joten alla on tä
 | 1 - SMP  | 65537   | `𐀁`                             |
 | 1 - SMP  | 65538   | `𐀂`                             |
 | ...      | ...     | ...                             |
-| 1 - SMP  | 128512  | `😀`                            |
+| 1 - SMP  | 128512  | `😀`                             |
 | ...      | ...     | ...                             |
 | 1 - SMP  | 131071  | `[UNASSIGNED]`                  |
 | 2 - SIP  | 131072  | `[CJK UNIFIED IDEOGRAPH-20000]` |
