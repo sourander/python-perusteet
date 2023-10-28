@@ -232,3 +232,58 @@ Tee sitten seuraavat:
 4. Lisää John:lle uusi puhelinnumero, esimerkiksi "555-555-5555"
 5. Muunna sanakirja takaisin JSON-muotoon.
 6. Tallenna JSON-tiedosto `output.json`-nimellä.
+
+
+### Harjoittele: Pydantic Model
+
+Tutustu [Pydantic](https://pydantic-docs.helpmanual.io/) kirjastoon ja sen [Model](https://pydantic-docs.helpmanual.io/usage/models/) -luokkaan. Pydantic on Pythonin kirjasto, joka tarjoaa työkaluja tietotyyppien validointiin ja muuntamiseen. Se on erityisen hyödyllinen REST API:en kanssa työskennellessä. Pydanticin Model-luokka tarjoaa työkaluja Pythonin sanakirjojen muuntamiseen Pythonin luokiksi ja takaisin. Alla esimerkki kirjaston käytöstä:
+
+```python
+from pydantic import BaseModel, Field
+from enum import Enum
+from typing import List
+
+class SpeciesEnum(str, Enum):
+    cat = "cat"
+    dog = "dog"
+
+class Pet(BaseModel):
+    name: str
+    species: SpeciesEnum
+    # Age field is in years and must be between 0 and 40
+    age_years: int = Field(gt=-1, lt=41)
+
+
+class Owner(BaseModel):
+    name: str
+    pets: List[Pet]
+
+# Define
+kitty = Pet(name="Kitty", species="cat", age_years=0)
+puppy = Pet(name="Puppy", species="dog", age_years=7)
+lisa = Owner(name="Lisa", pets=[kitty, puppy])
+
+# Loop
+for pet in lisa.pets:
+    print(f"{pet.name} is a {pet.species} and is {pet.age_years} years old")
+```
+
+Jatka harjoitusta siten, että luet datan JSON-merkkijonon sisältävästä muuttujasta. Alla pohja:
+
+```python
+# Täytä nämä tiedot. Voit halutessasi luoda JSON-tiedoston ja
+# lukea datan sieltä.
+owner_data = """
+{
+  "name": "Unknown",
+  "pets": []
+}
+"""
+
+# Tutustu tähän metodiin
+Owner.model_validate_json(owner_data) 
+```
+
+!!! tip
+
+    Huomaathan, että pydantic ei ole Pythonin sisäänrakennettu kirjasto. Sinun tulee asentaa se paketinhallinnalla (pip tai poetry).
