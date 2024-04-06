@@ -24,7 +24,15 @@ $ pip freeze
 
 !!! warning
 
-    Ethän siis asenna `pip`:llä paketteja, ellei sinulla ole virtuaaliympäristö aktivoituna.
+    Ethän siis asenna `pip`:llä paketteja, ellei sinulla ole virtuaaliympäristö aktivoituna. Helpoin tapa varmistaa tämä on ajaa komento:
+
+    ```bash
+    # Aseta
+    $ pip config set global.require-virtualenv true
+
+    # Katso mihin tiedostoon se meni (ihan sivistyksen takia)
+    $ pip config debug
+    ```
 
 ## Mikä ihmeen venv?
 
