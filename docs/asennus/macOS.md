@@ -1,6 +1,6 @@
-!!! tip
+!!! warning
 
-    Lukuohje alla oleviin koodisnippetteihin: mikäli rivi alkaa `$`-merkillä, kyseinen rivi on ajettava komento. Kyseinen merkki ei kuulu komentoon, vaan on yksinkertaisesti dokumentaatiossa indikoimassa, että kyseessä on command promptiin syötetty käsky. Mikäli rivistä puuttuu tuo merkki, on kyseessä komennon palauttama tuloste. Mikäli tulosteessa on rivi `...`, tulostetta on lyhennetty luettavuuden parantamisen vuoksi. Oikea tuloste on tällöin pidempi.
+    Tämä on vanha Pythonin asennusohje macOS:lle. Tämä korvautuu lähiaikoina `uv`-työkalun asennuksella.
 
 ## Käytä Z Shelliä
 

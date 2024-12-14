@@ -1,44 +1,50 @@
-## Git for Windows
-
-Jotta sinulla olisi Git asennettuna oikein, asenna Git for Windows, mikäli sinulla ei ole sitä vielä asennettuna. Voit ladata sen [Git for Windows](https://gitforwindows.org/) -sivustolta. Asenna se ja käynnistä kone uusiksi.
-
-## Python
-
-Mene [Python.org](https://www.python.org/) sivustolle ja lataa etusivulla mainostettu tuorein Python 3 versio (esim. `3.11.5`).
-
-![Python asennus](../images/python-311-installer-path.png)
-
-**Kuvio 1:** *Pythonin asennusohjelma. Huomaa ruudun alalaidassa oleva Add python.exe to PATH. Sen ruksin pitää olla aktiivisena.*
-
 !!! warning
 
-    TÄRKEÄÄ! Kun asenna Pythonia, asennus kysyy, lisätäänkö Python PATH:iin. Salli se.
+    Huomaa, että Pythonin voi asentaa myös muilla tavoin, kuten lataamalla sen suoraan Python.org-sivustolta. Minun kurssilla suositeltu tapa on kuitenkin käyttää `uv`-työkalua, joka käytännössä korvaa `pyenv`, `poetry` ja `pip` työkalut.
 
-!!! tip
+## uv:n asennus
 
-    Koodisnippettien lukuohje. Ajettava komento alkaa aina `$`-merkillä, aivan kuten Git Bash:n promt itsessään. Mikäli rivi alkaa `#`-merkillä, rivi on ohjeistuksena toimiva kommentti. Muissa tapauksissa kyseessä on tuloste, joka syntyy kun painat komennon jälkeen enteriä. Irrallisten komentojen väliin on lisätty tyhjä rivi parantamaan luettavuutta.
-
-Käynnistä Git Bash ja suorita seuraava komento:
+Tarkista tuorein ohje [uv: installing uv](https://docs.astral.sh/uv/getting-started/installation/) ohjeista. Mikäli se on sama kuin tätä kirjoittaessa, niin avaa uusi PowerShell-ikkuna ja aja seuraava komento:
 
 ```bash
-# Varmista että python executable löytyy ja viittaa oikeaan versioon
-# Ensimmäisen itemin PATH:ssa pitäisi olla Python 3.X:n executable.
-$ py -0p
- -V:3.11 *        $LOCALAPPDATA\Programs\Python\Python311\python.exe
-
-$ python --version
-Python 3.11.5
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Mikäli `py.exe` löysi onnistuneesti asentamasi Pythonin, ja `python --version` palauttaa asentamasi version versionumeron, Python on onnistuneesti asennettu ja lisätty $PATH:iin. 
+## Autocompletion
 
-## Ongelmien ratkaiseminen
-
-Mikäli yllä komennot eivät toimi, tarkista oikeiskirjoitus, ja että asensit Pythonin siten että se lisätään PATH:iin. Tämän voit tarkistaa ajamalla seuraavan komennon Git Bash:ssä:
+Jos käytät Git Bashiä sinun shellinä, kuten KAMK:ssa useimmilla kursseilla neuvotaan, niin voit ottaa käyttöön autocompletionin. Tämä helpottaa komentojen kirjoittamista, kun voit painaa `Tab`-näppäintä ja shelli täydentää komennon puolestasi. Tämä onnistuu ajamalla seuraavat komennot:
 
 ```bash
-$ echo $PATH | tr ":" "\n" | grep -i python
-/c/Users/username/AppData/Local/Programs/Python/Python310  # <= Tällainen rivi pitäisi löytyä
+# Lisää uv autocompletion
+echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+
+# Lisää uvx autocompletion
+echo 'eval "$(uvx --generate-shell-completion bash)"' >> ~/.bashrc
 ```
 
-Mikäli vastaavaa riviä ei löydy $PATH:sta, lisää se. Tähän löytyy netistä useita ohjeita, kuten tämä: [Real Python: Add Python to PATH](https://realpython.com/add-python-to-path/). Mikäli polku löytyy $PATH-muuttujasta mutta ei ohjeen osoittamasta paikasta eli Control Panelista, voi olla että se on lisättynä Windowsin rekisteriin. Windowsin rekisteriin puuttumisen suhteen kannattaa olla to-del-la varovainen. Rekisteriä pääsee muokkaamaan etsimällä Windows-näppäimen avulla App nimeltään Registry Editor. PATH löytyy paikasta `Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment`, muuttujasta nimeltään Path.
+## Asenna Python
+
+Asenna kurssilla suositeltu Python-versio. Kirjoitushetkellä vakaa ja yleisesti tuettu versio on 3.12.x. Voit asentaa sen seuraavalla komennolla:
+
+```bash
+uv install 3.12
+```
+
+## Kokeile Pythonia
+
+Kun Python on asennettu, voit kokeilla sitä ajamalla seuraavan komennon:
+
+```bash
+# Aja Python REPL-tila
+uv run python
+
+# ... tai käytä winpty:tä korjaamaan ongelma, jossa nuolinäppäimet, 
+# ääkköset tai jokin muu ilmiselvä ominaisuus ei toimi
+winpty uv run python
+```
+
+Tämä avaa REPL-tilan, jossa voit kirjoittaa Python-komentoja. Voit poistua tilasta kirjoittamalla `exit()` ja painamalla `Enter`. Vaihtoehtoisesti voit painaa ++ctrl+d++.
+
+## Tutustu uv:n käyttöön
+
+Tutustu uv:n käyttöön heidän oman [uv: Guides overview](https://docs.astral.sh/uv/guides/)-sivuston kautta. Uv on kattavasti dokumentoitu, tuore työkalu. Sen käytöstä löytyy myös reilusti YouTube-videoita.

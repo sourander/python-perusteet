@@ -1,3 +1,7 @@
+!!! warning
+
+    Tämä on vanha Pythonin asennusohje macOS:lle. Tämä korvautuu lähiaikoina `uv`-työkalun asennuksella.
+
 Useimmissa distribuutioissa on jokin Python-versio jo valmiiksi asennettuna. Sinulla on vaihtoehtoina joko käyttää valmiiksi asennettua versiota tai asentaa tuoreempi. Kummassakin on hyötynsä ja haittansa.
 
 ## Asenna git
