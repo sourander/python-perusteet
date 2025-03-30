@@ -1,3 +1,5 @@
+# REPL
+
 REPL:n (Integrated Development and Learning Environment) on interaktiivinen prompt, joka muistaa yhden session ajan kaikki luomasi muuttujat, funktiot ja objektit. Sillä on vaikea kirjoittaa yhtä tai kahta riviä pidempiä funktioita, mutta ensimmäisten askeleiden ottamiseen se on täydellinen leikkikenttä. Pythoniin liittyy myös kevyt IDE nimeltään IDLE, mutta siihen perehtyminen voidaan jättää tällä kurssilla pois: käytetään sen sijasta esimerkiksi Visual Studio Codea.
 
 !!! tip
@@ -7,18 +9,18 @@ REPL:n (Integrated Development and Learning Environment) on interaktiivinen prom
 Kunhan olet asentanut Pythonin sinun käyttöjärjestelmääsi soveltuvalla tavalla, aja alla näkyvistä komennoista sinun käyttöjärjestelmääsi sopiva. Toistaiseksi Git Bash:ssä `node`, `python` ja muut pseudoterminaalia käyttävät komentotulkit tulee ajaa `winpty`-ohjelmalla. Mikäli tätä lukiessa ei ole vuosi 2023 vaan jokin tuoreempi, tämä on voinut muuttua.
 
 ```bash
-# macOS tai Linux
-$ python
+# macOS tai Linux tai PowerShell
+$ uv run python
 
 # Git Bash (Git for Windows)
-$ winpty python
+$ winpty uv run python
 ```
 
 Shelliin aukeaa uudenlainen prompt, jossa eivät enää toimi vanhat `ls` ja `pwd` komennot laisinkaan. Kyseessä on REPL, joka ymmärtää Pythonia.
 
 ![REPL-3-11-zsh](../images/REPL-3-11-zsh.png)
 
-**Kuvio 1:** _REPL käynnissä macOS:ssä. Mikäli sinulla on Windows, REPL:n ympärillä näkyvä ikkuna on eri näköinen._
+**Kuvio 1:** _REPL käynnissä macOS:ssä. Mikäli sinulla on Windows, REPL:n ympärillä näkyvä ikkuna on eri näköinen. Huomaa, että kuvassa ei käytetä `uv`:ta vaan järjestelmätason Pythonia. Käytä sinä `uv`:ta._
 
 Alla on esimerkkikoodia. Kokeile ajaa sama koodi REPL:ssä itse. Huomaa, että jos kirjoitat pelkän muuttujan nimen, se tulostaa sen arvon (nimeltään `repr`, printable **repr**esentation). Vaihtoehtoisesti voit syöttää muuttujan sisäänrakennetulle `print`-funktiolle, joka tulostaa sen merkkijonona (`str`). Ero on pieni, mutta joissakin tapauksissa merkittävä.
 

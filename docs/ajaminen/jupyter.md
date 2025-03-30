@@ -1,3 +1,9 @@
+# Jupyter
+
+!!! bug
+
+    Tätä materiaalia ei ole päivitetty `uv`-aikakaudelle.
+
 Koodia voi ajaa myös Jupyter Notebookissa, joka on web-selainpohjainen interaktiivinen IDE. Projektin voi asentaa joko käyttäen tuoreempaa `JupyterLab`:ia tai klassista `Jupyter Notebookia`. Notebook on hieman karsitumpi ominaisuuksiltaan, mutta sillä pärjää yllättävän pitkälle.
 
 JupyterLabin hyötyjä ovat muun muassa:
@@ -8,17 +14,24 @@ JupyterLabin hyötyjä ovat muun muassa:
 
 Tiiviisti sanottuna: klassinen Jupyter Notebook, jos työskentelet yhden tiedoston koodin parissa.
 
-!!! warning
+## Asennus
 
-    Ethän asenna Jupyter Notebookia järjestelmätason Pythoniin vaan virtuaaliympäristöön. Lue siis [pip](../asennus/paketinhallinta/pip.md)-luku ennen seuraavien komentojen ajamista!
+!!! bug
 
-Pidemmät asennusohjeet löytyvät [Jupyter:n dokumentaatiosta](https://jupyter.org/install), mutta alkuun pääsee kahdella seuraavalla komennolla:
+    Ethän asenna Jupyter Notebookia järjestelmätason Pythoniin vaan virtuaaliympäristöön. Käytännössä asennus hoituu seuraavilla komennoilla, mutta ajan kanssa tätä materiaalia täydennetään.
 
-```bash
-# Ajathan komennot VIRTUAALIYMPÄRISTÖSSÄ
-(.venv) $ pip install notebook
-(.venv) $ jupyter notebook
-```
+    ```console
+    $ uv init
+    $ uv add jupyter
+    ```
+
+    Ja käynnistetään näin:
+
+    ```console
+    $ uv run jupyter notebook
+    ```
+
+    Vaihtoethoisesti voit asentaa `jupyterlab`:n ja käyttää sitä. Se tarjoaa enemmän ominaisuuksia, kuten tiedostoselaimen ja välilehdet. Yksinkertaisessa käytössä legacy Jupyter Notebook riittää.
 
 Komento joko avaa suoraan selaimeesi Jupyter Notebook -näkymän, tai tarjoaa linkin, jota klikkaamalla pääset siihen. Ethän sulje terminaalia tai palvelin kuolee pois. Kun haluat lopettaa työskentelyn, varmista että tiedosto on tallennettu ++ctrl+s++ näppäinyhdistelmällä ja valitse Jupyter Notebookista `File => Shut Down`.
 

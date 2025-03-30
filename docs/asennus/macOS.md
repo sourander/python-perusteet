@@ -1,7 +1,3 @@
-!!! warning
-
-    Tämä on vanha Pythonin asennusohje macOS:lle. Tämä korvautuu lähiaikoina `uv`-työkalun asennuksella.
-
 ## Käytä Z Shelliä
 
 Z Shellin (`zsh`) pitäisi olla macOS:ssä nykyisin default, mutta voi myös olla, että Terminal käynnistää kilpailevan shellin eli `bash`:n. Mikäli näin on, macOS:n pitäisi neuvoa sinua ajamaan komento, joka näkyy alla. Aja komento ja käynnistä Terminal uusiksi.
@@ -9,6 +5,8 @@ Z Shellin (`zsh`) pitäisi olla macOS:ssä nykyisin default, mutta voi myös oll
 ```bash
 $ chsh -s /bin/zsh
 ```
+
+On suositeltavaa asentaa myös Oh My Zsh ja aktivoida ssh-agent plugin. Tämä neuvotaan [Linux Perusteet](https://sourander.github.io/linux-perusteet/)-kurssilla.
 
 ## Asenna Homebrew
 
@@ -77,7 +75,6 @@ Gittiin kannattaa asettaa itselleen sopivat global konfiguraatiot. Nämä neuvot
 ```bash
 $ git config --global user.name "Etunimi Sukunimi"
 $ git config --global user.email "etunimisukunimi@kamk.fi"
-$ git config --global core.autocrlf input
 $ git config --global pull.ff only
 $ git config --global init.defaultBranch main
 ```
@@ -94,82 +91,8 @@ $ brew install --cask git-credential-manager
 
 Seuraavalla kerralla kun kloonaat HTTPS-urlilla repositorion, git avaa ikkunan, jossa se pyytää sinua kirjautumaan sisään Oauth-tyylisesti palveluun. Tämä luo tokenin, joka oikeuttaa kyseisen repositorion kloonaamisen. Mikäli 2FA on päällä, kysyy se myös sitä.
 
-# Asenna pyenv
+## Asenna uv
 
-Asenna pyenv Homebrew:lla ja lue sen [käyttöohjeet GitHubista](https://github.com/pyenv/pyenv#usage). Työkalulla voi hallita useita eri Python-asennuksia samalla koneella, esimerkiksi kansio/projektikohtaisesti.
+Uv-työkalun asennus on niin hyvin dokumentoitu (ja on vain yksi komento), joten viittaan suoraan alkuperäiseen ohjeeseen: [uv](https://docs.astral.sh/uv/)
 
-```bash
-$ brew install pyenv
-```
-
-Lisää seuraavat rivit `.zshrc`-tiedostoon, aivan kuten dokumentaatiossa neuvotaan:
-
-```bash
-# Set up pyenv related environment variables
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-```
-
-Käynnistä terminaali uusiksi tai aja komento `source ~/.zshrc`. Jos haluat varmistaa, että komennot ovat ajettuna oikein, tarkista löytyykö jokin pyenvin tarvitsemista ympäristömuuttujista. Alla yksi esimerkeistä:
-
-```bash
-# Tämän pitää tulostaa zsh eikä tyhjää merkkijonoa
-$ echo $PYENV_SHELL
-zsh
-```
-
-## Asenna Pythonin riippuvuudet
-
-Pyenv:n ajama Python-asennus voi vaatia joitakin riippuvuuksia, joista Homebrew ei tiedä. Pelkän `xs`:n pitäisi riittää, mutta [pyenv:n dokumentaatio](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) suosittelee seuraavia:
-
-```bash
-$ brew install openssl readline sqlite3 xz zlib tcl-tk
-```
-
-## Asenna Python pyenvillä
-
-Mikäli kaikki vaiheet yllä on suoritettu onnistuneesti, voit alkaa asentaa useita eri Python-versioita ja hallinnoimaan niitä kuten pyenvin dokumentaatiossa neuvotaan. Ensimmäiseksi sinun pitää päättää, minkä Python-version haluat. Suosittelen asentamaan Pythonin, joka on sillä hetkellä tuorein `bugfix` tai `security` maintenance statuksella oleva Python-versio. Tämän voit käydä tarkistamassa [Pythonin sivuilta](https://www.python.org/downloads/). Kirjoitushetkellä `bugfix`-tilassa on 3.11, joten haluan asentaa 3.11.x version. Versionumeron kolme pisteellä erotettua versionumeroa ovat `major.minor.patch`. Python on saman major (3.x.x) version sisällä taaksepäin yhteensopiva, mutta uudemmissa Pythoneissa on toimintoja, jotka eivät toimi vanhemmissa versioissa. Vanha 2.x Python on virallisesti kuollut ja kuopattu. Sitä ei pitäisi käyttää tuotannossa.
-
-Tämän dokumentaation kirjoitushetkellä tuorein bugfix-vaiheessa oleva Python patch on `3.11.5`. Sen voi asentaa alla olevalla komennolla. Komento täydentää itse tuoreimman patch-numeron.
-
-```bash
-# Asenna Python
-$ pyenv install 3.11
-python-build: use openssl from homebrew
-python-build: use readline from homebrew
-Downloading Python-3.11.5.tar.xz...
-...
-Installing Python-3.11.5...
-...
-```
-
-Huomaa, että pyenv asentaa Pythonin sinun kotikansioosi. Asennuslokaatio on yllä asetettu `$PYENV_ROOT` eli esimerkiksi `/home/jani/.pyenv/versions/3.11.5/`.
-
-Asetetaan vielä tuorein versio globaaliksi oletukseksi. Näin pyenv käyttää valittua versiota globaalina oletuksena, jonka tosin voi jyrätä lokaalilla versiolla. Tutustu dokumentaatiosta, kuinka lokaali versio asetetaan. Globaalin voi vaihtaa näin:
-
-```bash
-# Tarkistetaan ensin vanha oletusarvo
-$ pyenv global
-system
-
-# Asetetaan uusi
-$ pyenv global 3.11
-
-# Tarkistetaan uusi
-$ pyenv global
-3.11
-```
-
-## Kuinka päivittää jatkossa?
-
-Jos haluat myöhemmin päivittää Pythonia, asenna uusi ja vaihda global siihen.
-
-```bash
-# Jos sama minor, niin tämä riittää
-pyenv install 3.11
-
-# Muutoin
-pyenv install 3.x
-pyenv global 3.x
-```
+Uv-työkalun käyttö neuvotaan [Ajaminen/uv](../ajaminen/uv.md) -sivulla.

@@ -2,6 +2,10 @@ Nyt kun olet päässyt koodin suorittamiseen asti siten, että sinulla on olemas
 
 ## Kaikkien hakemistorakenteiden äiti
 
+!!! warning
+
+    Tämä pitäisi kenties siirtää How to Git -sivustolle.
+
 Tällä kurssilla suositeltu tapa organisoida koodi on seuraavanlainen, ja sitä suosittelee myös [Bryan Baum](https://www.bryanbraun.com/2017/08/29/how-i-organize-the-code-folder-on-my-computer/).
 
 ```
@@ -131,22 +135,22 @@ Nyt voit suorittaa kirjoittamasi koodin Python-tulkilla. Tämä onnistuu seuraav
 
 ```bash
 # Vaihtoehto 1: Ajetaan tiedostona
-$ python foo/main.py
+$ uv run python foo/main.py
 Hello world
 
 # Vaihtoehto 2: Ajetaan moduulina
-$ python -m foo.main
+$ uv run python -m foo.main
 Hello world
 
 # Vaihtoehto 3: Syötetään ajettava koodi argumentin -c arvona
-$ python -c "import foo.main"
+$ uv run python -c "import foo.main"
 Hello world
 ```
 
 Huomaa, että moduuli `main` kuuluu pakettiin `foo`. Olet jo aiemminkin ajanut Pythonissa moduuleita. Aiemmin ajettu `python -m venv` suoritti moduulin nimeltään `venv`. Kyseinen moduuli on, aivan kuten kaikki muukin Pythonin ajama koodi, jossakin tiedostossa. Voit selvittää tiedoston sijainnin näin:
 
-```bash
-$ python -c "import venv; print(venv.__file__)"
+```console
+$ uv run python -c "import venv; print(venv.__file__)"
 /Users/opettaja/.pyenv/versions/3.11.5/lib/python3.11/venv/__init__.py
 ```
 
