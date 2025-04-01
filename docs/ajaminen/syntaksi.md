@@ -1,3 +1,7 @@
+!!! warning
+
+    Tämä materiaali on historiasyistä tässä. Tulevaisuudessa sen sisältö hajautetaan eri lukujen alle (esim. Muuttujatyypit/Yleistä).
+
 Python lyhyesti:
 
 - Python-ohjelma koostuu riveistä, jotka suoritetaan järjestyksessä ylhäältä alas.
