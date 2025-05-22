@@ -1,5 +1,25 @@
 Nyt kun olet päässyt koodin suorittamiseen asti siten, että sinulla on olemassa pelkän REPL:n sijasta tiedostoja, luothan projektille oman hakemiston, ja hakemiston sisään oman virtuaaliympäristön. Aktivoi virtuaaliympäristö aina kun ajat koodia.
 
+!!! warning
+
+    Tämä materiaali on vanhentunut. Voit lukea sen oppiaksesi, kuinka Pythonin omaa `venv`-moduulia käytetään, mutta suosittelen käyttämään `uv`-työkalua. Sen käyttöä en opeta tässä, koska se on neuvottuna [Python Developer Tooling Handbook](https://pydevtools.com/handbook/tutorial/) -sivustolla. Se on kattava ja helppo oppia, ja se on myös suositeltu tapa tehdä Pythonia.
+
+    Lyhimmillään voit luoda `uv`-työkalun avulla projektihakemiston ja ajaa sen näin:
+
+    ```bash
+    # Navigoi sinne mihin haluat projektin
+    $ cd ~/Code/jackbauer/
+
+    # Luo projekti
+    $ uv init this-will-be-repo-name
+    $ cd this-will-be-repo-name
+
+    # Aja Hello world -placeholder koodi
+    $ uv run main.py
+    ```
+
+    Jos lisäät `--project`-flägin init-komentoon, se siirtää applikaation koodin `src/`-hakemistoon ja lisää tarvittavat rivit `pyproject.toml`-tiedostoon. Voit tutustua tähän `uv`:n oman, selkeän dokumentaation avulla: [uv: Creating Projects](https://docs.astral.sh/uv/concepts/projects/init/)
+
 ## Kaikkien hakemistorakenteiden äiti
 
 !!! warning

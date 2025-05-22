@@ -6,7 +6,7 @@ REPL:n (Integrated Development and Learning Environment) on interaktiivinen prom
 
     REPL on myös huomattavan nopea tapa tehdä perus laskutoimituksia: sitä voi käyttää korvaamaan käyttöjärjestemän vakio Calculator-sovelluksen nopeissa laskutoimituksissa.
 
-Kunhan olet asentanut Pythonin sinun käyttöjärjestelmääsi soveltuvalla tavalla, aja alla näkyvistä komennoista sinun käyttöjärjestelmääsi sopiva. Toistaiseksi Git Bash:ssä `node`, `python` ja muut pseudoterminaalia käyttävät komentotulkit tulee ajaa `winpty`-ohjelmalla. Mikäli tätä lukiessa ei ole vuosi 2023 vaan jokin tuoreempi, tämä on voinut muuttua.
+REPL:n voi käynnistää `uv`-komennolla, ja `uv` käyttää vakiona tuoreinta asennettua Python-versiota, suosien omia asennuksiaan, mutta tukien myös järjestelmätason Pythonia. Toistaiseksi Git Bash:ssä `node`, `python` ja muut pseudoterminaalia käyttävät komentotulkit tulee ajaa `winpty`-ohjelmalla. Mikäli tätä lukiessa ei ole vuosi 2023 vaan jokin tuoreempi, tämä on voinut muuttua.
 
 ```bash
 # macOS tai Linux tai PowerShell
@@ -16,7 +16,7 @@ $ uv run python
 $ winpty uv run python
 ```
 
-Shelliin aukeaa uudenlainen prompt, jossa eivät enää toimi vanhat `ls` ja `pwd` komennot laisinkaan. Kyseessä on REPL, joka ymmärtää Pythonia.
+Shelliin aukeaa uudenlainen prompt, jossa eivät enää toimi vanhat `ls` ja `pwd` komennot laisinkaan. Kyseessä on REPL, joka ymmärtää Pythonia. Pääset siitä pois komennolla `quit()` tai painamalla näppäinyhdistelmää `CTRL + D` (EOF, End Of File).
 
 ![REPL-3-11-zsh](../images/REPL-3-11-zsh.png)
 
