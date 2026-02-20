@@ -1,0 +1,2431 @@
+
+<!doctype html>
+<html lang="fi" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../merkkijono/">
+      
+      
+        <link rel="next" href="../sekvenssit/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Numerot - Python Perusteet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#numeroiden-luonti" class="md-skip">
+          Hyppää sisältöön
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Ylätunniste">
+    <a href="../.." title="Python Perusteet" class="md-header__button md-logo" aria-label="Python Perusteet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Perusteet
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Numerot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hae" placeholder="Hae" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Haku">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Tyhjää" aria-label="Tyhjää" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Aloitetaan hakua
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigaatio" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python Perusteet" class="md-nav__button md-logo" aria-label="Python Perusteet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python Perusteet
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tervetuloa kurssille
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asennus
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Asennus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asennus/windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python (win)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asennus/macOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python (mac)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asennus/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python (linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asennus/vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VSCode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ajaminen
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ajaminen
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/syntaksi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntaksi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    uv
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/REPL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/tiedostosta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tiedostosta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/jupyter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jupyter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Muuttujatyypit
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Muuttujatyypit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yleist%C3%A4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Yleistä
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../merkkijono/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Merkkijono
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numerot
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numerot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numeroiden-luonti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeroiden luonti
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerot-ja-operaatiot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numerot ja operaatiot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerot ja operaatiot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aritmaattiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aritmaattiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertailu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertailu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loogiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loogiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numeroiden-muotoilu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeroiden muotoilu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numeroiden-metodit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeroiden metodit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moduuli-datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moduuli: datetime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kymmenjarjestelmasta-poikkeavat-luvut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kymmenjärjestelmästä poikkeavat luvut
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floatin-ongelmat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Floatin ongelmat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harjoituksia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoituksia
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Harjoituksia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-nykyhetki-unix-ajassa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Nykyhetki Unix-ajassa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-etsi-edellinen-maanantai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Etsi edellinen maanantai
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-kommentoi-ip-osoitefunktiot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Kommentoi IP-osoitefunktiot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sekvenssit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sekvenssit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tavut/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tavujono
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../joukko/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Joukko (set)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sanakirja/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanakirja (dict)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loppusanat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loppusanat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kontrollirakenteet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kontrollirakenteet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/ehtolauseet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ehtolauseet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/silmukat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Silmukat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/context_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/generaattorit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generaattorit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/try/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funktiot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Funktiot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../funktiot/namespace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../funktiot/funktiot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funktiot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../funktiot/lambda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lambda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Konfiguraatiot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Konfiguraatiot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfiguraatiot/cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cli
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfiguraatiot/kayttajasyote/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Käyttäjäsyöte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfiguraatiot/tiedosto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tiedosto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfiguraatiot/ymparistomuuttujat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ympäristömuuttujat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Muut kielet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Muut kielet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../muut_kielet/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Javascript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numeroiden-luonti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeroiden luonti
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerot-ja-operaatiot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numerot ja operaatiot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerot ja operaatiot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aritmaattiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aritmaattiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertailu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertailu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loogiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loogiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numeroiden-muotoilu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeroiden muotoilu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numeroiden-metodit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeroiden metodit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moduuli-datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moduuli: datetime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kymmenjarjestelmasta-poikkeavat-luvut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kymmenjärjestelmästä poikkeavat luvut
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floatin-ongelmat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Floatin ongelmat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harjoituksia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoituksia
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Harjoituksia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-nykyhetki-unix-ajassa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Nykyhetki Unix-ajassa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-etsi-edellinen-maanantai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Etsi edellinen maanantai
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-kommentoi-ip-osoitefunktiot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Kommentoi IP-osoitefunktiot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Numerot</h1>
+
+<p>Pythonin tyypillisimmin käytössä olevat numeraaliset tietotyypit ovat kokonaisluku eli integer (<code>int</code>) sekä desimaaliluku eli floating point number (<code>float</code>). Tarkemmin ottaen kyseessä ei kuitenkaan ole desimaali- vaan liukuluku; tästä aiheesta on listätietoa alla. Pythonissa on myös kompleksiluku (<code>complex</code>), mutta se jätetään tässä materiaalissa käsittelemättä. Vahvasti tyypitetyissä kielissä, kuten C ja Java, on eri kokoisille luvuille omat muuttujatyyppinsä. Esimerkiksi pieniä lukuja varten, jotka mahtuvat välille <code>-128...127</code>, on oma muuttujatyyppintä byte. 1, 2, 3 ja 4-tavuisia numeroita varten ovat erikseen byte, short, int ja long. Pythonissa kaikkia näitä varten käytetään samaa tyyppiä: <code>int</code>. Myös <code>float</code> aina aina float, eikä eriksee 4- tai 8-tavuinen <code>float</code> tai <code>double</code>.</p>
+<h2 id="numeroiden-luonti">Numeroiden luonti</h2>
+<p>Alla olevassa snippetissä luodaan kokonaisluku ja desimaaliluku ja tulostetaan niiden arvot aiemmin opittua F-stringiä hyödyntäen:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">n_apples</span> <span class="o">=</span> <span class="mi">1024</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">total_weight</span> <span class="o">=</span> <span class="mf">201.54</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We have </span><span class="si">{</span><span class="n">n_apples</span><span class="si">}</span><span class="s2"> apples and they weight </span><span class="si">{</span><span class="n">total_weight</span><span class="si">}</span><span class="s2"> kilos.&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Suuret luvut voi kirjoittaa myös alaviivan tai tieteellisen notaation avulla. Huomaa, että Python ei kuitenkaan parsi alaviivaa sen tarkemmin. Tästä esimerkki alla:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">million</span> <span class="o">=</span> <span class="mi">1_000_000</span>  <span class="c1"># int</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">billion</span> <span class="o">=</span> <span class="mf">1e9</span>        <span class="c1"># float</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">million</span> <span class="o">=</span> <span class="mi">1_00_0000</span>  <span class="c1"># Python ei valita tästä</span>
+</span></code></pre></div>
+<h2 id="numerot-ja-operaatiot">Numerot ja operaatiot</h2>
+<p>Huomaa, että merkkijonot-luvussa tämä otsikko oli vielä "operaattorit". Numeroiden kohdalla tämä on laajennettu sisältämään operaattoreiden (<code>+</code>, <code>%</code>, <code>and</code>, ...) lisäksi myös muita operaatioita, kuten Pythonin sisäänrakennettujen funktioiden käytön.</p>
+<h3 id="aritmaattiset">Aritmaattiset</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Operaatio</th>
+<th style="text-align: left;">Selite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>x + y</code></td>
+<td style="text-align: left;"><em>x</em> plus <em>y</em> (summa)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x - y</code></td>
+<td style="text-align: left;"><em>x</em> miinus <em>y</em> (erotus)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x * y</code></td>
+<td style="text-align: left;"><em>x</em> kertaa <em>y</em> (tulo)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x / y</code></td>
+<td style="text-align: left;"><em>x</em> jaettuna <em>y</em>:llä (osamäärä)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x // y</code></td>
+<td style="text-align: left;">Osamäärä pyöristettynä alas kokonaisluvuksi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x % y</code></td>
+<td style="text-align: left;">Jakojäännös</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-x</code></td>
+<td style="text-align: left;"><em>x</em>:n negaatio</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>abs(x)</code></td>
+<td style="text-align: left;">x:n absoluuttinen arvo</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>int(x)</code></td>
+<td style="text-align: left;">x konvertoituna kokonaisluvuksi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>float(x)</code></td>
+<td style="text-align: left;">x konvertoituna desimaaliluvuksi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>divmod(x, y)</code></td>
+<td style="text-align: left;">Tuple-muodossa seuraavat: <code>(x // y, x % y)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x ** y</code></td>
+<td style="text-align: left;"><em>x</em> potenssiin y</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>round(x[, n])</code></td>
+<td style="text-align: left;">Pyöristä n desimaalin tarkkuudella. Vakio 0.</td>
+</tr>
+</tbody>
+</table>
+<p>Huomaa, että Python sallii matemaattiset operaatiot eri numeeristen tyyppien välillä. Voit siis esimerkiksi vähentää kokonaisluvusta desimaaliluvun. Operaatiosta palautuvan luvun tietotyyppi riippuu operaatiosta. Esimerkiksi jakolasku palauttaa aina <code>float</code>:n, vaikka luku olisi jaollinen.</p>
+<h3 id="vertailu">Vertailu</h3>
+<table>
+<thead>
+<tr>
+<th>Operaattori</th>
+<th>Esimerkki</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td><code>3 == 2 + 1</code></td>
+</tr>
+<tr>
+<td>!=</td>
+<td><code>3 != 4</code></td>
+</tr>
+<tr>
+<td>&gt;, &lt;, &gt;=, &lt;=</td>
+<td><code>2.51 &gt; 2</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="loogiset">Loogiset</h3>
+<table>
+<thead>
+<tr>
+<th>Operaattori</th>
+<th>Esimerkki</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>and</td>
+<td><code>2 and 3</code></td>
+</tr>
+<tr>
+<td>or</td>
+<td><code>0 or 42</code></td>
+</tr>
+<tr>
+<td>not</td>
+<td><code>not 0</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">Tehtävä</p>
+<p>Kokeile kaikki yllä olevat operaattorit läpi. Selvitä, mitä ne tekevät. Loogiset operaattorit, saattavat tuntua lukujen kanssa epäloogisilta. Ota selvää!</p>
+</div>
+<h3 id="bitti">Bitti</h3>
+<p>Kokeile ajaa alla olevan taulukon esimerkit Pythonissa. Selvitä, mitä tapahtuu, jos muutat arvoja. Jos et onnistu päättelemään operaattoreiden toiminnallisuutta, lue aiheesta lisää esimerkiksi <a href="https://fi.wikipedia.org/wiki/Bittioperaatio">Wikipedia: Bittioperaatio</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Operaattori</th>
+<th>Termi tai selite</th>
+<th>Esimerkki</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td>AND</td>
+<td><code>0b1111 &amp; 0b1111</code></td>
+</tr>
+<tr>
+<td>|</td>
+<td>OR</td>
+<td><code>0b0000 OR 0b1111</code></td>
+</tr>
+<tr>
+<td>^</td>
+<td>XOR</td>
+<td><code>0b1010 ^ 0b0101</code></td>
+</tr>
+<tr>
+<td>~</td>
+<td>NOT</td>
+<td><code>~ 0b0111</code></td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>Siirto vasemmalle</td>
+<td><code>0b0001 &lt;&lt; 1</code></td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>Siirto oikealle</td>
+<td><code>0b0010 &gt;&gt; 1</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Näistä on esimerkkejä alempana tässä samassa luvussa.</p>
+</div>
+<h2 id="numeroiden-muotoilu">Numeroiden muotoilu</h2>
+<p>Numeroita voi muotoilla F-stringin avulla. Kokeile ajaa alla oleva koodi, joka tulostaa edellisestä luvusta tutut Unicode plane -alueet.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">17</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">start</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span> <span class="o">*</span> <span class="n">section</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">section</span><span class="si">:</span><span class="s2">&lt;2</span><span class="si">}{</span><span class="n">start</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}{</span><span class="n">end</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Aiemmin tutun "padding and aligning"-operaation lisäksi numeroita voi muotoilla huomattavan monilla muilla tavoin. Alla joitakin valittuja esimerkkejä:</p>
+<table>
+<thead>
+<tr>
+<th><code>{muuttuja:muotoiluohjeet}</code></th>
+<th>Tuloste</th>
+<th>Selite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{10:X}</code></td>
+<td><code>A</code></td>
+<td>Esitä luku heksadesimaalina (isot kirjaimet)</td>
+</tr>
+<tr>
+<td><code>{10:x}</code></td>
+<td><code>a</code></td>
+<td>Esitä luku heksadesimaalina (pienet kirjaimet)</td>
+</tr>
+<tr>
+<td><code>{10:#X}</code></td>
+<td><code>0xa</code></td>
+<td>Esitä luku heksadesimaalina <code>0x</code> etuliitteen kera.)</td>
+</tr>
+<tr>
+<td><code>{10:2x}</code></td>
+<td><code>" a"</code></td>
+<td>Esitä luku vähintään kahden merkin mittaisena.</td>
+</tr>
+<tr>
+<td><code>{10:0x2}</code></td>
+<td><code>0a</code></td>
+<td>... ja tyhjät paikat täytettynä nollilla.</td>
+</tr>
+<tr>
+<td><code>{1234567:,}</code></td>
+<td><code>1,234,567</code></td>
+<td>Tulosta tuhansien välein pilkut.</td>
+</tr>
+<tr>
+<td><code>{pi:.2f}</code></td>
+<td><code>3.14</code></td>
+<td>Tulosta 2 desimaalin tarkkuudella.</td>
+</tr>
+<tr>
+<td><code>{42:.2f}</code></td>
+<td><code>42.00</code></td>
+<td>... joka pätee myös kokonaislukuihin.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Aiemmin mainitut vanhemmat muotoilutavat (format ja %-syntaksi) jätetään käsittelemättä tässä luvussa, mutta mikäli aihe kiinnostaa, tutustu vapaasti numeroiden tulostamiseen <code>"".format()</code> avulla. Toimiiko muoto <code>"{0:.2f}".format(42.00001)"</code> ?</p>
+</div>
+<p>Otetaan heksadesimaalimuunnos hyötykäyttöön, ja muokataan yllä olevaa Unicode plane -tulostinta. Alla sama koodi muokattuna siten, että se tulostaa numerot heksadesimaaleina. Luku vie aina vähintään 6 merkkiä; täytteenä toimii välilyöntimerkki:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">17</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">start</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span> <span class="o">*</span> <span class="n">section</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">section</span><span class="si">:</span><span class="s2">&lt;2</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">start</span><span class="si">:</span><span class="s2">6x</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">end</span><span class="si">:</span><span class="s2">6x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Tehtävä</p>
+<p>Päättele yllä olevien avulla, kuinka käännät luvun binääriksi ja tulostat 8 merkkiä pitkänä. Luvusta 127 pitäisi tulostua <code>01111111</code>, mukaan lukien ensimmäinen nolla. Vihje: <code>b</code>.</p>
+</div>
+<h2 id="numeroiden-metodit">Numeroiden metodit</h2>
+<p>Toisin kuin merkkijonot, joihin liittyy useita hyödyllisiä metodeja kuten <code>.lower()</code>, numerot ovat merkillisen tylsiä. Kokeile tätä itse esimerkiksi Jupyter Notebookissa tai Visual Studio Codessa:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Luo muuttuja</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">num</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">num</span><span class="o">.</span>     <span class="c1"># paina tabia (1)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Kokeile myös floattia</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">other</span> <span class="o">=</span> <span class="mf">3.14</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">other</span><span class="o">.</span>   <span class="c1"># paina tabia</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># Kokeile myös class methodeja eli ei olion vaan itse luokan funktioita</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">int</span><span class="p">()</span><span class="o">.</span>   <span class="c1"># paina tabia</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nb">float</span><span class="p">()</span><span class="o">.</span> <span class="c1"># paina tabia</span>
+</span></code></pre></div>
+<ol>
+<li>Tabulaattorin, eli Q-näppäimen vasemmalla puolella olevan näppäimen, klikkaaminen käynnistää IDE:n koodin täydennyksen (code completion), joka listaa kaikki kyseisen olion metodit (eli olion omat funktiot) ja ominaisuudet (propertyt), jotka eivät ala alaviivalla eli eivät ole yksityisiä. IDE:stä riipppuen mukaan saattaa tulostua ties mitä muuta, kuten tiedostopolkuja.</li>
+</ol>
+<h2 id="moduuli-datetime">Moduuli: datetime</h2>
+<p>Sinulla on nyt hallussa merkkijonojen ja numeroiden perusteet, joten voit alkaa käsitellä päivämääriä ja aikoja. Päivämääriä varten löytyy <code>datetime.date</code> ja aikoja varten <code>datetime.datetime</code>. Alla pari peruskomentoa, joilla pääset alkuun, mutta Internet on täynnä esimerkkejä aiheesta.</p>
+<p>Huomaa, että päivämääriä ja aikoja voi tulostaa ANSI C -standardin mukaisilla koodeilla, joissa esimerkiksi <code>Y</code> edustaa nelinumeroista vuotta. Koko lista löytyy <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">Pythonin dokumentaatiosta</a>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Today hakee käyttöjärjestelmän kellolta päivämäärän</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># Vaihtoehto 1: muotoile merkkijono strftime funktiolla</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">today_str</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y:%m:</span><span class="si">%d</span><span class="s2"> - %A&quot;</span><span class="p">)</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">today_str</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Vaihtoehto 2: muotoile F-stringin muotoiluosassa</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="si">:</span><span class="s2">%Y:%m:%d - %A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1"># P.S.</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1"># Muista, että voit myös näin voi tehdä:</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="n">dt_format</span> <span class="o">=</span> <span class="s2">&quot;%Y:%m:</span><span class="si">%d</span><span class="s2"> - %A&quot;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="si">:{</span><span class="n">dt_format</span><span class="si">}}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Kellonaikoja koskeva matematiikka on inha koodata käsin. Jos haluat lisätä aikaan <code>13:37</code> esimerkiksi <code>25</code> minuuttia, niin sinun pitää osata ottaa huomioon, että yksi tunti on 60 minuuttia. Tätä varten Pythonin datetime-moduuli tarjoaa onneksi timedeltan.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">delta</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Suorita laskuoperaatio</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">past</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">delta</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">past</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Kellonaikojen käsittely on huomattavan vaikeaa, varsinkin jos mukaan sotketaan eri aikavyöhykkeet ja kesäajat tai kaukana historiassa olevat Juliaaniset sekä Gregoriaaniset kalenterit. Huomaa, että pyörää ei välttämättä kannata keksiä uudestaan. Datetimen ympärille on rakennettu kirjastoja, kuten <a href="https://arrow.readthedocs.io/en/latest/">Arrow</a>, jotka käsittelevät aikoja oletetusti aikavyöhykkeeseen sidottuna.</p>
+</div>
+<h2 id="kymmenjarjestelmasta-poikkeavat-luvut">Kymmenjärjestelmästä poikkeavat luvut</h2>
+<p>Bittien käsittely Pythonissa ei ehkä ole aivan jokapäiväistä työtä, mutta perusteet on silti hyvä tietää. Bittien, heksadesimaalin ja desimaalijärjestelmien perusteiden ymmärrys kuuluu tietojenkäsittelytieteiden perusteisiin, joten tämä on viimeistään hyvä vaihe ottaa aihe haltuun.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Literaali 0b-etuliitteellä</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="mb">0b111</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="mi">7</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Käännä kokonaisluku binäärin merkkijonopresentaatioksi</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="s1">&#39;0b111&#39;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># ...tai tee sama F-stringillä</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">7</span><span class="si">:</span><span class="s2">08b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="s1">&#39;00000111&#39;</span>
+</span></code></pre></div>
+<p>Jos sinulla on merkkijono, joka edustaa binääriä, käännä se numeroksi sisäänrakennettua <code>int()</code>-konstruktoria käyttäen.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Binääriä esittävä merkkijono numeroksi</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;00000111&quot;</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="mi">7</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># Desimaalilukua ...</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;101&quot;</span><span class="p">)</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="mi">101</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1"># Heksadesimaalia ...</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;65&quot;</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="mi">101</span>
+</span></code></pre></div>
+<h2 id="floatin-ongelmat">Floatin ongelmat</h2>
+<p>On houkuttelevaa, ja usein käytännöllistä, kutsua float-lukuja suomeksi desimaaliluvuiksi. On tärkeää muistaa, että kyseessä on kuitenkin liukuluku, ja ero on ajoittain merkittävä. Liukulukuihin liittyvä matematiikka on tämän kurssin skoopin ulkopuolella, mutta sen vaikutukset käytännön ohjelmoinnissa on hyvä tuntea. Float-luku kääntyy suomeksi liukuluvuksi ja kyseessä on aina binäärimuotona tallennettu luku, joka esitetään käyttäjälle pyöristetyssä desimaalimuodossa. Siksi yllä Desimaalijärjestelmässä meidän kantaluku on 10, joten jos lisäät mihin tahansa lukuun nollan perään, kerrot sen kymmenellä. Binäärissä kertoisit luvun kahdella. Mikäli poistat nollan, jaat sen kymmenellä. Binäärissä jakaisit sen kahdella. Mikäli luvussa on desimaalierotin (suomessa pilkku, amerikassa piste), erottimen vasemmalla puolella on kokonaisluku, oikealle puolella sen desimaaliosa.</p>
+<p>Mikäli desimaaliosan yrittäisi sanallistaa desimaali- ja binäärilukujen osalta, sen voisi tehdä näin:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># Kantaluku 10
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>0.1   = yksi kymmenesosa
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>0.01  = yksi sadasosa
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>0.001 = yksi tuhannesosa
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a># Kantaluku 2
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>0.1   = puolet
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>0.01  = neljäsosa
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>0.001 = kahdeksasosa
+</span></code></pre></div>
+<p>Koska tietokone tallentaa luvun binäärinä, siihen kohdistuvat binäärilukujärjestelmän rajoitteet. Huomaa, että murtoluku <code>yksi kolmasosa</code> on mahdoton esittää desimaalijärjestelmässä desimaalilukuna täydessä tarkkuudessaan. Se on päättymätön <code>0.33333...</code>. Kantaluvun kolme järjestelmässä tuo luku olisi yksinkertaisesti <code>0.1</code>. Kuinka tämä sitten näkyy käytännössä binäärijärjestelmän lukujen kanssa? Se näkyy pyöristysvirheinä:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">2</span><span class="o">/</span><span class="mi">10</span> <span class="o">==</span> <span class="mi">3</span><span class="o">/</span><span class="mi">10</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kc">False</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">2</span><span class="o">/</span><span class="mi">10</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="mf">0.30000000000000004</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">3</span><span class="o">/</span><span class="mi">10</span><span class="si">:</span><span class="s2">.16f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="mf">0.3000000000000000</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">3</span><span class="o">/</span><span class="mi">10</span><span class="si">:</span><span class="s2">.17f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="mf">0.29999999999999999</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">round</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="mi">3</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">num</span> <span class="o">=</span> <span class="mf">0.1</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">num</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="p">(</span><span class="mi">3602879701896397</span><span class="p">,</span> <span class="mi">36028797018963968</span><span class="p">)</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="c1"># Pythonin näkökulmasta 0.1 on suunnilleen sama kuin</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="c1"># kokonaislukujen 3_602_879_701_896_397 ja 2**55 suhde</span>
+</span></code></pre></div>
+<p>Jos luot murtolukujen avulla liukulukuja <strong>missä tahansa ohjelmointikielessä</strong>, noudata äärimmäistä varovaisuutta! Suorita pyöristysoperaatio aina vasta viimeisenä, ja mielellään riittävällä tarkkuudella, kuten rahan kohdalla sentteinä. Mikäli tarvitset tieteellisen laskennan tarkkuutta, käytä avuksi kirjastoja kuten Pythonin built-in kirjastot <code>decimal</code> tai <code>franctions</code>.</p>
+<h2 id="harjoituksia">Harjoituksia</h2>
+<h3 id="harjoittele-nykyhetki-unix-ajassa">Harjoittele: Nykyhetki Unix-ajassa</h3>
+<p>Selvitä, paljon jokin valitsemasi kellonaika on Unix-ajassa. Unix-ajalla tarkoitetaan sekunteja (tai joissakin tapauksissa milli-, mikro- tai nanosekunteja) 1970-luvun alusta alkaen. Luku voi olla myös negatiivinen. Voit unohtaa mahdolliset aikavyöhykkeiden tuomat ongelmat tässä harjoitteessa:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># Selvitä, mitä argumentteja datetime() kaipaa</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">event_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">()</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># Selvitä, mitä tämä palauttaa</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">event_time</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="harjoittele-etsi-edellinen-maanantai">Harjoittele: Etsi edellinen maanantai</h3>
+<p>Kirjoita skripti, joka tulostaa, kuinka monta päivää sitten oli edellinen maanantai, ja mikä kyseinen päivä on kalenterissa (ISO 8601 formaatissa). Tulostuvan lauseen pitäisi olla (<code>"Last Monday was # days ago: YYYY-MM-DD"</code>). Jos osaat, tee koodiin muutos, joka tulostaa <code>"Today is Monday, you silly!"</code>, jos tänään on maanantai.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># Aloita tästä</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+</span></code></pre></div>
+<details class="tip">
+<summary>Vihje</summary>
+<p>Vihje: <code>weekday()</code> tai <code>%w</code>.</p>
+</details>
+<h3 id="harjoittele-kommentoi-ip-osoitefunktiot">Harjoittele: Kommentoi IP-osoitefunktiot</h3>
+<p>Tutustu alla oleviin funktioihin. Kopioi koodi omaan Jupyter Notebookiin tai <code>.py</code>-tiedostoon ja kommentoi koodirivit parhaasi mukaan. Kaksi vaikeinta riviä, joissa käsitellään listoja, on kommentoitu jo valmiiksi. Yritä selvittää, mitä muut rivit tekevät: etenkin rivit, joissa tapahtuu bittioperaatiot <code>&lt;&lt;</code> ja <code>&amp;</code> ja <code>&gt;&gt;</code>. Silmukkarakenne <code>for</code> käydään läpi myöhemmässä luvussa, joten voi olla, että osa koodista jää hämärän peittoon. Yritä kuitenkin!</p>
+<p>Vinkki: <code>enumerate</code> numeroi silmukan iteraatiot, eli <code>index</code> saa ensimmäisellä kerralla arvon <code>0</code>, viimeisellä arvon <code>4</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">ip_to_integer</span><span class="p">(</span><span class="n">ip_address</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert IP address into an integer.</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="sd">    Example:</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="sd">    &gt;&gt;&gt; ip_to_integer(&quot;1.0.0.0&quot;)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="sd">    16_777_216</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="c1"># Convert to list &quot;1.2.3.4&quot; =&gt; [1, 2, 3, 4]</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    <span class="n">ip_parts</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ip_address</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)]</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">ip_parts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;IP must be in format x.x.x.x&quot;</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">ip_part</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ip_parts</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>        <span class="n">ip_shifted</span> <span class="o">=</span> <span class="n">ip_part</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">index</span><span class="p">)</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">ip_shifted</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>            <span class="nb">print</span><span class="p">(</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>                <span class="sa">f</span><span class="s2">&quot;[INFO] </span><span class="si">{</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">th from right (</span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">) &quot;</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>                <span class="sa">f</span><span class="s2">&quot;is in bitshifted binary: </span><span class="si">{</span><span class="n">ip_shifted</span><span class="si">:</span><span class="s2">32b</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>            <span class="p">)</span>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>    <span class="k">return</span> <span class="n">total</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="k">def</span><span class="w"> </span><span class="nf">integer_to_ip</span><span class="p">(</span><span class="n">ip_integer</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert integer into an IP address</span>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="sd">    Example:</span>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="sd">    &gt;&gt;&gt; integer_to_ip(16_777_216)</span>
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="sd">    &quot;1.0.0.0&quot;</span>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">ip_integer</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">32</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Integer should be in range 0-4_294_967_295&quot;</span>
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a>    <span class="n">ip_parts</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>        <span class="n">ip_part</span> <span class="o">=</span> <span class="n">ip_integer</span> <span class="o">&amp;</span> <span class="mb">0b11111111</span>
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a>        <span class="c1"># Add this part into the list ip_parts</span>
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a>        <span class="n">ip_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ip_part</span><span class="p">))</span>
+</span><span id="__span-13-42"><a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a>
+</span><span id="__span-13-43"><a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a>        <span class="n">ip_integer</span> <span class="o">=</span> <span class="n">ip_integer</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span>
+</span><span id="__span-13-44"><a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a>
+</span><span id="__span-13-45"><a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a>    <span class="c1"># Join parts with dot as separator, e.g. [4,3,2,1] -&gt; &quot;1.2.3.4&quot;</span>
+</span><span id="__span-13-46"><a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a>    <span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ip_parts</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-13-47"><a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a>
+</span><span id="__span-13-48"><a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a>    <span class="k">return</span> <span class="n">ip_address</span>
+</span></code></pre></div>
+<p>Funktioita voi käyttää nyt kääntämään IP-osoitteita ja aliverkon peitteitä kokonaisluvuiksi, ja näiden välillä voi suorittaa bittioperaatioita. Täten voimme tarkistaa, mikä on verkon osoite, jos tiedämme aliverkon peitteen ja IP-osoitteen:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">host</span> <span class="o">=</span> <span class="n">ip_to_integer</span><span class="p">(</span><span class="s2">&quot;192.168.131.17&quot;</span><span class="p">)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">mask</span> <span class="o">=</span> <span class="n">ip_to_integer</span><span class="p">(</span><span class="s2">&quot;255.255.128.0&quot;</span><span class="p">)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">network_address</span> <span class="o">=</span> <span class="n">integer_to_ip</span><span class="p">(</span><span class="n">host</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">)</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">network_address</span><span class="p">)</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="c1"># Kokeile, mitä tämä tulostaa!</span>
+</span></code></pre></div>
+<p>Huomaathan, että esimerkki on äärimmäisen naiivi. Se sallii epäkelpoja aliverkon peitteitä (esim. <code>255.128.255.0</code>). Pythonin <code>ipaddress</code>-kirjasto hoitaa saman tehtävän vähemmän naiivisti ja käyttää olio-ohjelmoinnin keinoja. Kirjaston dokumentaatio löytyy <a href="https://docs.python.org/3/library/ipaddress.html">Python Docs: ipaddress — IPv4/IPv6 manipulation library</a>.</p>
+<div class="admonition question">
+<p class="admonition-title">Tehtävä</p>
+<p>Yritä kirjoittaa muutama rivi koodia, jotka varmistavat, että verkon peite (eli mask) kelpaa oikeasti peitteeksi. Sovitaan, että peitteen pitää sisältää <code>8-29</code> ykköstä ja loput nollia eli sallitaan CIDR:t <code>/8 - /29</code>. Jos CIDR ei ole tuttu käsite, käväise esimerkiksi <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks">Wikipedia: Classless Inter-Domain Routing</a>. Vasemmalta alkavien ykkösten välissä ei saa siis olla yhtään nollaa, mikä tarkoittaa että <code>255.0.255.0</code> maskin pitäisi nostaa AssertionError! Käytä tähän <code>assert something_that_should_be_true</code> muotoa, kuten yllä olevissa esimerkeissä.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 <a href="https://www.kamk.fi">Kajaanin Ammattikorkeakoulu Oy</a>. 
+Licenced under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2676 @@
+
+<!doctype html>
+<html lang="fi" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../yleist%C3%A4/">
+      
+      
+        <link rel="next" href="../numerot/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Merkkijono - Python Perusteet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#merkkijonon-luonti" class="md-skip">
+          Hyppää sisältöön
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Ylätunniste">
+    <a href="../.." title="Python Perusteet" class="md-header__button md-logo" aria-label="Python Perusteet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Perusteet
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Merkkijono
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hae" placeholder="Hae" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Haku">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Tyhjää" aria-label="Tyhjää" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Aloitetaan hakua
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigaatio" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python Perusteet" class="md-nav__button md-logo" aria-label="Python Perusteet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python Perusteet
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tervetuloa kurssille
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asennus
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Asennus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asennus/windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python (win)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asennus/macOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python (mac)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asennus/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python (linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../asennus/vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VSCode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ajaminen
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ajaminen
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/syntaksi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntaksi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    uv
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/REPL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/tiedostosta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tiedostosta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ajaminen/jupyter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jupyter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Muuttujatyypit
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Muuttujatyypit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yleist%C3%A4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Yleistä
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Merkkijono
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Merkkijono
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#merkkijonon-luonti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merkkijonon luonti
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merkkijono-ja-operaattorit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merkkijono ja operaattorit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merkkijono ja operaattorit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aritmeettiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aritmeettiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertailu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertailu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loogiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loogiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merkkijonojen-muotoilu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merkkijonojen muotoilu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merkkijonojen muotoilu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modulo-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modulo string
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F-string
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merkkijonon-metodit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merkkijonon metodit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#muuttumattomuus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muuttumattomuus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moduuli-pathlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moduuli: pathlib
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unicode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unicode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puhelinluettelovertaus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puhelinluettelovertaus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utf-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UTF-8
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unicode-pythonissa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unicode Pythonissa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harjoituksia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoituksia
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Harjoituksia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-merkkijono-tiedostosta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Merkkijono tiedostosta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-merkkijono-tiedostoon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Merkkijono tiedostoon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-merkkijonon-unicode-analyysi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Merkkijonon Unicode-analyysi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numerot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numerot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sekvenssit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sekvenssit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tavut/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tavujono
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../joukko/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Joukko (set)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sanakirja/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanakirja (dict)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loppusanat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loppusanat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kontrollirakenteet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kontrollirakenteet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/ehtolauseet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ehtolauseet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/silmukat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Silmukat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/context_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/generaattorit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generaattorit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kontrollirakenteet/try/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funktiot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Funktiot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../funktiot/namespace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../funktiot/funktiot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funktiot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../funktiot/lambda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lambda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Konfiguraatiot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Konfiguraatiot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfiguraatiot/cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cli
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfiguraatiot/kayttajasyote/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Käyttäjäsyöte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfiguraatiot/tiedosto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tiedosto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfiguraatiot/ymparistomuuttujat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ympäristömuuttujat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Muut kielet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Muut kielet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../muut_kielet/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Javascript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#merkkijonon-luonti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merkkijonon luonti
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merkkijono-ja-operaattorit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merkkijono ja operaattorit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merkkijono ja operaattorit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aritmeettiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aritmeettiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertailu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertailu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loogiset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loogiset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merkkijonojen-muotoilu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merkkijonojen muotoilu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merkkijonojen muotoilu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modulo-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modulo string
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F-string
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merkkijonon-metodit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merkkijonon metodit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#muuttumattomuus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muuttumattomuus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moduuli-pathlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moduuli: pathlib
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unicode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unicode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puhelinluettelovertaus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puhelinluettelovertaus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utf-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UTF-8
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unicode-pythonissa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unicode Pythonissa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harjoituksia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoituksia
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Harjoituksia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-merkkijono-tiedostosta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Merkkijono tiedostosta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-merkkijono-tiedostoon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Merkkijono tiedostoon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harjoittele-merkkijonon-unicode-analyysi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harjoittele: Merkkijonon Unicode-analyysi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Merkkijono</h1>
+
+<p>Pythonissa merkkijono (eng. <code>string</code>) on muuttumaton (eng. <code>immutable</code>) sarja Unicode-koodipisteitä. Tutkitaan, mitä äskeinen lause tarkoittaa. Alla olevassa snippetissä luodaan merkkijono <code>"Hello world! 😀"</code>, joka sijoitetaan muuttujaan nimeltään <code>message</code>. Lopulta muuttujan arvo tulostetaan ruudulle (tai standarditulosteeseen.)</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello world! 😀&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="merkkijonon-luonti">Merkkijonon luonti</h2>
+<p>Literaalin merkkijonon voi luoda kirjoittamalla jotakin lainausmerkkien väliin tai heittomerkkien väliin. Seuraavat komennot toimivat REPL:ssä:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Cat&#39;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s1">&#39;Cat&#39;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;Cat&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s1">&#39;Cat&#39;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cat&quot;</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">Cat</span>
+</span></code></pre></div>
+<p>Tyypillisesti merkkijono sijoitetaan muuttujaan, jotta sitä voi käyttää myöhemmin. Alla oleva koodi on ajettu REPL:ssä:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;Cat&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">Cat</span>
+</span></code></pre></div>
+<p>Voit luoda myös muista muuttujatyypeistä merkkijonona ja syötämällä ne <code>str</code>-konstruktorille argumenttina. Tämä toimii kaikkiin objekteihin, ellei objektista ole tarkoituksella poistettu tätä toiminnallisuutta (eli metodia <code>__str__</code>). Alla esimerkkejä:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>    <span class="c1"># Kokonaisluku (int)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="s1">&#39;4&#39;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>  <span class="c1"># Desimaaliluku (float)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s1">&#39;4.0&#39;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>  <span class="c1"># Luokka string itsessään</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s2">&quot;&lt;class &#39;str&#39;&gt;&quot;</span>
+</span></code></pre></div>
+<p>Tyypillisesti koodi kannattaa kirjoittaa siten, että käytät yhtä tyyliä läpi koodin. Valitse siis joko lainausmerkit <code>"Kissa"</code> tai heittomerkit <code>'Kissa'</code>. Mikäli tarvitset lainausmerkkiä ja/tai heittomerkkiä merkkijonon sisällä, sinulla on pari vaihtoehtoa.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Vaihtoehto 1: käytä vastakkaisia merkkejä</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">incl_apostrophe</span> <span class="o">=</span> <span class="s2">&quot;A scratch? Your arm&#39;s off!&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">incl_quotes</span> <span class="o">=</span> <span class="s1">&#39;A &quot;scratch&quot;? Your arm is off!&#39;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Vaihtoehto 2: Käytä backslashiä karkaamaan seuraava merkki</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">incl_both</span> <span class="o">=</span> <span class="s2">&quot;A </span><span class="se">\&quot;</span><span class="s2">scratch</span><span class="se">\&quot;</span><span class="s2">? Your arm&#39;s off!&quot;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Vaihtoehto 3: Käytä Unicode code pointtia</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">incl_both</span> <span class="o">=</span> <span class="s2">&quot;A </span><span class="se">\x22</span><span class="s2">scratch</span><span class="se">\x22</span><span class="s2">? Your arm&#39;s off!&quot;</span>
+</span></code></pre></div>
+<p>Vaihtoehto kolme on vaikealukuinen ja saattaa herättää kysymyksiä. Kenoviiva (eng. backslash) on Pythonissa, kuten myös monissa muissakin kielissä, tietynlainen metamerkki, jonka merkitys on <code>escape character</code>. Kenoviivaa seuraaville merkeille annetaan erityismerkitys. Alla muutama:</p>
+<table>
+<thead>
+<tr>
+<th>Escape</th>
+<th>Merkitys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\n</code></td>
+<td>Uusi rivi. ("Line Feed")</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>Siirrä kirjoituskoneen vaunu alkuun ("Carriage return")</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>Tabulaattori eli sarkain</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>Askelpalautin eli backspace</td>
+</tr>
+</tbody>
+</table>
+<p>Kokeile ihmeessä, kuinka nykyajan tietokone reagoi käskyyn, jossa pyydät palauttamaan kirjoituskoneen vaunun alkuasentoonsa. Tai kuinka se reagoi, jos sijoitat keskelle merkkijonoa askelpalauttimia? Entäpä uudet rivit? Selvitä, mitä seuraavat komennot tulostavat.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a sentence that will be partially </span><span class="se">\r</span><span class="s2"> Overwritten&quot;</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a sentence that will be partially </span><span class="se">\b\b\b\b\b</span><span class="s2"> Overwritten&quot;</span><span class="p">)</span> <span class="c1"># (1)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This </span><span class="se">\n</span><span class="s2"> is </span><span class="se">\n</span><span class="s2"> awesome&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<ol>
+<li>Huomaathan, että <code>\b</code>toimii REPL:ssä, mutta ei Jupyter Notebookissa.</li>
+</ol>
+<p>Entä, jos sinulla on tarve käyttää kenoviivaa merkkijonossa? Tämän ongelman voit ratkaista pakenemalla kenoviivan itsensä tai :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Vaihtoehto 1: pakene kenoviiva</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Vaihtoehto 2: Käytä raw stringiä muodolla r&quot;&quot;.</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users</span><span class="se">\&quot;</span><span class="s2">)</span>
+</span></code></pre></div>
+<p>Jos sinulla on tarve muodostaa todella pitkä merkkijono, sinulla on muutamia vaihtoehtoja.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Vaihtoehto 1: Sijoita merkkijono kolmen lainausmerkin tai heittomerkin väliin</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">long_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;You can write the string between triple-quotation</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s2">marks and it will preserve all the formatting including</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s2">        &lt;= this unnecessary whitespace. End the following newline character.</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Vaihtoehto 2: Sijoita merkkijono osina sulkujen sisään</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">long_string</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="s2">&quot;This is a very long string &quot;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="s2">&quot;written on multiple lines &quot;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="s2">&quot;but printed on a single line &quot;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="s2">&quot;since there are no newline characters.&quot;</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">)</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="c1"># Vaihtoehto 3: Yhdistämä list&lt;str&gt; tyypin muuttujan entiteetit</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="n">list_of_strings</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="s2">&quot;This is a very long string&quot;</span><span class="p">,</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    <span class="s2">&quot;written in multiple list items&quot;</span><span class="p">,</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="s2">&quot;but printed on a single line&quot;</span><span class="p">,</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="s2">&quot;since there are no newline characters.&quot;</span><span class="p">,</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="p">]</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="n">long_string</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">list_of_strings</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="merkkijono-ja-operaattorit">Merkkijono ja operaattorit</h2>
+<p>Merkkijonot eivät ole lukuja, mutta valitut Pythonin aritmeettiset operaatiot, vertailuoperaattorit, loogiset operaattorit sekä jäsenyyttä testaavat operaattorit toimivat niitä vasten silti.</p>
+<h4 id="aritmeettiset">Aritmeettiset</h4>
+<table>
+<thead>
+<tr>
+<th>Operaattori</th>
+<th>Esimerkki</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td><code>"kissa" + "koira"</code></td>
+</tr>
+<tr>
+<td>*</td>
+<td><code>"x" * 72</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="vertailu">Vertailu</h4>
+<table>
+<thead>
+<tr>
+<th>Operaattori</th>
+<th>Esimerkki</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td><code>"kissa" == "kissa"</code></td>
+</tr>
+<tr>
+<td>!=</td>
+<td><code>"KISSA" != "kissa"</code></td>
+</tr>
+<tr>
+<td>&gt;, &lt;, &gt;=, &lt;=</td>
+<td><code>"a" &gt; "b"</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="loogiset">Loogiset</h4>
+<table>
+<thead>
+<tr>
+<th>Operaattori</th>
+<th>Esimerkki</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>and</td>
+<td><code>"kissa" and "koira"</code></td>
+</tr>
+<tr>
+<td>or</td>
+<td><code>"" or "koira"</code></td>
+</tr>
+<tr>
+<td>not</td>
+<td><code>not ""</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">Tehtävä</p>
+<p>Kokeile kaikki yllä olevat operaattorit läpi. Selvitä, mitä ne tekevät. Vertailuoperaattorit suurempi/pienempi kuin, kuten myös loogiset operaattorit, saattavat tuntua merkkijonojen kanssa epäloogisilta. Ota selvää!</p>
+</div>
+<h2 id="merkkijonojen-muotoilu">Merkkijonojen muotoilu</h2>
+<p>Merkkijonoihin voi upottaa muiden muuttujen arvoja, vaikka ne eivät olisi merkkijonoja itsessään. Alla on kolme tapaa tehdä tämä: yksi vanha ja kaksi tuoreempaa.</p>
+<h3 id="modulo-string">Modulo string</h3>
+<p>Tämä <code>% string formatting</code> on vanha tapa, jonka on korvannut alla esitellyt <code>str.format()</code> sekä <code>f-string formatting</code>. Tähän kuitenkin ajoittain törmää Internetin esimerkerissä ja dokumentaatiossa, joten se on hyvä tuntea, vaikka sitä ei käyttäisi.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Parrot&quot;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">number</span> <span class="o">=</span> <span class="mi">42</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;My pet is a </span><span class="si">%s</span><span class="s2"> and it is </span><span class="si">%d</span><span class="s2"> years old&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Tyyli muistuttaa C-kielestä tuttua <code>printf</code>:ää, ja siitä voikin lukea lisää Pythonin dokumentaatiosta väliotsikon <a href="https://docs.python.org/3/library/stdtypes.html#old-string-formatting">printf-style String Formatting</a> alta. Käytäthän Pythonissa kuitenkin kahta alla olevaa tapaa merkkijonojen muotoiluun.</p>
+<h3 id="format">Format</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">text_a</span> <span class="o">=</span> <span class="s2">&quot;Values are (</span><span class="si">{r}</span><span class="s2">,</span><span class="si">{g}</span><span class="s2">,</span><span class="si">{b}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">red</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">green</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">blue</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Vanha format-tyyli on luettavuudeltaan parempi kuin edeltäjänsä, mutta se on silti saanut vielä paremman seuraajan. Jatka lukemista.</p>
+<h3 id="f-string">F-string</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">#        Huomaa f-kirjain</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1">#        ↓</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">text_b</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Values are (</span><span class="si">{</span><span class="n">red</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">green</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">blue</span><span class="si">}</span><span class="s2">)&quot;</span>
+</span></code></pre></div>
+<p>Kun merkkijonoista puhutaan, f-string mahdollistaa muun muassa merkkijonon tulostamisen tietyn levyisenä eli <code>left|center|right padding</code>. Yllä olevissa esimerkissä aaltosulkeiden sisään laitettiin pelkkä muuttujan nimi: tässä tapauksessa se tulostaa muuttujan arvon (repr-presentaation). Kokeillaan seuraavksi sijoittaa muuttujan lisäksi aaltosulkeisiin muotoiluohjeita, jotka sijoitetaan kaksoispisteen jälkeen, kuten <code>{muuttuja:muotoiluohjeet}</code>. Alla olevien esimerkkien avulla on helppo muodostaa tabulaarista eli taulukkomallista tulostetta, ja tästä löytyy esimerkki luvun lopusta.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">ingredient</span> <span class="o">=</span> <span class="s2">&quot;spam&quot;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># Voit kirjoittaa aaltosulkujen väliin koodia</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ingredient</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># ...tai :-merkin jälkeen antaa muotoiluun ohjeita</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ingredient</span><span class="si">:</span><span class="s2">&lt;42</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ingredient</span><span class="si">:</span><span class="s2">&gt;42</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ingredient</span><span class="si">:</span><span class="s2">^42</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ingredient</span><span class="si">:</span><span class="s2">*^42</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># Myös muotoiluohje saa sisältää muuttujia</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># kunhan ne kääritään aaltosulkeisiin</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ingredient</span><span class="si">:</span><span class="s2">*^</span><span class="si">{</span><span class="n">n</span><span class="si">}}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>F-string eli "formatted string literal" on hyödyllinen myös muiden muuttujatyyppien kuin merkkijonojen tulostamisessa. Siispä tähän aiheeseen palataan aiheeseen kurssilla useassa eri luvussa. Jos mielenkiinto heräsi, voit toki lukea aiheesta jo nyt lisää, esimerkiksi <a href="https://fstring.help/">fstring.help</a>-sivustolta tai <a href="https://docs.python.org/3/library/string.html#format-specification-mini-language">Pythonin omasta dokumentaatiosta</a>.</p>
+<h2 id="merkkijonon-metodit">Merkkijonon metodit</h2>
+<p>Merkkijono on olio eli objekti, ja sillä on olio-ohjelmointiin tyypilliseen tapaan omia metodeja. Alla näkyy pari yleisesti hyödyllistä, mutta tutustu muihin <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">Pythonin dokumentaatiossa</a></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;MuN ShIfT NäpPÄiN on SeKAiSiN&quot;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="s1">&#39;Mun shift näppäin on sekaisin&#39;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;MuN ShIfT NäpPÄiN on SeKAiSiN&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="s1">&#39;mun shift näppäin on sekaisin&#39;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;abc123&quot;</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="kc">True</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;abc123!&quot;</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="kc">False</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;x&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="s1">&#39;      x      &#39;</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot; käyttäjän syöte  &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="s1">&#39;käyttäjän syöte&#39;</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;puoli:pisteellä:eroitellut:jutut&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="p">[</span><span class="s1">&#39;puoli&#39;</span><span class="p">,</span> <span class="s1">&#39;pisteellä&#39;</span><span class="p">,</span> <span class="s1">&#39;eroitellut&#39;</span><span class="p">,</span> <span class="s1">&#39;jutut&#39;</span><span class="p">]</span>
+</span></code></pre></div>
+<p>Merkkijono on sekvenssi, ja siihen toimii sisäänrakennettu <code>len()</code> funktio samalla tavalla kuin listoihin ja muihin sekvensseihin. Tähän tutustutaan myöhemmin tarkemmin listoja käsittelevässä luvussa.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">)</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="mi">5</span>
+</span></code></pre></div>
+<h2 id="muuttumattomuus">Muuttumattomuus</h2>
+<p>Yllä todettiin, että merkkijono on muuttumaton sarja merkkejä (tai Unicode-koodipisteitä.) Tämä tarkoittaa, että et voi muokata merkkijonoa samalla tavalla kuin listaa, johon perehdytään myöhemmissä luvuissa. Kokeile, mitä tapahtuu, kun yrität muokata merkkijonon ensimmäistä kirjainta:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;bond, James Bond&quot;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;B&quot;</span>
+</span></code></pre></div>
+<h2 id="moduuli-pathlib">Moduuli: pathlib</h2>
+<p>Yksi hyvin yleinen käyttötarkoitus merkkijonoille ovat hakemisto- ja tiedostonimet. Niiden käsittely käsin on yllättävän haasteellista muun muassa siksi, että hakemistoerotin riippuu käyttöjärjestelmästä. Windowsissa se on <code>\</code> ja Unix-pohjaisissa järjestelmissä <code>/</code>. Suuri osa Pythonin tehokkuudesta tulee sen kattavasta kirjastosta erilaisia kirjastoja. Yksi todella näppärä kirjasto nimenomaan tähän käyttötarkoitukseen on pathlib, jonka dokumentaatioon kannattaa tutustua Python docsissa: <a href="https://docs.python.org/3/library/pathlib.html">pathlib — Object-oriented filesystem paths</a>. Kirjasto on Pythoniin sisäänrakennettu, joten sitä ei tarvitse erikseen asentaa, mutta täytyy importoida ennen käyttöä.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Monissa Internetissä löytyvissä esimerkeissä käytetään vanhempaa <code>os</code> ja <code>os.path</code> moduulia samaan tehtävään. Suosi mieluummin oliopohjaista pathlibiä.</p>
+</div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Vaihtoehto 1: Importtaa koko pathlib ja käytä pitkää polkua</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">file</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># Vaihetoehto 2: Importtaa pelkkä Path luokka</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Huomaa, että kyseessä on <strong>tiedostopolku</strong> eikä tiedosto itsessään. Kyseistä tiedostoa ei ole pakko olla olemassa, jotta voit käsitellä sen polkua. Tiedoston voi kuitenkin luoda <code>Path</code>:n metodien avulla.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Luo tiedosto jos sitä ei vielä ole.</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">file</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Tarkista, että onhan tiedosto tiedosto</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">file</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Tiedostoon voi myös kirjoittaa ja siitä voi lukea.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Luo kirjoitettavaa sisältöä</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;I will not buy this record, it is scratched!&quot;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Kirjoita</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="n">file</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Lue</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="n">read_content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="c1"># Varmista, että sisältö on sama</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="k">assert</span> <span class="n">content</span> <span class="o">==</span> <span class="n">read_content</span>     <span class="c1"># Mikä assert? (1)</span>
+</span></code></pre></div>
+<ol>
+<li>Assert on varattu avainsana Pythonissa, ja sitä voi käyttää totuuksien testaamiseen. Esimerkiksi <code>assert False</code> nostaa <code>AssertionErrorin</code>, mutta <code>assert True</code> ei.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Tämän luvun lopussa on pari harjoitusta, joissa tiedostoja luetaan ja kirjoitetaan sisäänrakennettua <code>open</code>-funktiota käyttäen. Kumpi on mielestäsi helpompi tai nopeampi tapa? Voit kokeilla tehdä samat tehtävät <code>pathlib</code>:iä käyttäen. Voit myös hallita tiedostopolut <code>pathlib</code>:llä, mutta kirjoittaa <code>open</code>:lla.</p>
+</div>
+<h2 id="unicode">Unicode</h2>
+<p>Yllä todettiin, että merkkijono on sarja Unicode-koodipisteitä. Unicoden Consortiumin oma <a href="https://home.unicode.org/technical-quick-start-guide/">Quick Start Guide</a> on tutustumisen arvoinen, mutta tämän kurssin puitteissa riittää tietää, että Unicode on merkistö, jossa jokaiseen merkkiin viittaa yksi kokonaisluku. Ihmiskunta käyttää laajaa merkistöä, johon kuuluu paljon muutakin kuin tyypilliset 7-bittiset <code>ASCII</code>-merkistön sisältämät latinalaiset aakkoset.</p>
+<p><img alt="" src="../../images/ASCII-Table-wide.svg" /></p>
+<p><strong>Kuvio 1:</strong> <em>ASCII-merkistö taulukkona. (Public domain: <a href="https://simple.wikipedia.org/wiki/ASCII#/media/File:ASCII-Table-wide.svg">lähde</a>.)</em></p>
+<p>Unicode jakaa vanhan ASCII-merkistön kanssa ensimmäiset 127 merkkiä - joka siis kattaa perinteisen ASCII-merkistön kokonaan eli merkit <code>00</code>-<code>7F</code> (binäärinä <code>0000 0000</code>-<code>0111 1111</code>, desimaalina <code>0-127</code>). Aja alla oleva koodi ja tarkista, että kirjain "A" viittaa oikeaan Unicode/ASCII-koodipisteeseen.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">letter</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">dec_letter</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">hex_letter</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="n">dec_letter</span><span class="p">)</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">dec_letter</span><span class="p">)</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">hex_letter</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Tehtävä</p>
+<p>Selvitä, mikä on välilyönnin desimaaliarvo Unicodessa ja täten myös ASCII:ssa. Entä rivinvaihdon?</p>
+</div>
+<p>Aikoinaan kaikki muut merkit, kuten suomalaisista aakkosista tutut ääkköset tai skandit, lisättiin erilaisilla koodauksilla. Internetissä HTML-standardin default oli HTML 4.0:aan asti <code>ISO-8859-1</code> eli <code>latin-1</code>. Voit tutustua siihen lyhyesti Wikipedia-sivulla <a href="https://fi.wikipedia.org/wiki/%C3%84%C3%A4kk%C3%B6set">Ääkköset</a>.</p>
+<p>Unicodessa tilanne on ratkaistu siten, että merkkiavaruutta on kasvatettu 8 bitistä huomattavasti suuremmaksi. Unicode koostuu 17 eri planesta, joita ovat siis planet <code>0-16</code> eli heksadesimaalina <code>0-10</code>. Jokainen plane on 16-bittinen, eli sisältää maksimissaan<code>2 ** 16</code> eli <code>65536</code> merkkiä.</p>
+<table>
+<thead>
+<tr>
+<th>Plane nimi</th>
+<th>Plane #</th>
+<th>Merkkiavaruuden alku ja loppu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BMP</td>
+<td>0</td>
+<td><code>0000</code>-<code>FFFF</code> (4 merkkiä)</td>
+</tr>
+<tr>
+<td>SMP</td>
+<td>1</td>
+<td><code>10000</code>-<code>1FFFF</code> (5 merkkiä!)</td>
+</tr>
+<tr>
+<td>SIP</td>
+<td>2</td>
+<td><code>20000</code>-<code>2FFFF</code> (5 merkkiä!)</td>
+</tr>
+<tr>
+<td>jne.</td>
+<td>jne</td>
+<td>jne.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="puhelinluettelovertaus">Puhelinluettelovertaus</h3>
+<p>Yllä olevat heksadesimaalit ja planet saattavat hämmentää, joten alla on täysin desimaaleina käsitelty versio. Kuvittele kirjahylly, jossa on 17 kirjaa. Jokainen kirja on ikään kuin Unicoden puhelinluettelo, jossa jokainen rivi on numeroitu. Kukin kirja sisältää <code>65535</code> riviä. Kullakin rivillä lukee rivin (eli samalla merkin) järjestysnumero sekä merkki itsessään.</p>
+<table>
+<thead>
+<tr>
+<th>Kirja</th>
+<th>Rivin #</th>
+<th>Merkki tai kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 - BMP</td>
+<td>0</td>
+<td><code>[NULL]</code></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>0 - BMP</td>
+<td>33</td>
+<td><code>!</code></td>
+</tr>
+<tr>
+<td>0 - BMP</td>
+<td>34</td>
+<td><code>"</code></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>0 - BMP</td>
+<td>65</td>
+<td><code>A</code></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>0- BMP</td>
+<td>65533</td>
+<td><code>�</code></td>
+</tr>
+<tr>
+<td>0 - BMP</td>
+<td>65534</td>
+<td><code>[UNASSIGNED]</code></td>
+</tr>
+<tr>
+<td>0 - BMP</td>
+<td>65535</td>
+<td><code>[UNASSIGNED]</code></td>
+</tr>
+<tr>
+<td>1 - SMP</td>
+<td>65536</td>
+<td><code>𐀀</code></td>
+</tr>
+<tr>
+<td>1 - SMP</td>
+<td>65537</td>
+<td><code>𐀁</code></td>
+</tr>
+<tr>
+<td>1 - SMP</td>
+<td>65538</td>
+<td><code>𐀂</code></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>1 - SMP</td>
+<td>128512</td>
+<td><code>😀</code></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>1 - SMP</td>
+<td>131071</td>
+<td><code>[UNASSIGNED]</code></td>
+</tr>
+<tr>
+<td>2 - SIP</td>
+<td>131072</td>
+<td><code>[CJK UNIFIED IDEOGRAPH-20000]</code></td>
+</tr>
+<tr>
+<td>2 - SIP</td>
+<td>131073</td>
+<td><code>[CJK UNIFIED IDEOGRAPH-20001]</code></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>16 - PUA</td>
+<td>1114111</td>
+<td><code>[PRIVATE]</code></td>
+</tr>
+</tbody>
+</table>
+<p>Jo ensimmäisessä planessa (eli BMP, Basic Multilingual Plane) on kymmeniä tuhansia merkkejä ja jonkin verran tilaa uusille merkeille. Niitä merkkejä, joita ei sinun näppäimistötäsi suorilta käsin löydy, käytät luonnollisesti kohtalaisen harvoin. Mikäli tällainen päätyy Pythoniin sinun toimestasi, niin yleensä:</p>
+<ol>
+<li>luet sen tiedostosta</li>
+<li>liität sen (tarkoituksella tai vahingossa) Internet-sivustolta tai toisesta sovelluksesta</li>
+<li>kaivat merkin käyttöjärjestelmäsi merkistöstä</li>
+</ol>
+<p>Huomaa, että käyttämäsi fontin täytyy sisältää merkki, jotta sen voi piirtää ruudulle. Esimerkiksi yllä olevassa puhelinluettelovertauksessa merkki numero <code>131072</code> on <code>the sound made by breathing in; oh!</code> (<a href="https://www.unicode.org/cgi-bin/GetUnihanData.pl?codepoint=U%2B20000">Unihan Database</a>), ja sen visuaalinen ikoni löytyy ainakin <a href="https://unicode.org/charts/PDF/U20000.pdf">Unicode Stanadard Version 15.1: CJK Unified Ideographs Extension B</a> -PDF-tiedostosta.</p>
+<h3 id="utf-8">UTF-8</h3>
+<p>Urasi aikana tulee äärimmäisen suurella todennäköisyydellä vastaan myös sellaisia tilanteita, että saat käsiisi tiedoston tai bytearrayn, jonka pitäisi sisältää tekstiä, mutta Python nostaa UnicodeDecodeErrorin. Tällöin tiedosto on yleensä enkoodattu esimerkiksi <code>latin-1</code>:llä ja sisältää jonkin extended ascii -merkin (<code>1xxx xxxx</code>) kuten <code>ä</code>. Python olettaa vakiona, että tiedostot ovat enkoodattu <code>utf-8</code>:lla (olettaen että sinulle on tuore Linux, macOS tai Windows).</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Luo muuttujat</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Tämä&quot;</span>           <span class="c1"># Kokeile a-z, ä ja vaikka 👍 sisältäviä merkkijonoja</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">encoder</span> <span class="o">=</span> <span class="s2">&quot;windows-1252&quot;</span>  <span class="c1"># Kokeile eri arvoja kuten utf-8, latin-1, utf-16 windows-1252</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">decoder</span> <span class="o">=</span> <span class="s2">&quot;windows-1252&quot;</span>  <span class="c1"># Kokeile, mitä käy, jos encoder ja decoder eivät täsmää</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="c1"># Koodaa</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="n">encoded</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="n">encoder</span><span class="p">)</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UTF-8 encoded: &quot;</span><span class="p">,</span> <span class="n">as_utf8</span><span class="p">)</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="c1"># Pura koodaus</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="n">decoded</span> <span class="o">=</span> <span class="n">as_utf8</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="n">decoder</span><span class="p">)</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;... and decoded: &quot;</span><span class="p">,</span> <span class="n">as_str</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Tehtävä</p>
+</div>
+<p>Kopioi yllä oleva komento Jupyter Notebookiin tai <code>.py</code>-tiedostoon. Muokkaa string, encoder ja decoder muuttujien arvoja ja aja koodia uudestaan ja uudestaan. Tulet huomaamaan, että UTF-8 on tuottaa merkistä riippuen eri määrän tavuja eli on <em>variable length encoding</em>. Kannattaa tutustua UTF-8:iin esimerkiksi <a href="https://en.wikipedia.org/wiki/UTF-8">Wikipediassa</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Unicode on siis <strong>merkistö</strong>, jossa kutakin merkkiä vastaa jokin kokonaisluku, joka usein esitetään muodossa <code>U+FFFF</code> tai <code>U+1FFFF</code> jos se kuuluu). Jos merkkijono materialisoidaan eli kirjoitetaan tiedostoon, ne pitää enkoodata siten, että sen voi kirjoittaa tavuina. Eri enkoodauksia ovat muun muassa <code>latin-1</code>, <code>utf-8</code> ja <code>utf-16</code>. Näistä huomattavasti yleisin, useiden käyttöjärjestelmien ja esimerkiksi HTML 5:n vakio, on <code>utf-8</code>.</p>
+</div>
+<h3 id="unicode-pythonissa">Unicode Pythonissa</h3>
+<p>Pythonissa Unicode näkyy siten, että merkkijonot voivat sisältää käytännössä mitä tahansa Unicode-merkkejä.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">b1</span> <span class="o">=</span> <span class="s2">&quot;b&quot;</span>          <span class="c1"># Merkin voi kirjoittaa ihan vain merkkinä</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">b2</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u0062</span><span class="s2">&quot;</span>     <span class="c1"># ... tai pienen u-kirjaimen avulla 4-merkkinä code pointtina</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">b3</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\U00000062</span><span class="s2">&quot;</span> <span class="c1"># ... tai ison U-kirjaimen avulla 8-merkkisenä code pointtina</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Letters are the same?: &quot;</span><span class="p">,</span> <span class="n">b1</span> <span class="o">==</span> <span class="n">b2</span> <span class="o">==</span> <span class="n">b3</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Tehtävä</p>
+<p>Valitse mikä tahansa symboli, kuten theta eli <code>Θ</code> tai peukku ylös hymil eli <code>👍</code>, ja käy syöttämässä se FileFormat-sivuston <a href="https://www.fileformat.info/info/unicode/char/search.htm">Unicode Character Search</a>-hakukenttään. Klikkaa Search, skrollaa alas ja seuraa sopivinta hakutulosta. Jos tulosta ei löydy, kokeile syöttää haku sanana, kuten <code>thumb</code>.</p>
+</div>
+<h2 id="harjoituksia">Harjoituksia</h2>
+<h3 id="harjoittele-merkkijono-tiedostosta">Harjoittele: Merkkijono tiedostosta</h3>
+<p>Alla on koodi, joka lukee test.txt-tiedostosta UTF-8-koodausta käyttäen sisällön muuttujaan <code>content</code>. Kokeile koodia tiedostolla, jonka luot esimerkiksi <code>nano</code>:lla, Windowsin notepadilla tai Visual Studio Codella. Tiedoston tulee olla samassa kansiossa kuin mistä koodi ajetaan; tiedostopolku on siis relatiivinen.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Vaihtoehto 1: Avaa tiedosto ja osoita TextIOWrapper:n instanssi muuttujaan</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="c1">#               f. Lue sisältö. Lopuksi sulje tiedosto</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1"># Vaihtoehto 2: Avaa tietdosto with:llä eli context managerilla.</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="c1">#               Lue sisältö. Tiedostoa ei tarvitse itse sulkea.</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Huomaa, että yllä näkyvästä Vaihtoehto 2:sta puuttuvat positionaalinen argumentti <code>"r"</code> ja asiasana-argumentti <code>encoding</code>. Vaihtoehdossa 1 käytetyt arvot ovat defaultit, joten ne voi jättää määrittämättä, mikäli haluaa tiivistää koodia.</p>
+</div>
+<h3 id="harjoittele-merkkijono-tiedostoon">Harjoittele: Merkkijono tiedostoon</h3>
+<p>Tiedoston kirjoittaminen toimii hyvin samalla tavalla kuin lukeminen. Lukemisessa käytetyt vaihtoehdot yksi ja kaksi pätevät myös tässä siten, että voit joko käyttää context manageria (<code>with</code>) tai huolehtia tiedoston sulkemisesta itse. Lähtökohtaisesti <code>with</code> on suositeltu tapa.</p>
+<p>Huomaa, että tiedoston avaamisen moodi on vaihdettu <code>r</code>:stä <code>w</code>:een.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Tämä merkkijono kirjoitetaan utf-8 enkoodattuna tiedostoon.&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Lisätehtävä</p>
+<p>Löytyy myös muita moodeja kuin <code>r</code> ja <code>w</code>. Kokeile tai selvitä, mitä moodi <code>a</code> tekee. Selvitä myös, mitä <code>b</code>-liite moodissa tekee: tällöin moodi on kokonaisuudessaan esimerkiksi <code>rb</code> tai <code>wb</code>.</p>
+</div>
+<h3 id="harjoittele-merkkijonon-unicode-analyysi">Harjoittele: Merkkijonon Unicode-analyysi</h3>
+<p>Alla on koodi, joka käy <code>message</code>-muuttujan merkit yksitellen läpi (<code>for</code>-silmukassa) ja tulostaa Unicode-merkkiin liittyvää tietoa. Kokeile ajaa koodia ja lue se läpi. Silmukat ja muut kontrollirakenteet opetetaan myöhemmin, mutta sen toiminnan voi lukiessaan päätellä ihan lausemuodosta <code>for char in message</code> eli <code>per jokainen merkki merkkijonossa</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Tulostettava viesti</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hi! 😀</span><span class="se">\U0001F08F</span><span class="s2">&quot;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1"># Taulukon otsikkorivi</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Merkki | Escape-formaatti | Koodipiste | UTF-8-enkoodaus&quot;</span><span class="p">)</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="c1"># Merkkijono on sarja, joten se voidaan loopata</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">message</span><span class="p">:</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>    <span class="c1"># Unicode-koodipiste kokonaislukuna</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>    <span class="n">code_point</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>    <span class="c1"># UTF-8 enkoodaus välilyönnillä erotettuna heksana</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>    <span class="n">char_utf8</span> <span class="o">=</span> <span class="n">char</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>    <span class="n">char_utf8_hex</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">2X</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">char_utf8</span><span class="p">])</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>    <span class="c1"># Käsittele plane 0 ja muut planet eri syntaksilla (u vs U)</span>
+</span><span id="__span-23-18"><a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>    <span class="k">if</span> <span class="n">code_point</span> <span class="o">&lt;=</span> <span class="mh">0xFFFF</span><span class="p">:</span>
+</span><span id="__span-23-19"><a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>        <span class="n">char_esc_format</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">u</span><span class="si">{</span><span class="n">code_point</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-23-20"><a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a>        <span class="n">code_hex</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="n">code_point</span><span class="p">)</span>
+</span><span id="__span-23-21"><a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-23-22"><a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a>        <span class="n">char_esc_format</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">U</span><span class="si">{</span><span class="n">code_point</span><span class="si">:</span><span class="s2">08X</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-23-23"><a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a>        <span class="n">code_hex</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="n">code_point</span><span class="p">)</span>
+</span><span id="__span-23-24"><a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a>
+</span><span id="__span-23-25"><a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a>    <span class="c1"># Print the information</span>
+</span><span id="__span-23-26"><a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">char</span><span class="si">:</span><span class="s2">&lt;3</span><span class="si">}{</span><span class="n">char_esc_format</span><span class="si">:</span><span class="s2">&gt;21</span><span class="si">}{</span><span class="n">code_hex</span><span class="si">:</span><span class="s2">&gt;12</span><span class="si">}{</span><span class="n">char_utf8_hex</span><span class="si">:</span><span class="s2">&gt;18</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Tuloste:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Merkki | Escape-formaatti | Koodipiste | UTF-8-enkoodaus
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>H                 \u0048        0x48                48
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>i                 \u0069        0x69                69
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>!                 \u0021        0x21                21
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>                  \u0020        0x20                20
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>😀            \U0001F600     0x1f600       F0 9F 98 80
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>🂏             \U0001F08F     0x1f08f       F0 9F 82 8F
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 <a href="https://www.kamk.fi">Kajaanin Ammattikorkeakoulu Oy</a>. 
+Licenced under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
